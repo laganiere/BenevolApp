@@ -3,6 +3,6 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_main_benevole">MainBenevoleActivity</string>
-    <string name="title_activity_main_organisme">MainOrganismeActivity</string>
+    <string name="title_activity_main_benevole">Bénévole</string>
+    <string name="title_activity_main_organisme">Organisme</string>
 </resources>
