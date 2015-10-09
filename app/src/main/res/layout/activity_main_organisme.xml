@@ -12,6 +12,35 @@
 
 
     <Button
+        android:id="@+id/buttonInscription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onInscription"
+        android:text="Inscription de l'organisme" />
+
+    <Button
+        android:id="@+id/buttonInformation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onInformation"
+        android:text="Information sur l'organisme" />
+
+
+    <Button
+        android:id="@+id/buttonOffre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onOffre"
+        android:text="Entrer ou Modifier une offre" />
+
+    <Button
+        android:id="@+id/buttonSelection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onSelection"
+        android:text="Sélectionner les bénévoles" />
+
+    <Button
         android:id="@+id/buttonCancel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

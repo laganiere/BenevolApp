@@ -12,6 +12,41 @@
 
 
     <Button
+        android:id="@+id/buttonInscription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onInscription"
+        android:text="Inscription" />
+
+    <Button
+        android:id="@+id/buttonDisponibilite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onDisponibilite"
+        android:text="Mes Disponibilités" />
+
+    <Button
+        android:id="@+id/buttonCompetence"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onCompetence"
+        android:text="Mes Compétences et Intérêt" />
+
+    <Button
+        android:id="@+id/buttonOffre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onOffre"
+        android:text="Les Offres disponibles" />
+
+    <Button
+        android:id="@+id/buttonOffre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onOffre"
+        android:text="État de mes Offres" />
+
+    <Button
         android:id="@+id/buttonCancel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
