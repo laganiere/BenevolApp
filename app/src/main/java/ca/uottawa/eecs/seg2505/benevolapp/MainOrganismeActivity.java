@@ -15,7 +15,6 @@ public class MainOrganismeActivity extends AppCompatActivity {
     }
 
     public void onCancel(View view) {
-
         finish();
     }
 }

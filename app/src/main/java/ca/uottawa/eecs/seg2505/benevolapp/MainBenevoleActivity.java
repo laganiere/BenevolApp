@@ -1,5 +1,6 @@
 package ca.uottawa.eecs.seg2505.benevolapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,7 +16,11 @@ public class MainBenevoleActivity extends AppCompatActivity {
     }
 
     public void onCancel(View view) {
-
         finish();
+    }
+
+    public void onOffresDisponibles(View view) {
+        Intent intent = new Intent(this, OffresDisponiblesActivity.class);
+        startActivity(intent);
     }
 }

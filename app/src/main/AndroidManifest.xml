@@ -24,6 +24,14 @@
             android:name=".MainOrganismeActivity"
             android:label="@string/title_activity_main_organisme" >
         </activity>
+        <activity
+            android:name=".OffresDisponiblesActivity"
+            android:label="@string/title_activity_offres_disponibles"
+            android:parentActivityName=".MainBenevoleActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ca.uottawa.eecs.seg2505.benevolapp.MainBenevoleActivity" />
+        </activity>
     </application>
 
 </manifest>

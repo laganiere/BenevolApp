@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/card_offerCard"
+        android:layout_marginBottom="50dp"
+        card_view:cardElevation="10dp"
+        card_view:cardCornerRadius="5dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/item_swipe_left_indicator"
+                android:alpha="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ignorer"
+                android:tint="#a18668" />
+
+            <ImageView
+                android:id="@+id/item_swipe_right_indicator"
+                android:alpha="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/selectionner"
+                android:tint="#75994d" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:id="@+id/helloText"
+                android:layout_gravity="center_horizontal|top"
+                android:layout_marginTop="100dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/layout_offer">
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="150dp"
+                    android:id="@+id/img_offerImage"
+                    android:src="@drawable/card_header"
+                    android:layout_gravity="top"
+                    android:contentDescription="CardImage"
+                    android:scaleType="centerCrop"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="0dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="0dp" />
+
+                <android.support.v7.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/card_orgCard"
+                    android:layout_gravity="top"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    card_view:cardElevation="5dp"
+                    card_view:cardCornerRadius="10dp"
+                    android:layout_below="@+id/img_offerImage"
+                    android:layout_margin="10dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="fill_parent"
+                            android:id="@+id/img_orgIcon"
+                            android:src="@drawable/org_icon"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp" />
+
+                        <GridLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/layout_orgAttributes"
+                            android:layout_alignParentBottom="true"
+                            android:layout_toRightOf="@+id/img_orgIcon"
+                            android:layout_toEndOf="@+id/img_orgIcon"
+                            android:layout_alignTop="@+id/img_orgIcon">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="Nom de l&apos;Organisme"
+                                android:id="@+id/lbl_orgName"
+                                android:textStyle="bold"
+                                android:paddingLeft="10dp"
+                                android:paddingTop="5dp"
+                                android:layout_row="0"
+                                android:layout_column="0"
+                                android:paddingRight="5dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="Pers Pr, personne@email.com"
+                                android:id="@+id/lbl_contactValue"
+                                android:paddingLeft="10dp"
+                                android:paddingTop="5dp"
+                                android:layout_row="1"
+                                android:layout_column="0"
+                                android:paddingRight="5dp"
+                                android:layout_marginTop="5dp" />
+                        </GridLayout>
+
+                    </RelativeLayout>
+
+                </android.support.v7.widget.CardView>
+
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Ceci est la description de l&apos;offre..."
+                    android:id="@+id/lbl_offerDescription"
+                    android:background="#c8434343"
+                    android:layout_alignBottom="@+id/img_offerImage"
+                    android:textAlignment="gravity"
+                    android:gravity="center_vertical|left"
+                    android:textColor="#ffffff"
+                    android:paddingLeft="10dp"
+                    android:paddingBottom="10dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Ceci est le titre d&apos;une offre"
+                    android:id="@+id/lbl_offerTitle"
+                    android:background="#c8434343"
+                    android:textAlignment="gravity"
+                    android:gravity="center_vertical|left"
+                    android:textColor="#ffffff"
+                    android:paddingLeft="10dp"
+                    android:layout_above="@+id/lbl_offerDescription"
+                    android:textStyle="bold"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="5dp" />
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/scrollView"
+                    android:layout_below="@+id/card_orgCard"
+                    android:layout_marginBottom="10dp">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/layout_attributes"
+                        android:layout_below="@+id/scrollView"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Lieu:"
+                            android:id="@+id/lbl_location"
+                            android:textStyle="bold"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="5dp"
+                            android:layout_row="0"
+                            android:layout_column="0"
+                            android:paddingRight="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Ottawa, K1N 6N5"
+                            android:id="@+id/lbl_locationValue"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="5dp"
+                            android:layout_row="0"
+                            android:layout_column="1"
+                            android:paddingRight="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Horaire:"
+                            android:id="@+id/lbl_schedule"
+                            android:textStyle="bold"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="5dp"
+                            android:layout_row="1"
+                            android:layout_column="0"
+                            android:paddingRight="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Lundi"
+                            android:id="@+id/lbl_scheduleValue"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="5dp"
+                            android:layout_row="1"
+                            android:layout_column="1"
+                            android:paddingRight="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Durée:"
+                            android:id="@+id/lbl_length"
+                            android:textStyle="bold"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="5dp"
+                            android:layout_row="2"
+                            android:layout_column="0"
+                            android:paddingRight="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="8 heures"
+                            android:id="@+id/lbl_lengthValue"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="5dp"
+                            android:layout_row="2"
+                            android:layout_column="1"
+                            android:paddingRight="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Date Début:"
+                            android:id="@+id/lbl_start"
+                            android:textStyle="bold"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="5dp"
+                            android:layout_row="3"
+                            android:layout_column="0"
+                            android:paddingRight="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="14 Octobre 2015"
+                            android:id="@+id/lbl_startValue"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="5dp"
+                            android:layout_row="3"
+                            android:layout_column="1"
+                            android:paddingRight="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Date Fin:"
+                            android:id="@+id/lbl_end"
+                            android:textStyle="bold"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="5dp"
+                            android:layout_row="4"
+                            android:layout_column="0"
+                            android:paddingRight="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="15 Mars 2016"
+                            android:id="@+id/lbl_endValue"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="5dp"
+                            android:layout_row="4"
+                            android:layout_column="1"
+                            android:paddingRight="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Age Minimum:"
+                            android:id="@+id/lbl_ageMin"
+                            android:textStyle="bold"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="5dp"
+                            android:layout_row="5"
+                            android:layout_column="0"
+                            android:paddingRight="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="12 ans"
+                            android:id="@+id/lbl_ageMinValue"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="5dp"
+                            android:layout_row="5"
+                            android:layout_column="1"
+                            android:paddingRight="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Places Disponibles:"
+                            android:id="@+id/lbl_places"
+                            android:textStyle="bold"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="5dp"
+                            android:layout_row="6"
+                            android:layout_column="0"
+                            android:paddingRight="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="3 places"
+                            android:id="@+id/lbl_placesValue"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="5dp"
+                            android:layout_row="6"
+                            android:layout_column="1"
+                            android:paddingRight="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Compétence(s):"
+                            android:id="@+id/lbl_skills"
+                            android:textStyle="bold"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="5dp"
+                            android:layout_row="7"
+                            android:layout_column="0"
+                            android:paddingRight="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Lecture, Écriture"
+                            android:id="@+id/lbl_skillsValue"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="5dp"
+                            android:layout_row="7"
+                            android:layout_column="1"
+                            android:paddingRight="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Type d&apos;Activité:"
+                            android:id="@+id/lbl_activityType"
+                            android:textStyle="bold"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="5dp"
+                            android:layout_row="8"
+                            android:layout_column="0"
+                            android:paddingRight="5dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Communautaire"
+                            android:id="@+id/lbl_activityTypeValue"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="5dp"
+                            android:layout_row="8"
+                            android:layout_column="1"
+                            android:paddingRight="5dp" />
+
+                    </GridLayout>
+                </ScrollView>
+
+            </RelativeLayout>
+
+        </FrameLayout>
+
+    </android.support.v7.widget.CardView>
+
+</FrameLayout>

@@ -1,0 +1,15 @@
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <com.lorentzos.flingswipe.SwipeFlingAdapterView
+        android:id="@+id/offer_adapter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:rotation_degrees="5"
+        tools:context=".MyActivity" />
+
+    <include layout="@layout/activity_offres_disponibles_buttons" />
+
+</merge>
