@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
@@ -39,17 +40,15 @@ public class OffresDisponiblesActivity extends AppCompatActivity {
 
         // Définition "hard coded" des offres disponibles, pourrait être fait différement dans le futur
         offresDisponibles = new ArrayList<>();
-        offresDisponibles.add("php");
-        offresDisponibles.add("c");
-        offresDisponibles.add("python");
-        offresDisponibles.add("java");
-        offresDisponibles.add("html");
-        offresDisponibles.add("c++");
-        offresDisponibles.add("css");
-        offresDisponibles.add("javascript");
+        offresDisponibles.add("Ceci est le titre de l'offre..");
+        offresDisponibles.add("Oh Voilà une deuxième offre!");
+        offresDisponibles.add("Et puis une troisième");
+        offresDisponibles.add("Viens faire du bénévolat");
+        offresDisponibles.add("Titre de l'offre 5");
+        i = 5;
 
         // Adpateur pour créer le layout d'une offre en fonction des objets offres
-        arrayAdapter = new ArrayAdapter<>(this, R.layout.activity_offres_disponibles_offre, R.id.helloText, offresDisponibles);
+        arrayAdapter = new ArrayAdapter<>(this, R.layout.activity_offres_disponibles_offre, R.id.lbl_offerTitle, offresDisponibles);
 
         flingContainer.setAdapter(arrayAdapter);
         flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
@@ -76,19 +75,18 @@ public class OffresDisponiblesActivity extends AppCompatActivity {
 
             @Override
             public void onAdapterAboutToEmpty(int itemsInAdapter) {
-                // Sur le point de ne plus avoir d'offre à présemter
-                offresDisponibles.add("XML ".concat(String.valueOf(i)));
+                // Sur le point de ne plus avoir d'offre à présenter
+                offresDisponibles.add("Titre de l'offre ".concat(String.valueOf(++i)));
                 arrayAdapter.notifyDataSetChanged();
                 Log.d("OFFRES", "Update du adapter!");
-                i++;
             }
 
             @Override
             public void onScroll(float scrollProgressPercent) {
                 // Distance de scrolling de l'offre par rapport à sa position originale
                 View view = flingContainer.getSelectedView();
-                view.findViewById(R.id.item_swipe_left_indicator).setAlpha(scrollProgressPercent < 0 ? -scrollProgressPercent : 0);
-                view.findViewById(R.id.item_swipe_right_indicator).setAlpha(scrollProgressPercent > 0 ? scrollProgressPercent : 0);
+                view.findViewById(R.id.item_ignore_indicator).setAlpha(scrollProgressPercent < 0 ? -scrollProgressPercent : 0);
+                view.findViewById(R.id.item_select_indicator).setAlpha(scrollProgressPercent > 0 ? scrollProgressPercent : 0);
             }
         });
 
@@ -105,6 +103,7 @@ public class OffresDisponiblesActivity extends AppCompatActivity {
     private void makeToast(Context ctx, String s){
         if (notification != null) notification.cancel();
         notification = Toast.makeText(ctx, s, Toast.LENGTH_SHORT);
+        notification.setGravity(Gravity.BOTTOM, 0, 225);
         notification.show();
     }
 
