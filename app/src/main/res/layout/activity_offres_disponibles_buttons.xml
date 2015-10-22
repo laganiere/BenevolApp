@@ -4,17 +4,18 @@
     android:orientation="horizontal"
     android:layout_gravity="center_horizontal|bottom"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:id="@+id/layout_buttons">
 
     <Button
-        android:id="@+id/btn_left"
+        android:id="@+id/btn_ignore"
         android:text="Ignorer"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp" />
 
     <Button
-        android:id="@+id/btn_right"
+        android:id="@+id/btn_select"
         android:text="Sélectionner"
         android:layout_width="150dp"
         android:layout_height="wrap_content"

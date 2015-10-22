@@ -1,9 +1,6 @@
 .gradle
 /local.properties
-/.idea/workspace.xml
-/.idea/libraries
 .DS_Store
 /build
 /captures
-.idea/dictionaries/Alex_D_Aoust.xml
-.idea/dictionaries/AlexDAoust.xml
+.idea/**

@@ -23,9 +23,9 @@ public class OffresDisponiblesActivity extends AppCompatActivity {
     private Toast notification;
     private List<String> offresDisponibles;
     private ArrayAdapter arrayAdapter;
-    private int i;
+    private int i; // Index de l'offre à laquelle nous sommes rendus
 
-    @InjectView(R.id.offer_adapter)
+    @InjectView(R.id.adapter_offre)
     SwipeFlingAdapterView flingContainer;
 
     @Override
@@ -44,11 +44,10 @@ public class OffresDisponiblesActivity extends AppCompatActivity {
         offresDisponibles.add("Oh Voilà une deuxième offre!");
         offresDisponibles.add("Et puis une troisième");
         offresDisponibles.add("Viens faire du bénévolat");
-        offresDisponibles.add("Titre de l'offre 5");
-        i = 5;
+        i = 4;
 
         // Adpateur pour créer le layout d'une offre en fonction des objets offres
-        arrayAdapter = new ArrayAdapter<>(this, R.layout.activity_offres_disponibles_offre, R.id.lbl_offerTitle, offresDisponibles);
+        arrayAdapter = new ArrayAdapter<>(this, R.layout.activity_offres_disponibles_offre, R.id.lbl_titleValue, offresDisponibles);
 
         flingContainer.setAdapter(arrayAdapter);
         flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
@@ -107,13 +106,13 @@ public class OffresDisponiblesActivity extends AppCompatActivity {
         notification.show();
     }
 
-    @OnClick(R.id.btn_right)
-    public void onRight() {
+    @OnClick(R.id.btn_select)
+    public void onSelect() {
         flingContainer.getTopCardListener().selectRight();
     }
 
-    @OnClick(R.id.btn_left)
-    public void onLeft() {
+    @OnClick(R.id.btn_ignore)
+    public void onIgnorer() {
         flingContainer.getTopCardListener().selectLeft();
     }
 

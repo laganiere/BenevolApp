@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frame_offre"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -7,34 +10,38 @@
     android:layout_gravity="center"
     android:clipToPadding="false"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText" >
 
     <android.support.v7.widget.CardView
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_offre"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/card_offerCard"
         android:layout_marginBottom="50dp"
         card_view:cardElevation="10dp"
         card_view:cardCornerRadius="5dp">
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:id="@+id/layout_cardFrame">
 
             <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:id="@+id/layout_cardTable">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="0.2">
+                    android:layout_weight="0.25"
+                    android:id="@+id/layout_cardHeader">
 
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/imageView"
+                        android:id="@+id/img_header"
                         android:src="@drawable/card_header"
                         android:scaleType="centerCrop"
                         android:layout_gravity="top"
@@ -45,7 +52,7 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Ceci est la description de l&apos;offre.."
-                        android:id="@+id/textView"
+                        android:id="@+id/lbl_descriptionValue"
                         android:layout_weight="0.8"
                         android:background="#96000000"
                         android:textColor="#ffffff"
@@ -53,31 +60,33 @@
                         android:paddingRight="5dp"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:paddingBottom="2dp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Ceci est le titre d&apos;une offre.."
-                        android:id="@+id/lbl_offerTitle"
+                        android:id="@+id/lbl_titleValue"
                         android:layout_weight="0.8"
                         android:background="#96000000"
                         android:textColor="#ffffff"
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
                         android:textStyle="bold"
-                        android:layout_above="@+id/textView"
+                        android:layout_above="@+id/lbl_descriptionValue"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:paddingTop="2dp"/>
 
                 </RelativeLayout>
 
                 <android.support.v7.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:id="@+id/view"
-                    android:layout_weight="0.2"
+                    android:id="@+id/card_organisme"
+                    android:layout_weight="0.17"
                     card_view:cardElevation="5dp"
                     card_view:cardCornerRadius="15dp"
                     android:layout_marginLeft="10dp"
@@ -88,50 +97,56 @@
                     <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:id="@+id/layout_organismeCard">
 
                         <ImageView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:id="@+id/imageView2"
+                            android:id="@+id/img_organismeIcon"
                             android:src="@drawable/org_icon"
-                            android:layout_weight="0.20"
-                            android:layout_margin="10dp" />
+                            android:layout_weight="0.17"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp" />
 
                         <LinearLayout
                             android:orientation="vertical"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.8"
-                            android:layout_marginTop="7dp"
+                            android:layout_weight="0.83"
+                            android:layout_marginRight="5dp"
                             android:layout_marginBottom="7dp"
-                            android:layout_marginRight="5dp">
+                            android:layout_marginTop="5dp"
+                            android:id="@+id/layout_contactInfo">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="0dp"
-                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
                                 android:text="Nom de l&apos;Organisme"
-                                android:id="@+id/textView21"
+                                android:id="@+id/lbl_organismeName"
                                 android:textStyle="bold"
                                 android:layout_weight="1" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="0dp"
-                                android:textAppearance="?android:attr/textAppearanceMedium"
-                                android:text="Personne P. Contact"
-                                android:id="@+id/textView22"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:text="Monsieur C. Personne"
+                                android:id="@+id/lbl_personneName"
                                 android:layout_weight="1" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="0dp"
-                                android:textAppearance="?android:attr/textAppearanceMedium"
-                                android:text="pers.p.contact@email.com"
-                                android:id="@+id/textView23"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:text="mr.personne.contact@email.com"
+                                android:id="@+id/lbl_personneEmail"
                                 android:layout_weight="1" />
                         </LinearLayout>
+
                     </LinearLayout>
 
                 </android.support.v7.widget.CardView>
@@ -139,27 +154,29 @@
                 <TableLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="0.6"
+                    android:layout_weight="0.58"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_gravity="top"
                     android:gravity="center"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp">
+                    android:layout_marginBottom="5dp"
+                    android:id="@+id/layout_attributesTable">
 
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_gravity="top"
                         android:layout_marginBottom="2dp"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:id="@+id/row_lieu">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Lieu:"
-                            android:id="@+id/textView3"
+                            android:id="@+id/lbl_lieu"
                             android:textStyle="bold"
                             android:layout_weight="0.5" />
 
@@ -168,7 +185,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Ottawa, K1N 6N5"
-                            android:id="@+id/textView4"
+                            android:id="@+id/lbl_lieuValue"
                             android:layout_weight="0.5" />
                     </TableRow>
 
@@ -177,14 +194,15 @@
                         android:layout_height="0dp"
                         android:layout_gravity="top"
                         android:layout_marginBottom="2dp"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:id="@+id/row_horaire">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Horaire:"
-                            android:id="@+id/textView5"
+                            android:id="@+id/lbl_horaire"
                             android:textStyle="bold"
                             android:layout_weight="0.5" />
 
@@ -193,7 +211,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Lundi"
-                            android:id="@+id/textView6"
+                            android:id="@+id/lbl_horaireValue"
                             android:layout_weight="0.5" />
                     </TableRow>
 
@@ -202,14 +220,15 @@
                         android:layout_height="0dp"
                         android:layout_gravity="top"
                         android:layout_marginBottom="2dp"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:id="@+id/row_duree">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Durée:"
-                            android:id="@+id/textView7"
+                            android:id="@+id/lbl_duree"
                             android:textStyle="bold"
                             android:layout_weight="0.5" />
 
@@ -218,7 +237,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="8 heures"
-                            android:id="@+id/textView8"
+                            android:id="@+id/lbl_dureeValue"
                             android:layout_weight="0.5" />
                     </TableRow>
 
@@ -227,14 +246,15 @@
                         android:layout_height="0dp"
                         android:layout_gravity="top"
                         android:layout_marginBottom="2dp"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:id="@+id/row_dateDebut">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Date Début:"
-                            android:id="@+id/textView9"
+                            android:id="@+id/lbl_dateDebut"
                             android:textStyle="bold"
                             android:layout_weight="0.5" />
 
@@ -243,7 +263,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="14 Octobre 2015"
-                            android:id="@+id/textView10"
+                            android:id="@+id/lbl_dateDebutValue"
                             android:layout_weight="0.5" />
                     </TableRow>
 
@@ -252,14 +272,15 @@
                         android:layout_height="0dp"
                         android:layout_gravity="top"
                         android:layout_marginBottom="2dp"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:id="@+id/row_dateFin">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Date Fin:"
-                            android:id="@+id/textView11"
+                            android:id="@+id/lbl_dateFin"
                             android:textStyle="bold"
                             android:layout_weight="0.5" />
 
@@ -268,7 +289,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="15 Mars 2016"
-                            android:id="@+id/textView12"
+                            android:id="@+id/lbl_dateFinValue"
                             android:layout_weight="0.5" />
                     </TableRow>
 
@@ -277,14 +298,16 @@
                         android:layout_height="0dp"
                         android:layout_gravity="top"
                         android:layout_marginBottom="2dp"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:visibility="visible"
+                        android:id="@+id/row_ageMin">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Age Minimum:"
-                            android:id="@+id/textView13"
+                            android:id="@+id/lbl_ageMin"
                             android:textStyle="bold"
                             android:layout_weight="0.5" />
 
@@ -293,7 +316,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="12 ans"
-                            android:id="@+id/textView14"
+                            android:id="@+id/lbl_ageMinValue"
                             android:layout_weight="0.5" />
                     </TableRow>
 
@@ -302,14 +325,15 @@
                         android:layout_height="0dp"
                         android:layout_gravity="top"
                         android:layout_marginBottom="2dp"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:id="@+id/row_places">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Place(s):"
-                            android:id="@+id/textView15"
+                            android:id="@+id/lbl_places"
                             android:textStyle="bold"
                             android:layout_weight="0.5" />
 
@@ -318,7 +342,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="3 places"
-                            android:id="@+id/textView16"
+                            android:id="@+id/lbl_placesValue"
                             android:layout_weight="0.5" />
                     </TableRow>
 
@@ -327,14 +351,15 @@
                         android:layout_height="0dp"
                         android:layout_gravity="top"
                         android:layout_marginBottom="2dp"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:id="@+id/row_competences">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Compétence(s):"
-                            android:id="@+id/textView17"
+                            android:id="@+id/lbl_competences"
                             android:textStyle="bold"
                             android:layout_weight="0.5" />
 
@@ -343,7 +368,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Lecture, Écriture"
-                            android:id="@+id/textView18"
+                            android:id="@+id/lbl_competencesValue"
                             android:layout_weight="0.5" />
                     </TableRow>
 
@@ -352,14 +377,15 @@
                         android:layout_height="0dp"
                         android:layout_gravity="top"
                         android:layout_marginBottom="2dp"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:id="@+id/row_typeActivite">
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Type d&apos;Activité:"
-                            android:id="@+id/textView19"
+                            android:id="@+id/lbl_typeActivite"
                             android:textStyle="bold"
                             android:layout_weight="0.5" />
 
@@ -368,7 +394,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Communautaire"
-                            android:id="@+id/textView20"
+                            android:id="@+id/lbl_typeActiviteValue"
                             android:layout_weight="0.5" />
                     </TableRow>
                 </TableLayout>
