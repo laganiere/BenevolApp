@@ -33,10 +33,10 @@
         android:text="Mes Compétences et Intérêt" />
 
     <Button
-        android:id="@+id/buttonOffre"
+        android:id="@+id/buttonOffresDisponibles"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onOffre"
+        android:onClick="onOffresDisponibles"
         android:text="Les Offres disponibles" />
 
     <Button
