@@ -2,11 +2,11 @@ package ca.uottawa.eecs.seg2505.benevolapp.model;
 
 //Made by group 15 for SEG2505A
 
-import javax.swing.*;
 import java.util.*;
 
 public class Benevole {
-    
+
+    /* Example d'instantiation
     public static void main(String[] args) {
      Benevole aki = new Benevole("Akintola-Febrissy", "aakin013@uottawa.ca");
      aki.setSurname("Akinyele");
@@ -18,7 +18,7 @@ public class Benevole {
      aki.addCompetence("Batterie");
      aki.addCompetence("Laughing");
      System.out.println(aki);
-    }
+    }*/
 
     private String name, surname, email_address, city, zip, phoneNumber;
     private LinkedList<String> competences;
@@ -132,23 +132,22 @@ public class Benevole {
 
     }
 
-
     //Creates a string representation of the class
     public String toString() {
         StringBuffer sb = new StringBuffer();
         sb.append("Nom : "+name+"\n");
-        sb.append("Pr�nom : "+surname+"\n");
+        sb.append("Prénom : "+surname+"\n");
         sb.append("Ville : "+city+"\n");
         sb.append("Code postal : "+zip+"\n");
         sb.append("Adresse email : "+email_address+"\n");
-        sb.append("Num�ro de T�l�phone : "+phoneNumber+"\n");
-        if (age != null){
+        sb.append("Numéro de Téléphone : "+phoneNumber+"\n");
+        if (age != 0){
           sb.append("Age : "+age+"\n");}
         if (isMale != null){
           sb.append("Sexe : "+(isMale ? "Homme" : "Femme" )+"\n");}
         if (competences != null && competences.size() > 0) {
          sb.append("---------------\n");
-            sb.append("Liste des comp�tences : \n");
+            sb.append("Liste des compétences : \n");
             for (String s : competences) {
                 sb.append(s+"\n");
             }

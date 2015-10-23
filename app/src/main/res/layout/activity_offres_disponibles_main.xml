@@ -3,12 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <include layout="@layout/activity_offres_disponibles_reload" />
+
     <com.lorentzos.flingswipe.SwipeFlingAdapterView
         android:id="@+id/adapter_offre"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:rotation_degrees="5"
-        tools:context=".MyActivity" />
+        tools:context="offresDisponibles.OffresDisponiblseActivity" />
 
     <include layout="@layout/activity_offres_disponibles_buttons" />
 
