@@ -1,26 +1,27 @@
+package ca.uottawa.eecs.seg2505.benevolapp.model;
 
 public class Lieu{
 	private String strVille, strCodePostal;
 
 	public Lieu(String strVille, String strCodePostal) {
-		super();
+
 		this.strVille = strVille;
 		this.strCodePostal = strCodePostal;
 	}
 
-	public String getStrVille() {
+	public String geVille() {
 		return strVille;
 	}
 
-	public void setStrVille(String strVille) {
+	public void setVille(String strVille) {
 		this.strVille = strVille;
 	}
 
-	public String getStrCodePostal() {
+	public String getCodePostal() {
 		return strCodePostal;
 	}
 
-	public void setStrCodePostal(String strCodePostal) {
+	public void setCodePostal(String strCodePostal) {
 		this.strCodePostal = strCodePostal;
 	}
 	

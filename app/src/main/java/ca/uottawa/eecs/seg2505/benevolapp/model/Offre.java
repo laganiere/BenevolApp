@@ -1,3 +1,5 @@
+package ca.uottawa.eecs.seg2505.benevolapp.model;
+
 import java.util.Date;
 
 public class Offre {
@@ -5,12 +7,12 @@ public class Offre {
 	private Date dateCreation, dateDebut, dateFin;
 	private double dblDuree;
 	private int nbrPlace, intAgeMin;
-	private Personne pContact;
+	private String pContact;
 	private Lieu lEmplacement;
-	private Horaire hHoraire;
+	private Disponibilite hHoraire;
 	//constructeur pour les donnees obligatoires
 	public Offre(String strTitre, String strType, Date dateDebut, Date dateFin, int nbrPlace, 
-			Lieu lEmplacement, Horaire hHoraire) {
+			Lieu lEmplacement, Disponibilite hHoraire) {
 		this.strTitre = strTitre;
 		this.strType = strType;
 		this.hHoraire = hHoraire;
@@ -23,7 +25,7 @@ public class Offre {
 	//constructeur general
 	public Offre(String strTitre, String strType, String strCompetence, String strDescription,
 			Date dateDebut, Date dateFin, double dblDuree, int nbrPlace, int intAgeMin,
-			Personne pContact, Lieu lEmplacement, Horaire hHoraire) {
+			String pContact, Lieu lEmplacement, Disponibilite hHoraire) {
 		this.strTitre = strTitre;
 		this.strType = strType;
 		this.strCompetence = strCompetence;
@@ -38,28 +40,28 @@ public class Offre {
 		this.pContact = pContact;
 		this.lEmplacement = lEmplacement;
 	}
-	public String getStrTitre() {
+	public String getTitre() {
 		return strTitre;
 	}
-	public void setStrTitre(String strTitre) {
+	public void setTitre(String strTitre) {
 		this.strTitre = strTitre;
 	}
-	public String getStrType() {
+	public String getType() {
 		return strType;
 	}
-	public void setStrType(String strType) {
+	public void setType(String strType) {
 		this.strType = strType;
 	}
-	public String getStrCompetence() {
+	public String getCompetence() {
 		return strCompetence;
 	}
-	public void setStrCompetence(String strCompetence) {
+	public void setCompetence(String strCompetence) {
 		this.strCompetence = strCompetence;
 	}
-	public String getStrDescription() {
+	public String getDescription() {
 		return strDescription;
 	}
-	public void setStrDescription(String strDescription) {
+	public void setDescription(String strDescription) {
 		this.strDescription = strDescription;
 	}
 	public Date getDateCreation() {
@@ -96,10 +98,10 @@ public class Offre {
 	public void setIntAgeMin(int intAgeMin) {
 		this.intAgeMin = intAgeMin;
 	}
-	public Personne getpContact() {
+	public String getpContact() {
 		return pContact;
 	}
-	public void setpContact(Personne pContact) {
+	public void setpContact(String pContact) {
 		this.pContact = pContact;
 	}
 	public Lieu getlEmplacement() {
@@ -108,10 +110,10 @@ public class Offre {
 	public void setlEmplacement(Lieu lEmplacement) {
 		this.lEmplacement = lEmplacement;
 	}
-	public Horaire gethHoraire() {
+	public Disponibilite gethHoraire() {
 		return hHoraire;
 	}
-	public void sethHoraire(Horaire hHoraire) {
+	public void sethHoraire(Disponibilite hHoraire) {
 		this.hHoraire = hHoraire;
 	} 
 

@@ -1,4 +1,4 @@
-package test;
+package ca.uottawa.eecs.seg2505.benevolapp.model;
 
 /**
  * Created by grp8 on 2015-10-02.
