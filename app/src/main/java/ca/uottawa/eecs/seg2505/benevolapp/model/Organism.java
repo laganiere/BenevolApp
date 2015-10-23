@@ -12,7 +12,7 @@ public class Organism {
 		this.streetName = streetName;
 		this.unitNumber = unitNumber;
 		this.town = town;
-		this.postalCode = postalCode;
+		this.postalCode = postalCode; //Code postal canadien
 		this.email = email;
 	}
 
