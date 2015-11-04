@@ -9,101 +9,101 @@ public class Benevole {
     /* Example d'instantiation
     public static void main(String[] args) {
      Benevole aki = new Benevole("Akintola-Febrissy", "aakin013@uottawa.ca");
-     aki.setSurname("Akinyele");
-     aki.setCity("Ottawa");
-     aki.setZip("K7G");
+     aki.setNom("Akinyele");
+     aki.setVille("Ottawa");
+     aki.setCodePostal("K7G");
      aki.setAge(17);
      aki.setGender(true);
-     aki.setPhoneNumber("911");
+     aki.setNumeroTelephone("911");
      aki.addCompetence("Batterie");
      aki.addCompetence("Laughing");
      System.out.println(aki);
     }*/
 
-    private String name, surname, email_address, city, zip, phoneNumber;
-    private LinkedList<String> competences;
-    private String domaine_interets;
+    private String prenom, nom, courriel, ville, codePostal, numeroTelephone;
+    private List<String> competences;
+    private String domaineInterets;
     private int age;
-    private Boolean isMale;
-    private LinkedList<Disponibilite> horaire;
+    private Boolean isHomme;
+    private List<Disponibilite> horaire;
 
-    public Benevole(String name, String email_address) {
-        this.name = name;
-        this.email_address = email_address;
+    public Benevole(String prenom, String courriel) {
+        this.prenom = prenom;
+        this.courriel = courriel;
     }
 
     //getters
-    public String getName() {
-        return name;
+    public String getPrenom() {
+        return prenom;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getNom() {
+        return nom;
     }
 
-    public String getEmail_address() {
-        return email_address;
+    public String getCourriel() {
+        return courriel;
     }
 
-    public String getCity() {
-        return city;
+    public String getVille() {
+        return ville;
     }
 
-    public String getZip() {
-        return zip;
+    public String getCodePostal() {
+        return codePostal;
     }
 
     public Boolean getGender() {
-      return isMale == null ? null : isMale;
+        return isHomme == null ? null : isHomme;
     }
 
-    public String getPhoneNumber() {
-      return phoneNumber;
+    public String getNumeroTelephone() {
+        return numeroTelephone;
     }
-    
+
     public Integer getAge() {
         return age;
     }
 
-    public LinkedList<String> getCompetences() {
+    public List<String> getCompetences() {
         return competences;
     }
 
     public String getDomaine_Interets() {
-        return domaine_interets;
+        return domaineInterets;
     }
-    
-    public LinkedList<Disponibilite> getHoraire(){
+
+    public List<Disponibilite> getHoraire() {
         return horaire;
     }
 
     //setters
-    public void setName(String name) {
-        this.name = name;
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
-    public void setEmail_address(String email_address) {
-        this.email_address = email_address;
+    public void setCourriel(String courriel) {
+        this.courriel = courriel;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setVille(String ville) {
+        this.ville = ville;
     }
 
-    public void setZip(String zip) {
-        this.zip = zip;
+    public void setCodePostal(String codePostal) {
+        this.codePostal = codePostal;
     }
-    
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+
+    public void setNumeroTelephone(String numeroTelephone) {
+        this.numeroTelephone = numeroTelephone;
     }
 
     public void setGender(Boolean isMale) {
-        this.isMale = isMale;
+        this.isHomme = isMale;
     }
 
     public void setAge(Integer age) {
@@ -111,45 +111,50 @@ public class Benevole {
     }
 
 
-    public void setDomaine_Interets(String domaine_interets) {
-        this.domaine_interets = domaine_interets;
+    public void setDomaineInterets(String domaineInterets) {
+        this.domaineInterets = domaineInterets;
     }
 
     //adders
 
     public void addDisponibilite(Disponibilite disponibilite) {
 
-        if (horaire == null){ horaire = new LinkedList<Disponibilite>();}
+        if (horaire == null) {
+            horaire = new ArrayList<Disponibilite>();
+        }
 
         horaire.add(disponibilite);
     }
 
     public void addCompetence(String competence) {
-     
-      if (competences == null){ competences = new LinkedList<String>();}
-      
-      competences.add(competence);
 
+        if (competences == null) {
+            competences = new ArrayList<String>();
+        }
+
+        competences.add(competence);
     }
 
     //Creates a string representation of the class
     public String toString() {
         StringBuffer sb = new StringBuffer();
-        sb.append("Nom : "+name+"\n");
-        sb.append("Prénom : "+surname+"\n");
-        sb.append("Ville : "+city+"\n");
-        sb.append("Code postal : "+zip+"\n");
-        sb.append("Adresse email : "+email_address+"\n");
-        sb.append("Numéro de Téléphone : "+phoneNumber+"\n");
-        if (age != 0){
-          sb.append("Age : "+age+"\n");}
-        if (isMale != null){
-          sb.append("Sexe : "+(isMale ? "Homme" : "Femme" )+"\n");}
+        sb.append("Nom : " + prenom + "\n");
+        sb.append("Prénom : " + nom + "\n");
+        sb.append("Ville : " + ville + "\n");
+        sb.append("Code postal : " + codePostal + "\n");
+        sb.append("Adresse email : " + courriel + "\n");
+        sb.append("Numéro de Téléphone : " + numeroTelephone + "\n");
+        if (age != 0) {
+            sb.append("Age : " + age + "\n");
+        }
+        if (isHomme != null) {
+            sb.append("Sexe : " + (isHomme ? "Homme" : "Femme") + "\n");
+        }
         if (competences != null && competences.size() > 0) {
-         sb.append("---------------\n");
+            sb.append("---------------\n");
             sb.append("Liste des compétences : \n");
             for (String s : competences) {
-                sb.append(s+"\n");
+                sb.append(s + "\n");
             }
             sb.append("\n");
         }
