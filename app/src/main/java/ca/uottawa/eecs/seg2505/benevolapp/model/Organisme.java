@@ -3,10 +3,10 @@ package ca.uottawa.eecs.seg2505.benevolapp.model;
 /**
  * Created by grp8 on 2015-10-02.
  */
-public class Organism {
+public class Organisme {
 
 	// The constructor with all the necessary values.
-	public Organism(String name, String streetNumber, String streetName, String unitNumber, String town, String postalCode, String email) {
+	public Organisme(String name, String streetNumber, String streetName, String unitNumber, String town, String postalCode, String email) {
 		this.name = name;
 		this.streetNumber = streetNumber;
 		this.streetName = streetName;
@@ -17,7 +17,7 @@ public class Organism {
 	}
 
 	// The constructor with everything 
-	public Organism(String name, String streetNumber, String streetName, String unitNumber, String postalCode, String town, String phoneNumber, String webSite, String email, String description, String organizationSize, String activitySector, String founder) {
+	public Organisme(String name, String streetNumber, String streetName, String unitNumber, String postalCode, String town, String phoneNumber, String webSite, String email, String description, String organizationSize, String activitySector, String founder) {
 		this.name = name;
 		this.streetNumber = streetNumber;
 		this.streetName = streetName;
@@ -35,7 +35,7 @@ public class Organism {
 
 	// In the case of an online Organization searching for volunteers worldwide
 	// through the web
-	public Organism(String name, String webSite, String email) {
+	public Organisme(String name, String webSite, String email) {
 		this.name = name;
 		this.webSite = webSite;
 		this.email = email;

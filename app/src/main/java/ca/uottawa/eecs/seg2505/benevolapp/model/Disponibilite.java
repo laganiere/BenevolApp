@@ -1,18 +1,20 @@
 package ca.uottawa.eecs.seg2505.benevolapp.model;
 
 public class Disponibilite {
-	private jourSemaine jour;
+
+	private JourSemaine jour;
 	private boolean soir;
-	public Horaire(jourSemaine jour, boolean isSoir) {
+
+	public Disponibilite(JourSemaine jour, boolean isSoir) {
 		this.jour = jour;
 		this.soir = isSoir;
 	}
 
-	public jourSemaine getJour() {
+	public JourSemaine getJour() {
 		return jour;
 	}
 
-	public void setJour(jourSemaine jour) {
+	public void setJour(JourSemaine jour) {
 		this.jour = jour;
 	}
 
@@ -20,8 +22,12 @@ public class Disponibilite {
 		return soir;
 	}
 
-	public void setSoir(Boolean isSoir) {
+	public void setSoir(boolean isSoir) {
 		this.soir = isSoir;
+	}
+
+	public String toString() {
+		return jour.name() + ((isSoir()) ? " (soir)" : " (jour)");
 	}
 	
 }

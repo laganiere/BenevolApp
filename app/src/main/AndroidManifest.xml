@@ -25,7 +25,7 @@
             android:label="@string/title_activity_main_organisme" >
         </activity>
         <activity
-            android:name=".OffresDisponiblesActivity"
+            android:name=".offresDisponibles.OffresDisponiblesActivity"
             android:label="@string/title_activity_offres_disponibles"
             android:parentActivityName=".MainBenevoleActivity" >
             <meta-data

@@ -12,13 +12,15 @@
         android:text="Ignorer"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp" />
+        android:layout_margin="10dp"
+        android:onClick="onIgnore" />
 
     <Button
         android:id="@+id/btn_select"
         android:text="Sélectionner"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp" />
+        android:layout_margin="10dp"
+        android:onClick="onSelect" />
 
 </LinearLayout>

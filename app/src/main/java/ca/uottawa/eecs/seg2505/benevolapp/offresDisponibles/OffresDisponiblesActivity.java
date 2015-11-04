@@ -1,4 +1,4 @@
-package ca.uottawa.eecs.seg2505.benevolapp;
+package ca.uottawa.eecs.seg2505.benevolapp.offresDisponibles;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
@@ -12,21 +12,25 @@ import android.widget.Toast;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.GregorianCalendar;
 import java.util.List;
 
-import butterknife.ButterKnife;
-import butterknife.InjectView;
-import butterknife.OnClick;
+import ca.uottawa.eecs.seg2505.benevolapp.R;
+import ca.uottawa.eecs.seg2505.benevolapp.model.Disponibilite;
+import ca.uottawa.eecs.seg2505.benevolapp.model.JourSemaine;
+import ca.uottawa.eecs.seg2505.benevolapp.model.Organisme;
+import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Duree;
+import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Lieu;
+import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
+import ca.uottawa.eecs.seg2505.benevolapp.model.offre.PersonneContact;
 
 public class OffresDisponiblesActivity extends AppCompatActivity {
 
     private Toast notification;
-    private List<String> offresDisponibles;
+    private List<Offre> offresDisponibles;
     private ArrayAdapter arrayAdapter;
-    private int i; // Index de l'offre à laquelle nous sommes rendus
-
-    @InjectView(R.id.adapter_offre)
-    SwipeFlingAdapterView flingContainer;
+    private SwipeFlingAdapterView flingContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,20 +38,16 @@ public class OffresDisponiblesActivity extends AppCompatActivity {
 
         // Set le Content au Layout pour Offres Disponibles
         setContentView(R.layout.activity_offres_disponibles_main);
-
-        // Ajout de fonctionnalitées permettant du dévelopement plus rapide
-        ButterKnife.inject(this);
+        flingContainer = (SwipeFlingAdapterView) this.findViewById(R.id.adapter_offre);
 
         // Définition "hard coded" des offres disponibles, pourrait être fait différement dans le futur
         offresDisponibles = new ArrayList<>();
-        offresDisponibles.add("Ceci est le titre de l'offre..");
-        offresDisponibles.add("Oh Voilà une deuxième offre!");
-        offresDisponibles.add("Et puis une troisième");
-        offresDisponibles.add("Viens faire du bénévolat");
-        i = 4;
 
         // Adpateur pour créer le layout d'une offre en fonction des objets offres
-        arrayAdapter = new ArrayAdapter<>(this, R.layout.activity_offres_disponibles_offre, R.id.lbl_titleValue, offresDisponibles);
+        arrayAdapter = new OffreAdapter(this, R.layout.activity_offres_disponibles_offre, offresDisponibles);
+
+        // Ajout des offres dans la liste à afficher
+        loadOffres();
 
         flingContainer.setAdapter(arrayAdapter);
         flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
@@ -75,9 +75,7 @@ public class OffresDisponiblesActivity extends AppCompatActivity {
             @Override
             public void onAdapterAboutToEmpty(int itemsInAdapter) {
                 // Sur le point de ne plus avoir d'offre à présenter
-                offresDisponibles.add("Titre de l'offre ".concat(String.valueOf(++i)));
-                arrayAdapter.notifyDataSetChanged();
-                Log.d("OFFRES", "Update du adapter!");
+                // Possibilité de créer/aller chercher les offres dynamiquement ou tout reloader automatiquement.
             }
 
             @Override
@@ -89,13 +87,14 @@ public class OffresDisponiblesActivity extends AppCompatActivity {
             }
         });
 
+        /* // Pas nécessaire (adaoust):
         flingContainer.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
             @Override
             public void onItemClicked(int itemPosition, Object dataObject) {
                 // L'offre a été clickée
                 makeToast(OffresDisponiblesActivity.this, "Offre Clickée!");
             }
-        });
+        }); */
 
     }
 
@@ -106,14 +105,52 @@ public class OffresDisponiblesActivity extends AppCompatActivity {
         notification.show();
     }
 
-    @OnClick(R.id.btn_select)
-    public void onSelect() {
-        flingContainer.getTopCardListener().selectRight();
+    private void loadOffres() {
+        // Example d'offre, peut aussi, vérifier une condition et ajouter seulement certaines offres
+        offresDisponibles.add(new Offre(
+                "Ceci est le titre d'une offre..",
+                "Communautaire",
+                Arrays.asList("Écriture", "Lecture"),
+                "Ceci est la description de l'offre",
+                new GregorianCalendar(2015, 7, 25),
+                new GregorianCalendar(2016, 3, 16),
+                new Duree(5, 30),
+                3,
+                12,
+                new PersonneContact("Personne", "Per.Per", "personne.pers@email.com"),
+                new Lieu("Ottawa", "K1N 6N5"),
+                new Disponibilite(JourSemaine.Lundi, true),
+                new Organisme("Nom de l'organimsme", "", "")
+        ));
+        offresDisponibles.add(new Offre(
+                "Voici une deuxième offre..",
+                "Plaisir",
+                Arrays.asList("Danse", "Chant"),
+                null,
+                new GregorianCalendar(2015, 7, 25),
+                new GregorianCalendar(2016, 3, 16),
+                null,
+                3,
+                0,
+                null,
+                new Lieu("Gatineau", "J8X 3Y9"),
+                new Disponibilite(JourSemaine.Vendredi, false),
+                new Organisme("Super Organisme", "", "organisme@email.com")
+        ));
+        arrayAdapter.notifyDataSetChanged();
+        Log.d("OFFRES", "Offres Rechargées!");
     }
 
-    @OnClick(R.id.btn_ignore)
-    public void onIgnorer() {
-        flingContainer.getTopCardListener().selectLeft();
+    public void onSelect(View view) {
+        if (offresDisponibles.size() != 0) flingContainer.getTopCardListener().selectRight();
+    }
+
+    public void onIgnore(View view) {
+        if (offresDisponibles.size() != 0) flingContainer.getTopCardListener().selectLeft();
+    }
+
+    public void onReload(View view) {
+        loadOffres();
     }
 
 }
