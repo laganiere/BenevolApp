@@ -4,7 +4,7 @@ package ca.uottawa.eecs.seg2505.benevolapp.model;
 
 import java.util.*;
 
-public class Benevole {
+public class Benevole extends Utilisateur {
 
     /* Example d'instantiation
     public static void main(String[] args) {
@@ -53,7 +53,7 @@ public class Benevole {
         return codePostal;
     }
 
-    public Boolean getGender() {
+    public Boolean getGenre() {
         return isHomme == null ? null : isHomme;
     }
 
@@ -69,7 +69,7 @@ public class Benevole {
         return competences;
     }
 
-    public String getDomaine_Interets() {
+    public String getDomaineInterets() {
         return domaineInterets;
     }
 
@@ -102,11 +102,11 @@ public class Benevole {
         this.numeroTelephone = numeroTelephone;
     }
 
-    public void setGender(Boolean isMale) {
-        this.isHomme = isMale;
+    public void setGenre(boolean isHomme) {
+        this.isHomme = isHomme;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(int age) {
         this.age = age;
     }
 

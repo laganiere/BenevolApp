@@ -4,16 +4,12 @@ import java.util.List;
 
 import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
 
-public class Organisme {
+public class Organisme extends Utilisateur{
     private String nom;
     private String numeroPorte;
     private String nomRue;
     private String numeroAppartement;
-    private String codePostal;
-    private String ville;
-    private String numeroTelephone;
     private String siteWeb;
-    private String courriel;
     private String description;
     private String tailleOrganisation;
     private String secteurActivite;
@@ -79,14 +75,6 @@ public class Organisme {
         this.numeroPorte = numeroPorte;
     }
 
-    public String getCodePostal() {
-        return codePostal;
-    }
-
-    public void setCodePostal(String codePostal) {
-        this.codePostal = codePostal;
-    }
-
     public String getNumeroAppartement() {
         return numeroAppartement;
     }
@@ -95,13 +83,7 @@ public class Organisme {
         this.numeroAppartement = numeroAppartement;
     }
 
-    public String getVille() {
-        return ville;
-    }
 
-    public void setVille(String ville) {
-        this.ville = ville;
-    }
 
     public String getSiteWeb() {
         return siteWeb;
@@ -109,22 +91,6 @@ public class Organisme {
 
     public void setSiteWeb(String siteWeb) {
         this.siteWeb = siteWeb;
-    }
-
-    public String getCourriel() {
-        return courriel;
-    }
-
-    public void setCourriel(String courriel) {
-        this.courriel = courriel;
-    }
-
-    public String getNumeroTelephone() {
-        return numeroTelephone;
-    }
-
-    public void setNumeroTelephone(String numeroTelephone) {
-        this.numeroTelephone = numeroTelephone;
     }
 
     public String getDescription() {
