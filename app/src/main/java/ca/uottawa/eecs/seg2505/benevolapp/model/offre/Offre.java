@@ -161,8 +161,8 @@ public class Offre {
         return this.postulants.get(benevole);
     }
 
-    public void addPostulant(Benevole benevole) {
-        this.postulants.put(benevole, EtatBenevoleOffre.Selectionne);
+    public void addApplication(Benevole benevole) {
+        this.postulants.put(benevole, EtatBenevoleOffre.Applique);
     }
 
     public void addAccepte(Benevole benevole) {

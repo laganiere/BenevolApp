@@ -31,7 +31,7 @@ public class Benevole extends Utilisateur {
     private Boolean isHomme;
     private List<Disponibilite> horaire;
 
-    private List<Offre> offresSelectionnees = new ArrayList<Offre>();
+    private List<Offre> offresAppliquees = new ArrayList<Offre>();
 
     public Benevole(String prenom, String courriel) {
         this.prenom = prenom;
@@ -142,12 +142,12 @@ public class Benevole extends Utilisateur {
     }
 
 
-    public List<Offre> getOffresSelectionnees() {
-        return offresSelectionnees;
+    public List<Offre> getOffresAppliquees() {
+        return offresAppliquees;
     }
 
     public void addOffresSelectionnees(Offre offre) {
-        this.offresSelectionnees.add(offre);
+        this.offresAppliquees.add(offre);
     }
 
 
