@@ -1,7 +1,9 @@
 package ca.uottawa.eecs.seg2505.benevolapp.model.offre;
 
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import ca.uottawa.eecs.seg2505.benevolapp.model.Benevole;
 import ca.uottawa.eecs.seg2505.benevolapp.model.Disponibilite;
@@ -19,8 +21,7 @@ public class Offre {
     private List<String> competences;
     private Organisme organisme;
 
-    private List<Benevole> postulant;
-    private List<Benevole> selectionne;
+    private Map<Benevole, EtatBenevoleOffre> postulants = new HashMap<Benevole, EtatBenevoleOffre>();
 
     // Constructeur complet
     public Offre(String titre, String typeActivite, List<String> competences, String description, Calendar dateDebut, Calendar dateFin, Duree duree, int nombrePlaces, int ageMin, PersonneContact personneContact, Lieu lieu, Disponibilite disponibilite, Organisme organisme) {
@@ -152,20 +153,24 @@ public class Offre {
         this.organisme = organisme;
     }
 
-    public List<Benevole> getPostulant() {
-        return postulant;
+    public Map<Benevole, EtatBenevoleOffre> getPostulants() {
+        return postulants;
     }
 
-    public void setPostulant(List<Benevole> postulant) {
-        this.postulant = postulant;
+    public EtatBenevoleOffre getEtatBenevole(Benevole benevole) {
+        return this.postulants.get(benevole);
     }
 
-    public List<Benevole> getSelectionne() {
-        return selectionne;
+    public void addPostulant(Benevole benevole) {
+        this.postulants.put(benevole, EtatBenevoleOffre.Selectionne);
     }
 
-    public void setSelectionne(List<Benevole> selectionne) {
-        this.selectionne = selectionne;
+    public void addAccepte(Benevole benevole) {
+        this.postulants.put(benevole, EtatBenevoleOffre.Accepte);
+    }
+
+    public void addRefuse(Benevole benevole) {
+        this.postulants.put(benevole, EtatBenevoleOffre.Refuse);
     }
 }
 

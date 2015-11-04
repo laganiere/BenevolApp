@@ -2,7 +2,10 @@ package ca.uottawa.eecs.seg2505.benevolapp.model;
 
 //Made by group 15 for SEG2505A
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
 
 public class Benevole extends Utilisateur {
 
@@ -20,12 +23,15 @@ public class Benevole extends Utilisateur {
      System.out.println(aki);
     }*/
 
-    private String prenom, nom, courriel, ville, codePostal, numeroTelephone;
+    private String prenom;
+    private String nom;
     private List<String> competences;
     private String domaineInterets;
     private int age;
     private Boolean isHomme;
     private List<Disponibilite> horaire;
+
+    private List<Offre> offresSelectionnees = new ArrayList<Offre>();
 
     public Benevole(String prenom, String courriel) {
         this.prenom = prenom;
@@ -134,6 +140,16 @@ public class Benevole extends Utilisateur {
 
         competences.add(competence);
     }
+
+
+    public List<Offre> getOffresSelectionnees() {
+        return offresSelectionnees;
+    }
+
+    public void addOffresSelectionnees(Offre offre) {
+        this.offresSelectionnees.add(offre);
+    }
+
 
     //Creates a string representation of the class
     public String toString() {
