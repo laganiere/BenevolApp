@@ -1,5 +1,6 @@
 package ca.uottawa.eecs.seg2505.benevolapp.db;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ca.uottawa.eecs.seg2505.benevolapp.model.Benevole;
@@ -12,12 +13,16 @@ public class MemoireFacade implements DBFacade {
     /**
      * Cette liste contient tous les utilisateurs (bénévoles et organisme).
      */
-    private List<Utilisateur> utilisateurs;
+    private List<Utilisateur> utilisateurs = new ArrayList<Utilisateur>();
 
-    private List<Organisme> organismes;
-    private List<Benevole> benevoles;
-    private List<Offre> offres;
-    private List<String> competences;
+    private List<Organisme> organismes = new ArrayList<Organisme>();
+    private List<Benevole> benevoles = new ArrayList<Benevole>();
+    private List<Offre> offres = new ArrayList<Offre>();
+    private List<String> competences = new ArrayList<String>();
+
+    public MemoireFacade() {
+        MemoireFacadeRemplissage.remplirMemoire(utilisateurs, organismes, benevoles, offres, competences);
+    }
 
     /**
      * Cette méthode doit aller chercher l'organisme selon le nom d'utilisateur (le courriel).
