@@ -44,6 +44,8 @@ public class MemoireFacadeRemplissage {
                 "Grande",
                 "Aide humanitaire",
                 "");
+        organismes.add(org1);
+
         Organisme org2 = new Organisme("Western Ottawa Community Resource Centre",
                 "2",
                 "MacNeil Court",
@@ -57,6 +59,8 @@ public class MemoireFacadeRemplissage {
                 "Moyenne",
                 "Développement local",
                 "");
+        organismes.add(org2);
+
         Organisme org3 = new Organisme("Parent Resource Centre",
                 "300",
                 "Goulburn Private",
@@ -70,6 +74,7 @@ public class MemoireFacadeRemplissage {
                 "Moyenne",
                 "Aide parentale",
                 "");
+        organismes.add(org3);
     }
 
     private static void creerBenevoles(List<Benevole> benevoles, List<String> competences) {
@@ -143,6 +148,7 @@ public class MemoireFacadeRemplissage {
                 null,
                 new Disponibilite(JourSemaine.Vendredi, false),
                 organismes.get(2));
+        organismes.get(2).addOffres(off1);
         offres.add(off1);
 
         Offre off2 = new Offre("Plantation d'arbre",
@@ -159,6 +165,7 @@ public class MemoireFacadeRemplissage {
                 new Disponibilite(JourSemaine.Samedi, false),
                 organismes.get(1));
         offres.add(off2);
+        organismes.get(1).addOffres(off2);
 
         Offre off3 = new Offre("Aide cuisinier pour cuisine communautaire",
                 "Assister les gens voulant faire de la cuisine communautaire",
@@ -173,6 +180,7 @@ public class MemoireFacadeRemplissage {
                 new Lieu("Ottawa", "K2H 4H7"),
                 new Disponibilite(JourSemaine.Mercredi, true),
                 organismes.get(2));
+        organismes.get(2).addOffres(off3);
         offres.add(off3);
     }
 
@@ -188,8 +196,13 @@ public class MemoireFacadeRemplissage {
 
     private static void ajouterApplications(List<Offre> offres, List<Benevole> benevoles) {
         offres.get(1).addApplication(benevoles.get(1));
+        benevoles.get(1).addOffresSelectionnees(offres.get(1));
+
         offres.get(1).addApplication(benevoles.get(2));
+        benevoles.get(2).addOffresSelectionnees(offres.get(1));
+
         offres.get(2).addApplication(benevoles.get(1));
+        benevoles.get(1).addOffresSelectionnees(offres.get(2));
     }
 }
 

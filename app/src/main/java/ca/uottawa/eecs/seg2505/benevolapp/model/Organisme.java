@@ -1,5 +1,6 @@
 package ca.uottawa.eecs.seg2505.benevolapp.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
@@ -15,7 +16,7 @@ public class Organisme extends Utilisateur {
     private String secteurActivite;
     private String fondateur;
 
-    private List<Offre> offres;
+    private List<Offre> offres = new ArrayList<Offre>();
 
     public Organisme() {
 
@@ -52,8 +53,6 @@ public class Organisme extends Utilisateur {
         this.siteWeb = siteWeb;
         this.courriel = courriel;
     }
-
-    private List<Offre> offresDeOrganisme;
 
     public String getNomRue() {
         return nomRue;

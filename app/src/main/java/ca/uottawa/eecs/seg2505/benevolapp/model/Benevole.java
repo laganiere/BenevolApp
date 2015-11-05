@@ -46,6 +46,10 @@ public class Benevole extends Utilisateur {
     public Benevole(String prenom, String nom, String ville, String codePostal, String numeroTelephone, String courriel, String domaineInterets, int age, Boolean isHomme) {
         this.prenom = prenom;
         this.nom = nom;
+        this.ville = ville;
+        this.codePostal = codePostal;
+        this.numeroTelephone = numeroTelephone;
+        this.courriel = courriel;
         this.domaineInterets = domaineInterets;
         this.age = age;
         this.isHomme = isHomme;
