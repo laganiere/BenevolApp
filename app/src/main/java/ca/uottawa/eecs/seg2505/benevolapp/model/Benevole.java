@@ -28,10 +28,28 @@ public class Benevole extends Utilisateur {
     private List<String> competences;
     private String domaineInterets;
     private int age;
+
+    /**
+     * La classe Boolean est utilisée pour que l'on puisse avoir la nullitabilité.
+     */
     private Boolean isHomme;
+
     private List<Disponibilite> horaire;
 
+
     private List<Offre> offresAppliquees = new ArrayList<Offre>();
+
+    public Benevole() {
+
+    }
+
+    public Benevole(String prenom, String nom, String ville, String codePostal, String numeroTelephone, String courriel, String domaineInterets, int age, Boolean isHomme) {
+        this.prenom = prenom;
+        this.nom = nom;
+        this.domaineInterets = domaineInterets;
+        this.age = age;
+        this.isHomme = isHomme;
+    }
 
     public Benevole(String prenom, String courriel) {
         this.prenom = prenom;
@@ -108,7 +126,7 @@ public class Benevole extends Utilisateur {
         this.numeroTelephone = numeroTelephone;
     }
 
-    public void setGenre(boolean isHomme) {
+    public void setGenre(Boolean isHomme) {
         this.isHomme = isHomme;
     }
 

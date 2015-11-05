@@ -4,7 +4,7 @@ import java.util.List;
 
 import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
 
-public class Organisme extends Utilisateur{
+public class Organisme extends Utilisateur {
     private String nom;
     private String numeroPorte;
     private String nomRue;
@@ -16,6 +16,10 @@ public class Organisme extends Utilisateur{
     private String fondateur;
 
     private List<Offre> offres;
+
+    public Organisme() {
+
+    }
 
     public Organisme(String nom, String numeroPorte, String nomRue, String numeroAppartement, String ville, String codePostal, String courriel) {
         this.nom = nom;
@@ -82,7 +86,6 @@ public class Organisme extends Utilisateur{
     public void setNumeroAppartement(String numeroAppartement) {
         this.numeroAppartement = numeroAppartement;
     }
-
 
 
     public String getSiteWeb() {
