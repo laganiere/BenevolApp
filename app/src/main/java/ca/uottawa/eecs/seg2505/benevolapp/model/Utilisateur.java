@@ -37,4 +37,19 @@ public abstract class Utilisateur {
     public void setCourriel(String courriel) {
         this.courriel = courriel;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Utilisateur that = (Utilisateur) o;
+
+        return courriel.equals(that.courriel);
+    }
+
+    @Override
+    public int hashCode() {
+        return courriel.hashCode();
+    }
 }

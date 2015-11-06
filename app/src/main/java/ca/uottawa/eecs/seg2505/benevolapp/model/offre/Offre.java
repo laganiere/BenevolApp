@@ -4,12 +4,14 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import ca.uottawa.eecs.seg2505.benevolapp.model.Benevole;
 import ca.uottawa.eecs.seg2505.benevolapp.model.Disponibilite;
 import ca.uottawa.eecs.seg2505.benevolapp.model.Organisme;
 
 public class Offre {
+    protected String ID = UUID.randomUUID().toString();
 
     private String titre, typeActivite, description;
     private Calendar dateDebut, dateFin;
@@ -165,12 +167,35 @@ public class Offre {
         this.postulants.put(benevole, EtatBenevoleOffre.Applique);
     }
 
+    public void addSelectionne(Benevole benevole) {
+        this.postulants.put(benevole, EtatBenevoleOffre.Selectionne);
+    }
+
+    public void addRejete(Benevole benevole) {
+        this.postulants.put(benevole, EtatBenevoleOffre.Rejete);
+    }
+
     public void addAccepte(Benevole benevole) {
         this.postulants.put(benevole, EtatBenevoleOffre.Accepte);
     }
 
     public void addRefuse(Benevole benevole) {
         this.postulants.put(benevole, EtatBenevoleOffre.Refuse);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Offre offre = (Offre) o;
+
+        return ID.equals(offre.ID);
+    }
+
+    @Override
+    public int hashCode() {
+        return ID.hashCode();
     }
 }
 
