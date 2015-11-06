@@ -2,154 +2,197 @@ package ca.uottawa.eecs.seg2505.benevolapp.model;
 
 //Made by group 15 for SEG2505A
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Benevole {
+import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
+
+public class Benevole extends Utilisateur {
 
     /* Example d'instantiation
     public static void main(String[] args) {
      Benevole aki = new Benevole("Akintola-Febrissy", "aakin013@uottawa.ca");
-     aki.setSurname("Akinyele");
-     aki.setCity("Ottawa");
-     aki.setZip("K7G");
+     aki.setNom("Akinyele");
+     aki.setVille("Ottawa");
+     aki.setCodePostal("K7G");
      aki.setAge(17);
      aki.setGender(true);
-     aki.setPhoneNumber("911");
+     aki.setNumeroTelephone("911");
      aki.addCompetence("Batterie");
      aki.addCompetence("Laughing");
      System.out.println(aki);
     }*/
 
-    private String name, surname, email_address, city, zip, phoneNumber;
-    private LinkedList<String> competences;
-    private String domaine_interets;
+    private String prenom;
+    private String nom;
+    private List<String> competences;
+    private String domaineInterets;
     private int age;
-    private Boolean isMale;
-    private LinkedList<Disponibilite> horaire;
 
-    public Benevole(String name, String email_address) {
-        this.name = name;
-        this.email_address = email_address;
+    /**
+     * La classe Boolean est utilisée pour que l'on puisse avoir la nullitabilité.
+     */
+    private Boolean isHomme;
+
+    private List<Disponibilite> horaire;
+
+
+    private List<Offre> offresAppliquees = new ArrayList<Offre>();
+
+    public Benevole() {
+
+    }
+
+    public Benevole(String prenom, String nom, String ville, String codePostal, String numeroTelephone, String courriel, String domaineInterets, int age, Boolean isHomme) {
+        this.prenom = prenom;
+        this.nom = nom;
+        this.ville = ville;
+        this.codePostal = codePostal;
+        this.numeroTelephone = numeroTelephone;
+        this.courriel = courriel;
+        this.domaineInterets = domaineInterets;
+        this.age = age;
+        this.isHomme = isHomme;
+    }
+
+    public Benevole(String prenom, String courriel) {
+        this.prenom = prenom;
+        this.courriel = courriel;
     }
 
     //getters
-    public String getName() {
-        return name;
+    public String getPrenom() {
+        return prenom;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getNom() {
+        return nom;
     }
 
-    public String getEmail_address() {
-        return email_address;
+    public String getCourriel() {
+        return courriel;
     }
 
-    public String getCity() {
-        return city;
+    public String getVille() {
+        return ville;
     }
 
-    public String getZip() {
-        return zip;
+    public String getCodePostal() {
+        return codePostal;
     }
 
-    public Boolean getGender() {
-      return isMale == null ? null : isMale;
+    public Boolean getGenre() {
+        return isHomme == null ? null : isHomme;
     }
 
-    public String getPhoneNumber() {
-      return phoneNumber;
+    public String getNumeroTelephone() {
+        return numeroTelephone;
     }
-    
+
     public Integer getAge() {
         return age;
     }
 
-    public LinkedList<String> getCompetences() {
+    public List<String> getCompetences() {
         return competences;
     }
 
-    public String getDomaine_Interets() {
-        return domaine_interets;
+    public String getDomaineInterets() {
+        return domaineInterets;
     }
-    
-    public LinkedList<Disponibilite> getHoraire(){
+
+    public List<Disponibilite> getHoraire() {
         return horaire;
     }
 
     //setters
-    public void setName(String name) {
-        this.name = name;
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
-    public void setEmail_address(String email_address) {
-        this.email_address = email_address;
+    public void setCourriel(String courriel) {
+        this.courriel = courriel;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setVille(String ville) {
+        this.ville = ville;
     }
 
-    public void setZip(String zip) {
-        this.zip = zip;
-    }
-    
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setCodePostal(String codePostal) {
+        this.codePostal = codePostal;
     }
 
-    public void setGender(Boolean isMale) {
-        this.isMale = isMale;
+    public void setNumeroTelephone(String numeroTelephone) {
+        this.numeroTelephone = numeroTelephone;
     }
 
-    public void setAge(Integer age) {
+    public void setGenre(Boolean isHomme) {
+        this.isHomme = isHomme;
+    }
+
+    public void setAge(int age) {
         this.age = age;
     }
 
 
-    public void setDomaine_Interets(String domaine_interets) {
-        this.domaine_interets = domaine_interets;
+    public void setDomaineInterets(String domaineInterets) {
+        this.domaineInterets = domaineInterets;
     }
 
     //adders
 
     public void addDisponibilite(Disponibilite disponibilite) {
 
-        if (horaire == null){ horaire = new LinkedList<Disponibilite>();}
+        if (horaire == null) {
+            horaire = new ArrayList<Disponibilite>();
+        }
 
         horaire.add(disponibilite);
     }
 
     public void addCompetence(String competence) {
-     
-      if (competences == null){ competences = new LinkedList<String>();}
-      
-      competences.add(competence);
 
+        if (competences == null) {
+            competences = new ArrayList<String>();
+        }
+
+        competences.add(competence);
     }
+
+
+    public List<Offre> getOffresAppliquees() {
+        return offresAppliquees;
+    }
+
+    public void addOffresSelectionnees(Offre offre) {
+        this.offresAppliquees.add(offre);
+    }
+
 
     //Creates a string representation of the class
     public String toString() {
         StringBuffer sb = new StringBuffer();
-        sb.append("Nom : "+name+"\n");
-        sb.append("Prénom : "+surname+"\n");
-        sb.append("Ville : "+city+"\n");
-        sb.append("Code postal : "+zip+"\n");
-        sb.append("Adresse email : "+email_address+"\n");
-        sb.append("Numéro de Téléphone : "+phoneNumber+"\n");
-        if (age != 0){
-          sb.append("Age : "+age+"\n");}
-        if (isMale != null){
-          sb.append("Sexe : "+(isMale ? "Homme" : "Femme" )+"\n");}
+        sb.append("Nom : " + prenom + "\n");
+        sb.append("Prénom : " + nom + "\n");
+        sb.append("Ville : " + ville + "\n");
+        sb.append("Code postal : " + codePostal + "\n");
+        sb.append("Adresse email : " + courriel + "\n");
+        sb.append("Numéro de Téléphone : " + numeroTelephone + "\n");
+        if (age != 0) {
+            sb.append("Age : " + age + "\n");
+        }
+        if (isHomme != null) {
+            sb.append("Sexe : " + (isHomme ? "Homme" : "Femme") + "\n");
+        }
         if (competences != null && competences.size() > 0) {
-         sb.append("---------------\n");
+            sb.append("---------------\n");
             sb.append("Liste des compétences : \n");
             for (String s : competences) {
-                sb.append(s+"\n");
+                sb.append(s + "\n");
             }
             sb.append("\n");
         }
