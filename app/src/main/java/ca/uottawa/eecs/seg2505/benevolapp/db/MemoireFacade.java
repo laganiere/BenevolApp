@@ -32,6 +32,12 @@ public class MemoireFacade implements DBFacade {
      */
     @Override
     public Organisme getOrganisme(String nomUtilisateur) { // Équipe 4
+
+        // recherche la liste de l'organisme et vérifie le courriel a chaque fois.
+        for (int i = 0; i < this.organismes.size(); i ++) {
+            if (this.organismes.get(i).getCourriel().equals(nomUtilisateur))
+                return this.organismes.get(i);
+        }
         return null;
     }
 
@@ -76,6 +82,18 @@ public class MemoireFacade implements DBFacade {
     @Override
     public void sauvegarderOrganisme(Organisme organisme) { // Équipe 8 et 4
 
+        // d'après le système, le couriel de l'utilisateur ne changeras jamais.
+        // donc on peut se servir du courriel pour trouver l'organisme correspondant
+        // et le modifier au besoin, ou ajouter le nouveau organisme a la fin
+
+        for (int i = 0; i < this.organismes.size(); i ++) {
+            if (this.organismes.get(i).getCourriel().equals(organisme.getCourriel())) {
+                this.organismes.remove(i);
+                this.organismes.add(i, organisme);
+                return;
+            }
+        }
+        this.organismes.add(organisme);
     }
 
     /**
@@ -129,6 +147,17 @@ public class MemoireFacade implements DBFacade {
     @Override
     public void sauvegarderBenevole(Benevole benevole) { // Équipe 8 et 4
 
+        // d'après le système, le couriel de l'utilisateur ne changeras jamais.
+        // donc on peut se servir du courriel pour trouver le bénévoles correspondant
+        // et le modifier au besoin, ou ajouter le nouveau organisme a la fin
+        for (int i = 0; i < this.benevoles.size(); i ++) {
+            if (this.benevoles.get(i).getCourriel().equals(benevole.getCourriel())) {
+                this.benevoles.remove(i);
+                this.benevoles.add(i, benevole);
+                return;
+            }
+            this.benevoles.add(benevole);
+        }
     }
 
     /**
