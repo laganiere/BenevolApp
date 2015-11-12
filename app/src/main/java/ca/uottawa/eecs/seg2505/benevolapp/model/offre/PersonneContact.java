@@ -4,6 +4,10 @@ public class PersonneContact {
 
     private String prenom, nom, email;
 
+    public PersonneContact(String email) {
+        this.email = email;
+    }
+
     public PersonneContact(String prenom, String nom, String email) {
         this.prenom = prenom;
         this.nom = nom;
