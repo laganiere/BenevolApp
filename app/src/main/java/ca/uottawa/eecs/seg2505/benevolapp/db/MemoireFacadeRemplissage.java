@@ -204,5 +204,9 @@ public class MemoireFacadeRemplissage {
         offres.get(2).addApplication(benevoles.get(1));
         benevoles.get(1).addOffresSelectionnees(offres.get(2));
     }
+
+    public static void main(String... args) {
+        new MemoireFacade();
+    }
 }
 

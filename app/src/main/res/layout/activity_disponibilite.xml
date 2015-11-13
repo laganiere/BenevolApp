@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".DisponibiliteActivity"
+        android:minHeight="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="IntÃ©rÃªts:"
+            android:id="@+id/textInterets"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editInterets"
+            android:minHeight="150dp"
+            android:layout_below="@+id/textInterets"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:textIsSelectable="true"
+            android:editable="true"
+            android:autoText="false"
+            android:singleLine="false"
+            android:textAlignment="gravity"
+            android:gravity="left|top"
+            android:hint="Entrez intÃ©rÃªts ici."
+            android:inputType="textMultiLine"
+            android:clickable="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="CompÃ©tences:"
+            android:id="@+id/textCompetence"
+            android:layout_below="@+id/editInterets"
+            android:layout_alignStart="@+id/textJeudi" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ajouter/Enlever"
+            android:id="@+id/buttonModifierComp"
+            android:height="65dp"
+            android:width="30dp"
+            android:textSize="12dp"
+            android:layout_alignTop="@+id/textCompetence"
+            android:layout_alignEnd="@+id/editInterets" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerCompetences"
+            android:spinnerMode="dropdown"
+            android:layout_toStartOf="@+id/textNuit"
+            android:layout_below="@+id/textCompetence"
+            android:layout_alignBottom="@+id/buttonModifierComp"
+            android:gravity="left"
+            android:textAlignment="gravity" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="DisponibilitÃ©"
+            android:id="@+id/textDisponibilit"
+            android:layout_below="@+id/spinnerCompetences"
+            android:layout_alignParentStart="true" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBoxLundiJour"
+            android:checked="false"
+            android:layout_below="@+id/textJour"
+            android:layout_alignStart="@+id/textJour" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Jour"
+            android:id="@+id/textJour"
+            android:layout_below="@+id/textDisponibilit"
+            android:layout_alignStart="@+id/checkBoxDimancheJour" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Nuit"
+            android:id="@+id/textNuit"
+            android:layout_below="@+id/textDisponibilit"
+            android:layout_alignStart="@+id/buttonModifierComp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBoxLundiSoir"
+            android:checked="false"
+            android:layout_below="@+id/textNuit"
+            android:layout_alignStart="@+id/textNuit" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Lundi"
+            android:id="@+id/textLundi"
+            android:layout_alignBottom="@+id/checkBoxLundiJour"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Mardi"
+            android:id="@+id/textMardi"
+            android:layout_below="@+id/textLundi"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Mercredi"
+            android:id="@+id/textMercredi"
+            android:layout_below="@+id/textMardi"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Jeudi"
+            android:id="@+id/textJeudi"
+            android:layout_below="@+id/textMercredi"
+            android:layout_alignEnd="@+id/textMardi" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Vendredi"
+            android:id="@+id/textVendredi"
+            android:layout_below="@+id/textJeudi"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Samedi"
+            android:id="@+id/textSamedi"
+            android:layout_below="@+id/textVendredi"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Dimanche"
+            android:id="@+id/textDimanche"
+            android:layout_below="@+id/textSamedi"
+            android:layout_alignParentStart="true" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBoxMardiJour"
+            android:checked="false"
+            android:layout_above="@+id/textMercredi"
+            android:layout_alignStart="@+id/checkBoxLundiJour" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBoxMardiSoir"
+            android:checked="false"
+            android:layout_alignTop="@+id/checkBoxMardiJour"
+            android:layout_alignStart="@+id/checkBoxLundiSoir" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBoxMercrediJour"
+            android:checked="false"
+            android:layout_alignBottom="@+id/textMercredi"
+            android:layout_alignStart="@+id/checkBoxMardiJour" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBoxMercrediSoir"
+            android:checked="false"
+            android:layout_alignTop="@+id/checkBoxMercrediJour"
+            android:layout_alignStart="@+id/checkBoxMardiSoir" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBoxJeudiJour"
+            android:checked="false"
+            android:layout_above="@+id/textVendredi"
+            android:layout_alignStart="@+id/checkBoxMercrediJour" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBoxJeudiSoir"
+            android:checked="false"
+            android:layout_alignTop="@+id/checkBoxJeudiJour"
+            android:layout_alignStart="@+id/checkBoxMercrediSoir" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBoxVendrediJour"
+            android:checked="false"
+            android:layout_above="@+id/textSamedi"
+            android:layout_toEndOf="@+id/spinnerCompetences" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBoxVendrediSoir"
+            android:checked="false"
+            android:layout_alignTop="@+id/checkBoxVendrediJour"
+            android:layout_alignStart="@+id/checkBoxJeudiJour" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBoxSamediJour"
+            android:checked="false"
+            android:layout_alignBottom="@+id/textSamedi"
+            android:layout_alignStart="@+id/checkBoxVendrediSoir" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBoxSamediSoir"
+            android:checked="false"
+            android:layout_above="@+id/buttonAnnuler"
+            android:layout_toEndOf="@+id/spinnerCompetences" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBoxDimancheJour"
+            android:checked="false"
+            android:layout_above="@+id/buttonSauvegarder"
+            android:layout_centerHorizontal="true" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBoxDimancheSoir"
+            android:checked="false"
+            android:layout_alignTop="@+id/checkBoxSamediJour"
+            android:layout_alignStart="@+id/checkBoxVendrediJour" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sauvegarder"
+            android:id="@+id/buttonSauvegarder"
+            android:layout_below="@+id/textDimanche"
+            android:layout_toStartOf="@+id/checkBoxDimancheJour" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Annuler"
+            android:onClick="onCancel"
+            android:id="@+id/buttonAnnuler"
+            android:layout_below="@+id/checkBoxDimancheJour"
+            android:layout_alignEnd="@+id/checkBoxSamediSoir" />
+
+
+    </RelativeLayout>
+</ScrollView>
