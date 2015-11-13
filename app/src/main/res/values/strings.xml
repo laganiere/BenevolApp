@@ -6,4 +6,5 @@
     <string name="title_activity_main_benevole">Bénévole</string>
     <string name="title_activity_main_organisme">Organisme</string>
     <string name="title_activity_offres_disponibles">Offres Disponibles</string>
+    <string name="title_activity_disponibilite">DisponibiliteActivity</string>
 </resources>
