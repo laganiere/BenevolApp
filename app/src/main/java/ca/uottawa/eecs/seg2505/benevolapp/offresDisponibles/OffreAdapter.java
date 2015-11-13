@@ -2,6 +2,7 @@ package ca.uottawa.eecs.seg2505.benevolapp.offresDisponibles;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,8 @@ import ca.uottawa.eecs.seg2505.benevolapp.model.offre.PersonneContact;
 
 public class OffreAdapter extends ArrayAdapter<Offre> {
 
+    private Typeface indiatorFont;
+
     private Context context;
     private int viewID;
 
@@ -29,6 +32,7 @@ public class OffreAdapter extends ArrayAdapter<Offre> {
         super(context, viewID, offres);
         this.viewID = viewID;
         this.context = context;
+        this.indiatorFont = Typeface.createFromAsset(context.getAssets(), "KaushanScript-Regular.otf");
     }
 
     public View getView(int position, View convertView, ViewGroup parent){
@@ -42,6 +46,10 @@ public class OffreAdapter extends ArrayAdapter<Offre> {
         Offre offre = getItem(position);
 
         if (offre != null) {
+
+            // Set le font des indicateurs qui apparaissent sur les offres.
+            ((TextView) convertView.findViewById(R.id.item_apply_indicator)).setTypeface(indiatorFont);
+            ((TextView) convertView.findViewById(R.id.item_ignore_indicator)).setTypeface(indiatorFont);
 
             // Les valeurs venant de l'offre à mettre dans le layout
             String titre = offre.getTitre();

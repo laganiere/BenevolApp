@@ -401,29 +401,36 @@
 
             </TableLayout>
 
-            <ImageView
+
+            <TextView
                 android:id="@+id/item_ignore_indicator"
                 android:alpha="0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@drawable/ignorer"
-                android:tint="#ab8d3f"
                 android:scaleType="fitCenter"
                 android:paddingLeft="25dp"
-                android:paddingRight="25dp" />
+                android:paddingRight="25dp"
+                android:text="Ignorer"
+                android:textAlignment="gravity"
+                android:textSize="70sp"
+                android:textColor="#ab8d3f"
+                android:gravity="center" />
 
-            <ImageView
-                android:id="@+id/item_select_indicator"
+            <TextView
+                android:id="@+id/item_apply_indicator"
                 android:alpha="0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@drawable/selectionner"
-                android:tint="#75994d"
                 android:scaleType="fitCenter"
                 android:paddingLeft="25dp"
-                android:paddingRight="25dp" />
+                android:paddingRight="25dp"
+                android:text="Appliquer"
+                android:textAlignment="gravity"
+                android:textSize="70sp"
+                android:textColor="#75994d"
+                android:gravity="center" />
 
         </FrameLayout>
 
