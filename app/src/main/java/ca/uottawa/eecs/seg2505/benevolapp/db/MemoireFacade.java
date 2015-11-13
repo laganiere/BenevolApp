@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.uottawa.eecs.seg2505.benevolapp.model.Benevole;
+import ca.uottawa.eecs.seg2505.benevolapp.model.Disponibilite;
 import ca.uottawa.eecs.seg2505.benevolapp.model.Organisme;
 import ca.uottawa.eecs.seg2505.benevolapp.model.Utilisateur;
 import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
@@ -32,6 +33,18 @@ public class MemoireFacade implements DBFacade {
      */
     @Override
     public Organisme getOrganisme(String nomUtilisateur) { // Équipe 4
+        return null;
+    }
+
+    /**
+     * Cette méthode doit aller chercher le bénévole selon le nom d'utilisateur (le courriel).
+     *
+     * @param courriel Le courriel du benevole.
+     * @return L'objet Benevole correspondant.
+     */
+    @Override
+    public Benevole getBenevole(String courriel) { // Équipe 7
+        for (Benevole b : benevoles) if (b.getCourriel() == courriel) return b;
         return null;
     }
 
@@ -143,6 +156,32 @@ public class MemoireFacade implements DBFacade {
     }
 
     /**
+     * Cette methode retourne la liste des offres disponibles pour un bénévole
+     *
+     @param benevole - Le bénévole
+     @return : a liste des offres sélectionées par un bénévole
+     */
+    @Override
+    public List<Offre> getOffresDisponibles(Benevole benevole) { // Equipe 7
+        List<Offre> offresDispo = new ArrayList<Offre>();
+        List<Disponibilite> dispoBenevole = benevole.getHoraire();
+
+        //Recherche a travers TOUTES les offres et retourne les offres qui correspondent a la disponibilite du benevole
+        for (int i = 0; i < offres.size(); i++) {
+            Offre offre = offres.get(i);
+            // Il pourrait y avoir un Etat spécifique pour disponible au lieu de null.
+            if (offre.getEtatBenevole(benevole) == null) {
+                for (int j = 0; j < dispoBenevole.size(); j++) {
+                    if (offre.getDisponibilite().equals(dispoBenevole.get(j))) {
+                        offresDispo.add(offre);
+                    }
+                }
+            }
+        }
+        return offresDispo;
+    }
+
+    /**
      * Cette méthode permet à un utilisateur d'appliquer pour une offre.
      *
      * @param benevole Le bénévole.
@@ -150,6 +189,8 @@ public class MemoireFacade implements DBFacade {
      */
     @Override
     public void applique(Benevole benevole, Offre offre) { // Équipe 12
-
+        if (offre != null && benevole != null) {
+            offre.addApplication(benevole);
+        }
     }
 }

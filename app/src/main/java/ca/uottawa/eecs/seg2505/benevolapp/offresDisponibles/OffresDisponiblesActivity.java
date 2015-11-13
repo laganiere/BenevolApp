@@ -1,8 +1,8 @@
 package ca.uottawa.eecs.seg2505.benevolapp.offresDisponibles;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -12,18 +12,11 @@ import android.widget.Toast;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 import ca.uottawa.eecs.seg2505.benevolapp.R;
-import ca.uottawa.eecs.seg2505.benevolapp.model.Disponibilite;
-import ca.uottawa.eecs.seg2505.benevolapp.model.JourSemaine;
-import ca.uottawa.eecs.seg2505.benevolapp.model.Organisme;
-import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Duree;
-import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Lieu;
+import ca.uottawa.eecs.seg2505.benevolapp.controlleur.Delegateur;
 import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
-import ca.uottawa.eecs.seg2505.benevolapp.model.offre.PersonneContact;
 
 public class OffresDisponiblesActivity extends AppCompatActivity {
 
@@ -69,7 +62,7 @@ public class OffresDisponiblesActivity extends AppCompatActivity {
             @Override
             public void onRightCardExit(Object dataObject) {
                 // L'offre a été envoyée vers la droite
-                makeToast(OffresDisponiblesActivity.this, "Offre Sélectionnée!");
+                makeToast(OffresDisponiblesActivity.this, "Application Envoyée!");
             }
 
             @Override
@@ -83,7 +76,7 @@ public class OffresDisponiblesActivity extends AppCompatActivity {
                 // Distance de scrolling de l'offre par rapport à sa position originale
                 View view = flingContainer.getSelectedView();
                 view.findViewById(R.id.item_ignore_indicator).setAlpha(scrollProgressPercent < 0 ? -scrollProgressPercent : 0);
-                view.findViewById(R.id.item_select_indicator).setAlpha(scrollProgressPercent > 0 ? scrollProgressPercent : 0);
+                view.findViewById(R.id.item_apply_indicator).setAlpha(scrollProgressPercent > 0 ? scrollProgressPercent : 0);
             }
         });
 
@@ -101,47 +94,17 @@ public class OffresDisponiblesActivity extends AppCompatActivity {
     private void makeToast(Context ctx, String s){
         if (notification != null) notification.cancel();
         notification = Toast.makeText(ctx, s, Toast.LENGTH_SHORT);
-        notification.setGravity(Gravity.BOTTOM, 0, 225);
+        notification.setGravity(Gravity.BOTTOM, 0, 150);
         notification.show();
     }
 
     private void loadOffres() {
-        // Example d'offre, peut aussi, vérifier une condition et ajouter seulement certaines offres
-        offresDisponibles.add(new Offre(
-                "Ceci est le titre d'une offre..",
-                "Communautaire",
-                Arrays.asList("Écriture", "Lecture"),
-                "Ceci est la description de l'offre",
-                new GregorianCalendar(2015, 7, 25),
-                new GregorianCalendar(2016, 3, 16),
-                new Duree(5, 30),
-                3,
-                12,
-                new PersonneContact("Personne", "Per.Per", "personne.pers@email.com"),
-                new Lieu("Ottawa", "K1N 6N5"),
-                new Disponibilite(JourSemaine.Lundi, true),
-                new Organisme("Nom de l'organimsme", "", "")
-        ));
-        offresDisponibles.add(new Offre(
-                "Voici une deuxième offre..",
-                "Plaisir",
-                Arrays.asList("Danse", "Chant"),
-                null,
-                new GregorianCalendar(2015, 7, 25),
-                new GregorianCalendar(2016, 3, 16),
-                null,
-                3,
-                0,
-                null,
-                new Lieu("Gatineau", "J8X 3Y9"),
-                new Disponibilite(JourSemaine.Vendredi, false),
-                new Organisme("Super Organisme", "", "organisme@email.com")
-        ));
+        offresDisponibles.addAll(Delegateur.getInstance().getBenevoleControlleur().getOffresDisponibles());
         arrayAdapter.notifyDataSetChanged();
         Log.d("OFFRES", "Offres Rechargées!");
     }
 
-    public void onSelect(View view) {
+    public void onAplique(View view) {
         if (offresDisponibles.size() != 0) flingContainer.getTopCardListener().selectRight();
     }
 

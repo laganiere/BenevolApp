@@ -16,11 +16,11 @@
         android:onClick="onIgnore" />
 
     <Button
-        android:id="@+id/btn_select"
-        android:text="Sélectionner"
+        android:id="@+id/btn_apply"
+        android:text="Appliquer"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:onClick="onSelect" />
+        android:onClick="onApplique" />
 
 </LinearLayout>

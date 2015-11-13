@@ -20,13 +20,25 @@ package ca.uottawa.eecs.seg2505.benevolapp.controlleur;
 import java.util.List;
 
 import ca.uottawa.eecs.seg2505.benevolapp.db.DBFacade;
+import ca.uottawa.eecs.seg2505.benevolapp.model.Benevole;
+import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
 
 public class BenevoleControlleur {
 
-	protected DBFacade dbFacade = null;
+	protected DBFacade dbFacade;
 	
 	public BenevoleControlleur(DBFacade dbFacade) {
 		this.dbFacade = dbFacade;
 	}
-	
+
+	/** @Return Les offres à proposer à l'utilisateur courrant. **/
+	public List<Offre> getOffresDisponibles() {
+		// Assumant que l'utilisateur courrant est bien un bénévole.
+		return dbFacade.getOffresDisponibles((Benevole) Delegateur.getInstance().getUtilisateurCourant());
+	}
+
+	/** @Return Le bénévole inscrit avec le courriel **/
+	public Benevole getBenevole(String courriel) {
+		return dbFacade.getBenevole(courriel);
+	}
 }
