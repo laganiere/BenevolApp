@@ -11,7 +11,7 @@ public class EtatOffresActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_etat_offres);
     }
-    
+
     public void onBack(View view) {
         finish();
     }
