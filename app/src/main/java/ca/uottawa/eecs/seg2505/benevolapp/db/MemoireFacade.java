@@ -253,7 +253,6 @@ public class MemoireFacade implements DBFacade {
      */
     @Override
     public void applique(Benevole benevole, Offre offre) { // Équipe 12
-<<<<<<< HEAD
         benevole.addOffresSelectionnees(offre);
         offre.addApplication(benevole);
     }
@@ -268,7 +267,6 @@ public class MemoireFacade implements DBFacade {
     public void selectionner(Benevole benevole, Offre offre) { // Ã‰quipe 11
         benevole.addOffresSelectionnees(offre);
         offre.addSelectionne(benevole);
-=======
         if (offre != null && benevole != null) {
             offre.addApplication(benevole);
         }
@@ -297,7 +295,6 @@ public class MemoireFacade implements DBFacade {
             // On pourrait ajouter plusieurs autres facteurs qui ordonne les offres.
             return 0;
         }
->>>>>>> origin/master
     }
 
     /**

@@ -10,15 +10,11 @@ public interface DBFacade {
 
     Organisme getOrganisme(String nomUtilisateur);
 
-<<<<<<< HEAD
     List<Offre> getOffresOrg(String nomUtilisateur);
 
     List<Offre> getOffresBenevole(String nomUtilisateur);
-=======
-    Benevole getBenevole(String courriel);
 
-    List<Offre> getOffres(String nomUtilisateur);
->>>>>>> origin/master
+    Benevole getBenevole(String courriel);
 
     List<Benevole> getBenevoles(Offre offre);
 
