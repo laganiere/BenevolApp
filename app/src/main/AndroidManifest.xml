@@ -9,7 +9,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label= "@string/app_name" >
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,6 +31,15 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ca.uottawa.eecs.seg2505.benevolapp.MainBenevoleActivity" />
+        </activity>
+        <activity
+            android:name=".DisponibiliteActivity"
+            android:label="@string/title_activity_disponibilite"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity android:name=".ModifBenevoleActivity" >
+        </activity>
+        <activity android:name=".EtatOffresActivity" >
         </activity>
     </application>
 

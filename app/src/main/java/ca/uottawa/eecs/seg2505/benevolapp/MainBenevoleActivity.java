@@ -19,8 +19,23 @@ public class MainBenevoleActivity extends AppCompatActivity {
         finish();
     }
 
+    public void onDisponibilite(View view) {
+        Intent intent = new Intent(this, DisponibiliteActivity.class);
+        startActivity(intent);
+    }
+
     public void onOffresDisponibles(View view) {
         Intent intent = new Intent(this, OffresDisponiblesActivity.class);
+        startActivity(intent);
+    }
+
+    public void onOffre(View view) {
+        Intent intent = new Intent(this, EtatOffresActivity.class);
+        startActivity(intent);
+    }
+
+    public void onInscription(View view) {
+        Intent intent = new Intent(this, ModifBenevoleActivity.class);
         startActivity(intent);
     }
 }
