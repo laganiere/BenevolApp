@@ -9,7 +9,9 @@ import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
 public interface DBFacade {
     Organisme getOrganisme(String nomUtilisateur);
 
-    List<Offre> getOffres(String nomUtilisateur);
+    List<Offre> getOffresOrg(String nomUtilisateur);
+
+    List<Offre> getOffresBenevole(String nomUtilisateur);
 
     List<Benevole> getBenevoles(Offre offre);
 
@@ -30,5 +32,10 @@ public interface DBFacade {
     List<Offre> getOffres(Benevole benevole);
 
     void applique(Benevole benevole, Offre offre);
-}
 
+    public void rejeter(Benevole benevole, Offre offre);
+
+    public boolean accepterOffre(Benevole benevole, Offre offre);
+
+    public void refuserOffre(Benevole benevole, Offre offre);
+}

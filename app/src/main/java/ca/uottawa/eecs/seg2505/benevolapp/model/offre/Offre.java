@@ -21,7 +21,7 @@ public class Offre {
     private Lieu lieu;
     private Disponibilite disponibilite;
     private List<String> competences;
-    private Organisme organisme;
+    private String organismeName;
 
     private Map<Benevole, EtatBenevoleOffre> postulants = new HashMap<Benevole, EtatBenevoleOffre>();
 
@@ -33,6 +33,7 @@ public class Offre {
         this.duree = duree;
         this.ageMin = ageMin;
         this.personneContact = personneContact;
+        this.organismeName = organisme.getCourriel();
     }
 
     // Constructeur pour les données obligatoires
@@ -44,7 +45,7 @@ public class Offre {
         this.nombrePlaces = nombrePlaces;
         this.lieu = lieu;
         this.disponibilite = disponibilite;
-        this.organisme = organisme;
+        this.organismeName = organisme.getCourriel();
     }
 
     public String getTitre() {
@@ -147,12 +148,12 @@ public class Offre {
         this.disponibilite = disponibilite;
     }
 
-    public Organisme getOrganisme() {
-        return organisme;
+    public String getOrganismeName() {
+        return organismeName;
     }
 
-    public void setOrganisme(Organisme organisme) {
-        this.organisme = organisme;
+    public void setOrganismeName(String organismeName) {
+        this.organismeName = organismeName;
     }
 
     public Map<Benevole, EtatBenevoleOffre> getPostulants() {

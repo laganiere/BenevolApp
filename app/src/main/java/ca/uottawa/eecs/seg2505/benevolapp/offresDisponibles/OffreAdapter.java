@@ -46,7 +46,7 @@ public class OffreAdapter extends ArrayAdapter<Offre> {
             // Les valeurs venant de l'offre à mettre dans le layout
             String titre = offre.getTitre();
             String description = offre.getDescription();
-            String organisme = offre.getOrganisme().getNom();
+            String organisme = offre.getOrganismeName();
             PersonneContact personne = offre.getPersonneContact();
             Lieu lieu = offre.getLieu();
             Disponibilite horaire = offre.getDisponibilite();
@@ -83,7 +83,7 @@ public class OffreAdapter extends ArrayAdapter<Offre> {
                 personneNameView.setText(personne.getFullName());
                 personneEmailView.setText(personne.getEmail());
             } else {
-                personneNameView.setText(offre.getOrganisme().getCourriel());
+                personneNameView.setText(offre.getOrganismeName());
                 personneEmailView.setVisibility(View.GONE);
             }
             if (lieu != null) ((TextView) lieuView.getChildAt(1)).setText(lieu.toString());
