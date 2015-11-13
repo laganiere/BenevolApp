@@ -3,5 +3,6 @@
 .DS_Store
 /build
 /captures
-.idea/**
-.iml
+.idea
+*.iml
+app/app.iml

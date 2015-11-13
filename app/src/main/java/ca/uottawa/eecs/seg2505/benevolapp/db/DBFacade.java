@@ -7,11 +7,18 @@ import ca.uottawa.eecs.seg2505.benevolapp.model.Organisme;
 import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
 
 public interface DBFacade {
+
     Organisme getOrganisme(String nomUtilisateur);
 
+<<<<<<< HEAD
     List<Offre> getOffresOrg(String nomUtilisateur);
 
     List<Offre> getOffresBenevole(String nomUtilisateur);
+=======
+    Benevole getBenevole(String courriel);
+
+    List<Offre> getOffres(String nomUtilisateur);
+>>>>>>> origin/master
 
     List<Benevole> getBenevoles(Offre offre);
 
@@ -30,6 +37,8 @@ public interface DBFacade {
     void sauvegarderBenevole(Benevole benevole);
 
     List<Offre> getOffres(Benevole benevole);
+
+    List<Offre> getOffresDisponibles(Benevole benevole);
 
     void applique(Benevole benevole, Offre offre);
 

@@ -18,10 +18,9 @@
  */
 package ca.uottawa.eecs.seg2505.benevolapp.controlleur;
 
-import java.util.List;
-
 import ca.uottawa.eecs.seg2505.benevolapp.db.DBFacade;
-import ca.uottawa.eecs.seg2505.benevolapp.model.*;
+import ca.uottawa.eecs.seg2505.benevolapp.db.MemoireFacade;
+import ca.uottawa.eecs.seg2505.benevolapp.model.Utilisateur;
 
 /**
  * Singleton
@@ -30,22 +29,20 @@ import ca.uottawa.eecs.seg2505.benevolapp.model.*;
  */
 public class Delegateur {
 
-    public static Utilisateur utilisateurCourant= null;
+    public static Utilisateur utilisateurCourant;
 	public static Delegateur delegateur;
+
 	/**
 	 * La specification d'une DBFacade est requise pour le fonctionnement du systeme
 	 */
-	public static DBFacade dbFacade = null;
+	public static DBFacade dbFacade;
 	
-	private BenevoleControlleur benevoleControlleur = null;
-    private OrganismeControlleur organismeControlleur = null;
+	private BenevoleControlleur benevoleControlleur;
+    private OrganismeControlleur organismeControlleur;
 
 	// acces au Singleton
 	public static Delegateur getInstance() {
-		
-		if (delegateur==null)
-			delegateur= new Delegateur();
-		
+		if (delegateur == null) delegateur = new Delegateur();
 		return delegateur;
 	}
 
@@ -54,31 +51,28 @@ public class Delegateur {
 	 * @param facade une classe qui implemente DBFacade
 	 */
 	public static void setDBFacade(DBFacade facade) {
-		
-		dbFacade= facade;
+		dbFacade = facade;
 	}
 
 	// the private constructor
 	private Delegateur() {
-
+		dbFacade = new MemoireFacade();
 		benevoleControlleur = new BenevoleControlleur(dbFacade);
 		organismeControlleur = new OrganismeControlleur(dbFacade);
+		utilisateurCourant = benevoleControlleur.getBenevole("ftremblay1234@gmail.com");
 	}
 
     public Utilisateur getUtilisateurCourant() {
-
         return utilisateurCourant;
     }
 
 	// afin d'obtenir le controlleur de benevoles
 	public BenevoleControlleur getBenevoleControlleur() {
-
 		return benevoleControlleur;
 	}
 
 	// afin d'obtenir le controlleur de Questions
 	public OrganismeControlleur getOrganismeControlleur() {
-
 		return organismeControlleur;
 	}
 

@@ -30,4 +30,9 @@ public class Disponibilite {
         return jour.name() + ((isSoir()) ? " (soir)" : " (jour)");
     }
 
+    public boolean equals(Disponibilite other) {
+        if (jour == other.getJour() && soir == other.soir) return true;
+        else return false;
+    }
+
 }
