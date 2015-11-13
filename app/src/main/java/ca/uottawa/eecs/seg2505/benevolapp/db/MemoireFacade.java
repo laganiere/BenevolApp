@@ -1,6 +1,8 @@
 package ca.uottawa.eecs.seg2505.benevolapp.db;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import ca.uottawa.eecs.seg2505.benevolapp.model.Benevole;
@@ -178,6 +180,10 @@ public class MemoireFacade implements DBFacade {
                 }
             }
         }
+
+        // Ordonner les résultats.
+        Collections.sort(offresDispo, new CompatibiliteComparator(benevole));
+
         return offresDispo;
     }
 
@@ -191,6 +197,31 @@ public class MemoireFacade implements DBFacade {
     public void applique(Benevole benevole, Offre offre) { // Équipe 12
         if (offre != null && benevole != null) {
             offre.addApplication(benevole);
+        }
+    }
+
+    /**
+     * Cette classe permet de trier les offres disponibles pour un utilisateur en ordre de compatibilite.
+     */
+    private class CompatibiliteComparator implements Comparator<Offre> {
+
+        private Benevole benevole;
+
+        public CompatibiliteComparator(Benevole benevole) {
+            this.benevole = benevole;
+        }
+
+        @Override
+        public int compare(Offre o0, Offre o1) {
+            if (benevole.getVille() == o0.getLieu().getVille()) {
+                // La ville de l'offre 0 est la meme que celle du benevole, alors l'offre a la priorite.
+                return -1;
+            } else if (benevole.getVille() == o1.getLieu().getVille()) {
+                // La ville de l'offre 1 est la meme que celle du benevole, alors l'offre a la priorite.
+                return 1;
+            }
+            // On pourrait ajouter plusieurs autres facteurs qui ordonne les offres.
+            return 0;
         }
     }
 }

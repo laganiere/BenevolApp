@@ -146,7 +146,7 @@ public class MemoireFacadeRemplissage {
                 4,
                 16,
                 null,
-                null,
+                new Lieu("Ottawa", "K2H 4H7"),
                 new Disponibilite(JourSemaine.Dimanche, true),
                 organismes.get(2));
         organismes.get(2).addOffres(off1);
@@ -178,7 +178,7 @@ public class MemoireFacadeRemplissage {
                 2,
                 18,
                 null,
-                new Lieu("Ottawa", "K2H 4H7"),
+                new Lieu("Gatineau", "J8X 2K1"),
                 new Disponibilite(JourSemaine.Jeudi, false),
                 organismes.get(2));
         organismes.get(2).addOffres(off3);
