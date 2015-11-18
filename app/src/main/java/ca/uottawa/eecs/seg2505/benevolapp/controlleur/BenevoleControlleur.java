@@ -41,4 +41,8 @@ public class BenevoleControlleur {
 	public Benevole getBenevole(String courriel) {
 		return dbFacade.getBenevole(courriel);
 	}
+
+	public void SauvegarderBenevole(Benevole b){
+		dbFacade.sauvegarderBenevole(b);
+	}
 }
