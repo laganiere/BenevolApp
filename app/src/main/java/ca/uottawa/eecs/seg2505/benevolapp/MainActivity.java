@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onOrganisme(View view) {
         Intent intent = new Intent(this, MainOrganismeActivity.class);
-        startActivity(intent);
+        startActivity(intent);//
     }
 
 
