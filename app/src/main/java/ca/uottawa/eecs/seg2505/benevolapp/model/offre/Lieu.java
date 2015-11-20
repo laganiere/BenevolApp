@@ -1,6 +1,8 @@
 package ca.uottawa.eecs.seg2505.benevolapp.model.offre;
 
-public class Lieu {
+import java.io.Serializable;
+
+public class Lieu implements Serializable {
 
     private String ville, codePostal;
 

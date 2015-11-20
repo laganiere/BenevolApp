@@ -1,5 +1,6 @@
 package ca.uottawa.eecs.seg2505.benevolapp.model.offre;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -12,7 +13,7 @@ import ca.uottawa.eecs.seg2505.benevolapp.model.Benevole;
 import ca.uottawa.eecs.seg2505.benevolapp.model.Disponibilite;
 import ca.uottawa.eecs.seg2505.benevolapp.model.Organisme;
 
-public class Offre implements Observer {
+public class Offre implements Serializable {
     protected String ID = UUID.randomUUID().toString();
 
     private String titre, typeActivite, description;
