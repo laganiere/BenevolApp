@@ -45,10 +45,7 @@ public class MemoireFacade implements DBFacade {
     }
 
     /**
-<<<<<<< HEAD
      * Cette méthode va chercher les offres de l'organisme selon le nom d'utilisateur (le courriel).
-=======
-     * Cette méthode doit aller chercher le bénévole selon le nom d'utilisateur (le courriel).
      *
      * @param courriel Le courriel du benevole.
      * @return L'objet Benevole correspondant.
@@ -61,7 +58,6 @@ public class MemoireFacade implements DBFacade {
 
     /**
      * Cette méthode va chercher les offre de l'organisme selon le nom d'utilisateur (le courriel).
->>>>>>> origin/master
      *
      * @param nomUtilisateur Le courriel de l'organisme.
      * @return Un liste d'offre de l'organisme.
