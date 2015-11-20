@@ -9,20 +9,6 @@ import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
 
 public class Benevole extends Utilisateur {
 
-    /* Example d'instantiation
-    public static void main(String[] args) {
-     Benevole aki = new Benevole("Akintola-Febrissy", "aakin013@uottawa.ca");
-     aki.setNom("Akinyele");
-     aki.setVille("Ottawa");
-     aki.setCodePostal("K7G");
-     aki.setAge(17);
-     aki.setGender(true);
-     aki.setNumeroTelephone("911");
-     aki.addCompetence("Batterie");
-     aki.addCompetence("Laughing");
-     System.out.println(aki);
-    }*/
-
     private String prenom;
     private String nom;
     private List<String> competences;
