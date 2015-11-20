@@ -4,13 +4,15 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.UUID;
 
 import ca.uottawa.eecs.seg2505.benevolapp.model.Benevole;
 import ca.uottawa.eecs.seg2505.benevolapp.model.Disponibilite;
 import ca.uottawa.eecs.seg2505.benevolapp.model.Organisme;
 
-public class Offre {
+public class Offre implements Observer {
     protected String ID = UUID.randomUUID().toString();
 
     private String titre, typeActivite, description;
@@ -197,6 +199,11 @@ public class Offre {
     @Override
     public int hashCode() {
         return ID.hashCode();
+    }
+
+    @Override
+    public void update(Observable observable, Object o) {
+
     }
 }
 
