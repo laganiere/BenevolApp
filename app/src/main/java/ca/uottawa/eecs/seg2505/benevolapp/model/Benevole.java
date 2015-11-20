@@ -82,7 +82,7 @@ public class Benevole extends Utilisateur {
     }
 
     public Boolean getGenre() {
-        return isHomme == null ? null : isHomme;
+        return isHomme;
     }
 
     public String getNumeroTelephone() {

@@ -24,7 +24,7 @@ public class MainBenevoleActivity extends AppCompatActivity {
                 "ftremblay1234@gmail.com",
                 "Je suis bon en programmation et surtout pour faire des sites web.",
                 23,
-                true);
+                false);
 
     }
 
