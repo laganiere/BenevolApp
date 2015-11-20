@@ -2,12 +2,13 @@ package ca.uottawa.eecs.seg2505.benevolapp.model;
 
 //Made by group 15 for SEG2505A
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
 
-public class Benevole extends Utilisateur {
+public class Benevole extends Utilisateur implements Serializable {
 
     /* Example d'instantiation
     public static void main(String[] args) {
