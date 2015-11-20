@@ -17,8 +17,7 @@ public class Benevole extends Utilisateur implements Serializable {
     private int age;
 
     /**
-     * La classe Boolean est utilisée pour que l'on puisse avoir la possibilité
-     * de ne pas révéler de genre.
+     * Est null si non spécifié, true si homme, false si femme.
      */
     private Boolean isHomme;
 
