@@ -5,6 +5,8 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.UUID;
 
 import ca.uottawa.eecs.seg2505.benevolapp.model.Benevole;
@@ -198,6 +200,11 @@ public class Offre implements Serializable {
     @Override
     public int hashCode() {
         return ID.hashCode();
+    }
+
+    @Override
+    public void update(Observable observable, Object o) {
+
     }
 }
 
