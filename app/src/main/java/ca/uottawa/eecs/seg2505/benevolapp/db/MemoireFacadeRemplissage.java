@@ -15,6 +15,7 @@ import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Lieu;
 import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
 
 public class MemoireFacadeRemplissage {
+
     public static void remplirMemoire(List<Utilisateur> utilisateurs,
                                       List<Organisme> organismes,
                                       List<Benevole> benevoles,
@@ -136,17 +137,17 @@ public class MemoireFacadeRemplissage {
 
     private static void creerOffres(List<Offre> offres, List<String> competences, List<Organisme> organismes) {
         Offre off1 = new Offre("Progammation du nouveau site web",
-                "Programmation d'une site web",
+                "Informatique",
                 Arrays.asList(competences.get(0)),
-                "La personne sera en charge de programmer notre nouveau site web qui devra contenir des fonctionnalités avancées.",
+                "Programmer notre nouveau site web aux fonctionnalités avancées.",
                 Calendar.getInstance(),
                 null,
                 new Duree(80),
                 4,
                 16,
                 null,
-                null,
-                new Disponibilite(JourSemaine.Vendredi, false),
+                new Lieu("Ottawa", "K2H 4H7"),
+                new Disponibilite(JourSemaine.Dimanche, true),
                 organismes.get(2));
         organismes.get(2).addOffres(off1);
         offres.add(off1);
@@ -167,18 +168,18 @@ public class MemoireFacadeRemplissage {
         offres.add(off2);
         organismes.get(1).addOffres(off2);
 
-        Offre off3 = new Offre("Aide cuisinier pour cuisine communautaire",
-                "Assister les gens voulant faire de la cuisine communautaire",
+        Offre off3 = new Offre("Cuisine communautaire",
+                "Communautaire",
                 Arrays.asList(competences.get(3), competences.get(6)),
-                "Il s'agit d'aide les gens voulant faire de la cuisine communautaire en leur donnant des petits trucs, cours ou autres permettant aux gens de se réaliser.",
+                "Gens voulant faire de la cuisine communautaire (trucs, cours ou autres)",
                 new GregorianCalendar(2015, Calendar.DECEMBER, 1),
                 null,
                 new Duree(7),
                 2,
                 18,
                 null,
-                new Lieu("Ottawa", "K2H 4H7"),
-                new Disponibilite(JourSemaine.Mercredi, true),
+                new Lieu("Gatineau", "J8X 2K1"),
+                new Disponibilite(JourSemaine.Jeudi, false),
                 organismes.get(2));
         organismes.get(2).addOffres(off3);
         offres.add(off3);
