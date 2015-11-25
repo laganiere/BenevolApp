@@ -55,7 +55,7 @@ public class MemoireFacade implements DBFacade {
      */
     @Override
     public Benevole getBenevole(String courriel) { // Équipe 7
-        for (Benevole b : benevoles) if (b.getCourriel() == courriel) return b;
+        for (Benevole b : benevoles) if (b.getCourriel().equals(courriel)) return b;
         return null;
     }
 

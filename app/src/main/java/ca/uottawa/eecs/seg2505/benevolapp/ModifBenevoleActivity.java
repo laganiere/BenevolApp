@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import ca.uottawa.eecs.seg2505.benevolapp.controlleur.BenevoleControlleur;
 import ca.uottawa.eecs.seg2505.benevolapp.controlleur.Delegateur;
 import ca.uottawa.eecs.seg2505.benevolapp.model.Benevole;
@@ -30,7 +33,7 @@ public class ModifBenevoleActivity extends AppCompatActivity {
 
         if (b==null) {
             android.content.Context context = getApplicationContext();
-            CharSequence text = "Ya de quoi icitte";
+            CharSequence text = "Une erreur s'est produite.";
             int duration = android.widget.Toast.LENGTH_LONG;
             android.widget.Toast toast = android.widget.Toast.makeText(context, text, duration);
             toast.show();
@@ -56,7 +59,8 @@ public class ModifBenevoleActivity extends AppCompatActivity {
             txtCodePostal.setText(b.getCodePostal());
             txtDomaineInteret.setText(b.getDomaineInterets());
 
-            if (!b.getGenre())
+
+            if (b.getGenre())
                 rbtnHomme.setChecked(true);
             else
                 rbtnFemme.setChecked(true);
@@ -74,6 +78,7 @@ public class ModifBenevoleActivity extends AppCompatActivity {
                     Benevole b = new Benevole();
                     b.setPrenom(txtPrenom.getText().toString());
 
+
                     b.setAge(Integer.parseInt((txtAge.getText().toString())));
                     b.setCourriel(txtCourriel.getText().toString());
                     b.setNumeroTelephone(txtTelephone.getText().toString());
@@ -82,19 +87,45 @@ public class ModifBenevoleActivity extends AppCompatActivity {
                     b.setDomaineInterets(txtDomaineInteret.getText().toString());
                     b.setGenre(rbtnHomme.isChecked());
 
+                    if(!isValid(txtCodePostal.getText().toString().replace(" ", "").toUpperCase(),"[A-Z]{1}\\d{1}[A-Z]{1}\\d{1}[A-Z]{1}\\d{1}")){
+                        android.content.Context context = getApplicationContext();
+                        String text = "Le code postal n'est pas valide.";
+                        int duration = android.widget.Toast.LENGTH_LONG;
+                        android.widget.Toast toast = android.widget.Toast.makeText(context, text, duration);
+                        toast.show();
+                    }
+                    else if (!isValid(txtTelephone.getText().toString(),"\\d{3}-\\d{3}-\\d{4}")){
+                        android.content.Context context = getApplicationContext();
+                        String text = "Le numéro de téléphone n'est pas valide.";
+                        int duration = android.widget.Toast.LENGTH_LONG;
+                        android.widget.Toast toast = android.widget.Toast.makeText(context, text, duration);
+                        toast.show();
+                    }
+                    else{
 
-                    benCont.SauvegarderBenevole(b);
 
-                    android.content.Context context = getApplicationContext();
-                    CharSequence text = Integer.parseInt(txtAge.getText().toString()) + "," + txtCourriel.getText().toString();
-                    int duration = android.widget.Toast.LENGTH_LONG;
-                    android.widget.Toast toast = android.widget.Toast.makeText(context, text, duration);
-                    toast.show();
+                        benCont.SauvegarderBenevole(b);
 
+                        android.content.Context context = getApplicationContext();
+                        String text = "Les informations ont été modifiées.";
+                        int duration = android.widget.Toast.LENGTH_LONG;
+                        android.widget.Toast toast = android.widget.Toast.makeText(context, text, duration);
+                        toast.show();
+                        finish();
+                    }
                 }
 
 
             });
         }
+
+
+
+
+    }
+    private boolean isValid(String text, String PATTERN){
+        Pattern pattern = Pattern.compile(PATTERN);
+        Matcher matcher = pattern.matcher(text);
+        return matcher.matches();
     }
 }
