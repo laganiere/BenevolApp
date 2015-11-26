@@ -241,6 +241,39 @@ public class MemoireFacade implements DBFacade {
         return offresDispo;
     }
 
+    public List<Offre> getOffresParInterets(Benevole benevole){
+        List<Offre> sorted = new ArrayList<Offre>(offres);
+        List<Integer> matches = new ArrayList<Integer>();
+
+        String[] interests = benevole.getDomaineInterets().split(","); //Crée un tableau contenant les intérets.
+
+        int num;
+        for(int i = 0; i<sorted.size(); i++){
+            num = 0;
+            for(int j=0; j<interests.length; j++){
+                if(sorted.get(i).getDescription().contains(interests[j]))
+                    num++;
+            }
+            matches.add(num);
+        }
+
+        for(int i=0; i<sorted.size(); i++){
+            for(int j = i + 1; j<sorted.size(); j++){
+                if(matches.get(i)<matches.get(j)){
+                    int temp1 = matches.get(i);
+                    matches.set(i, matches.get(j));
+                    matches.set(j, temp1);
+
+                    Offre temp2 = sorted.get(i);
+                    sorted.set(i, sorted.get(j));
+                    sorted.set(j, temp2);
+                }
+            }
+        }
+
+        return sorted;
+    }
+
     /**
      * Cette méthode permet à un utilisateur d'appliquer pour une offre.
      *
