@@ -147,7 +147,7 @@ public class Benevole extends Utilisateur implements Serializable {
             competences = new ArrayList<String>();
         }
 
-        competences.add(competence);
+            competences.add(competence);
     }
 
 

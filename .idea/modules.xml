@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/benevolApp.iml" filepath="$PROJECT_DIR$/benevolApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BenevolApp.iml" filepath="$PROJECT_DIR$/BenevolApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

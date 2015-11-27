@@ -7,6 +7,9 @@ import android.view.View;
 
 import ca.uottawa.eecs.seg2505.benevolapp.controlleur.Delegateur;
 import ca.uottawa.eecs.seg2505.benevolapp.model.Benevole;
+import ca.uottawa.eecs.seg2505.benevolapp.model.Disponibilite;
+import ca.uottawa.eecs.seg2505.benevolapp.model.JourSemaine;
+import ca.uottawa.eecs.seg2505.benevolapp.model.Utilisateur;
 import ca.uottawa.eecs.seg2505.benevolapp.offresDisponibles.OffresDisponiblesActivity;
 
 public class MainBenevoleActivity extends AppCompatActivity {
@@ -16,7 +19,7 @@ public class MainBenevoleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_benevole);
 
-        Delegateur.utilisateurCourant= new Benevole("François",
+        Delegateur.utilisateurCourant = new Benevole("François",
                 "Tremblay",
                 "Ottawa",
                 "K2C 4F5",
@@ -25,6 +28,8 @@ public class MainBenevoleActivity extends AppCompatActivity {
                 "Je suis bon en programmation et surtout pour faire des sites web.",
                 23,
                 true);
+
+
 
     }
 

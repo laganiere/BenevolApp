@@ -117,7 +117,7 @@ public class MemoireFacade implements DBFacade {
     @Override
     public List<String> getCompetences() { // Équipe 15
         return competences;
-    }
+    } //Équipe 14
 
 
     /**
@@ -164,7 +164,7 @@ public class MemoireFacade implements DBFacade {
     @Override
     public void ajouteCompetence(String competence) { // Équipe 15
         competences.add(competence);
-    }
+    } //Équipe 14
 
     /**
      * Cette méthode sauvegarde un bénévole. Si le bénévole existe déjà, alors ses informations
