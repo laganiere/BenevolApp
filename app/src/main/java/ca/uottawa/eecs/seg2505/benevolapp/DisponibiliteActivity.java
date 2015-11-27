@@ -60,7 +60,9 @@ public class DisponibiliteActivity extends AppCompatActivity {
     //Objet de la classe Disponibilite
     List<Disponibilite> dispo = null;
 
-    //Liste des compétences du bénévole
+    //Liste des compétences du bénévoles
+
+    //Test githubApp
     List<String> competence = null;
 
     @Override
