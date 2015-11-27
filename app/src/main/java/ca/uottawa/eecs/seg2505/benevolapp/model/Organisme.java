@@ -16,6 +16,10 @@ public class Organisme extends Utilisateur  implements Serializable {
     private String tailleOrganisation;
     private String secteurActivite;
     private String fondateur;
+    private String codePostal;
+    private String ville;
+    private String numeroTelephone;
+    private String courriel;
 
     private List<Offre> offres = new ArrayList<Offre>();
 
@@ -126,6 +130,38 @@ public class Organisme extends Utilisateur  implements Serializable {
 
     public void setFondateur(String fondateur) {
         this.fondateur = fondateur;
+    }
+
+    public String getCodePostal(){
+        return codePostal;
+    }
+
+    public void setCodePostal(String codePostal){
+        this.codePostal = codePostal;
+    }
+
+    public String getVille(){
+        return this.ville;
+    }
+
+    public void setVille(String ville){
+        this.ville = ville;
+    }
+
+    public String getNumeroTelephone(){
+        return this.numeroTelephone;
+    }
+
+    public void setNumeroTelephone(String numeroTelephone){
+        this.numeroTelephone = numeroTelephone;
+    }
+
+    public String getCourriel (){
+        return this.courriel;
+    }
+
+    public void setCourriel(String courriel){
+        this.courriel = courriel;
     }
 
     // Cette fonction retourne l'adresse complète selon les différents champs de l'adresse

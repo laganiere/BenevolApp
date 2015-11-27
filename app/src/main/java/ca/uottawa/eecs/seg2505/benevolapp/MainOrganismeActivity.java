@@ -33,7 +33,7 @@ public class MainOrganismeActivity extends AppCompatActivity {
     }
 
     public void onInformation(View view) {
-        Intent intent = new Intent(this, InfoOrganismeActivity.class);
+        Intent intent = new Intent(this, ModifOrganismeActivity.class);
         startActivity(intent);
     }
 
