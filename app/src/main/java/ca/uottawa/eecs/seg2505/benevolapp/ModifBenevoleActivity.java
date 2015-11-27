@@ -75,43 +75,40 @@ public class ModifBenevoleActivity extends AppCompatActivity {
 
                     //DEvrait déjà avoir un bénévole dans la session ou quelque chose comme ca
 
-                    Benevole b = new Benevole();
-                    b.setPrenom(txtPrenom.getText().toString());
 
 
-                    b.setAge(Integer.parseInt((txtAge.getText().toString())));
-                    b.setCourriel(txtCourriel.getText().toString());
-                    b.setNumeroTelephone(txtTelephone.getText().toString());
-                    b.setVille(txtVille.getText().toString());
-                    b.setCodePostal(txtCodePostal.getText().toString());
-                    b.setDomaineInterets(txtDomaineInteret.getText().toString());
-                    b.setGenre(rbtnHomme.isChecked());
-
-                    if(!isValid(txtCodePostal.getText().toString().replace(" ", "").toUpperCase(),"[A-Z]{1}\\d{1}[A-Z]{1}\\d{1}[A-Z]{1}\\d{1}")){
-                        android.content.Context context = getApplicationContext();
-                        String text = "Le code postal n'est pas valide.";
-                        int duration = android.widget.Toast.LENGTH_LONG;
-                        android.widget.Toast toast = android.widget.Toast.makeText(context, text, duration);
-                        toast.show();
+                    if (txtPrenom.getText().toString().equals("") || txtAge.getText().toString().equals("") ||
+                            txtVille.getText().toString().equals("") || txtCodePostal.getText().toString().equals("")){
+                        showToast("Des informations obligatoire sont manquantes.");
                     }
-                    else if (!isValid(txtTelephone.getText().toString(),"\\d{3}-\\d{3}-\\d{4}")){
-                        android.content.Context context = getApplicationContext();
-                        String text = "Le numéro de téléphone n'est pas valide.";
-                        int duration = android.widget.Toast.LENGTH_LONG;
-                        android.widget.Toast toast = android.widget.Toast.makeText(context, text, duration);
-                        toast.show();
+                    else if (Integer.parseInt(txtAge.getText().toString()) < 1){
+                        showToast("L'âge doit être plus grand que 0.");
+                    }
+                    else if(!isValid(txtCodePostal.getText().toString().replace(" ", "").toUpperCase(),"[A-Z]{1}\\d{1}[A-Z]{1}\\d{1}[A-Z]{1}\\d{1}")){
+                        showToast("Le code postal n'est pas valide.");
+                    }
+                    else if (!txtTelephone.getText().toString().equals("") && !isValid(txtTelephone.getText().toString(),"\\d{3}-\\d{3}-\\d{4}")){
+                        showToast("Le numéro de téléphone n'est pas valide.");
                     }
                     else{
+                        Benevole b = new Benevole();
+                        b.setPrenom(txtPrenom.getText().toString());
+                        b.setAge(Integer.parseInt(txtAge.getText().toString()));
+                        b.setCourriel(txtCourriel.getText().toString());
+                        b.setNumeroTelephone(txtTelephone.getText().toString());
+                        b.setVille(txtVille.getText().toString());
+                        b.setCodePostal(txtCodePostal.getText().toString());
+                        b.setDomaineInterets(txtDomaineInteret.getText().toString());
+                        b.setGenre(rbtnHomme.isChecked());
+
+                        if(benCont.SauvegarderBenevole(b)){
+                            showToast("Les informations ont été modifiées.");
+                            finish();
+                        }
+                        else
+                            showToast("Impossible de sauvegarder. Des informations sont invaide.");
 
 
-                        benCont.SauvegarderBenevole(b);
-
-                        android.content.Context context = getApplicationContext();
-                        String text = "Les informations ont été modifiées.";
-                        int duration = android.widget.Toast.LENGTH_LONG;
-                        android.widget.Toast toast = android.widget.Toast.makeText(context, text, duration);
-                        toast.show();
-                        finish();
                     }
                 }
 
@@ -122,6 +119,13 @@ public class ModifBenevoleActivity extends AppCompatActivity {
 
 
 
+    }
+
+    private void showToast(CharSequence message){
+        android.content.Context context = getApplicationContext();
+        int duration = android.widget.Toast.LENGTH_LONG;
+        android.widget.Toast toast = android.widget.Toast.makeText(context, message, duration);
+        toast.show();
     }
     private boolean isValid(String text, String PATTERN){
         Pattern pattern = Pattern.compile(PATTERN);
