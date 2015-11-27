@@ -1,6 +1,8 @@
 package ca.uottawa.eecs.seg2505.benevolapp.model.offre;
 
-public class PersonneContact {
+import java.io.Serializable;
+
+public class PersonneContact implements Serializable {
 
     private String prenom, nom, email;
 

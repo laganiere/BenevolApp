@@ -1,9 +1,10 @@
 package ca.uottawa.eecs.seg2505.benevolapp.model.offre;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class Duree {
+public class Duree implements Serializable {
 
     private int minutes, hours;
 

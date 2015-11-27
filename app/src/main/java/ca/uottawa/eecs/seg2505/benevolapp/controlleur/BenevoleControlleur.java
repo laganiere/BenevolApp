@@ -25,7 +25,7 @@ import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
 
 public class BenevoleControlleur {
 
-	protected DBFacade dbFacade;
+	protected DBFacade dbFacade = null;
 	
 	public BenevoleControlleur(DBFacade dbFacade) {
 		this.dbFacade = dbFacade;

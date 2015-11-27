@@ -1,11 +1,12 @@
 package ca.uottawa.eecs.seg2505.benevolapp.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
 
-public class Organisme extends Utilisateur {
+public class Organisme extends Utilisateur  implements Serializable {
     private String nom;
     private String numeroPorte;
     private String nomRue;
