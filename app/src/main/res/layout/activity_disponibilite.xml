@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" ?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="IntÃ©rÃªts:"
+            android:text="Intérêts"
             android:id="@+id/textInterets"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true" />
@@ -34,18 +34,36 @@
             android:singleLine="false"
             android:textAlignment="gravity"
             android:gravity="left|top"
-            android:hint="Entrez intÃ©rÃªts ici."
+            android:hint="Entrez intérêts ici."
             android:inputType="textMultiLine"
             android:clickable="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Compétences du bénévole : "
+            android:id="@+id/textCompetencesBenevole"
+            android:layout_below="@+id/editInterets"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="false" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerCompetencesBenevole"
+            android:layout_below="@+id/textCompetencesBenevole"
+            android:spinnerMode="dropdown"
+            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="CompÃ©tences:"
+            android:text="Choix de compétences : "
             android:id="@+id/textCompetence"
-            android:layout_below="@+id/editInterets"
-            android:layout_alignStart="@+id/textJeudi" />
+            android:layout_alignStart="@+id/textJeudi"
+            android:layout_below="@+id/spinnerCompetencesBenevole" />
 
         <Button
             android:layout_width="wrap_content"
@@ -56,7 +74,8 @@
             android:width="30dp"
             android:textSize="12dp"
             android:layout_alignTop="@+id/textCompetence"
-            android:layout_alignEnd="@+id/editInterets" />
+            android:layout_alignEnd="@+id/editInterets"
+            android:onClick="onAjouterCompetence"/>
 
         <Spinner
             android:layout_width="wrap_content"
@@ -73,7 +92,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="DisponibilitÃ©"
+            android:text="Disponibilité"
             android:id="@+id/textDisponibilit"
             android:layout_below="@+id/spinnerCompetences"
             android:layout_alignParentStart="true" />
@@ -83,6 +102,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/checkBoxLundiJour"
             android:checked="false"
+            android:onClick="onCheckLundiJour"
             android:layout_below="@+id/textJour"
             android:layout_alignStart="@+id/textJour" />
 
@@ -109,6 +129,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/checkBoxLundiSoir"
             android:checked="false"
+            android:onClick="onCheckLundiSoir"
             android:layout_below="@+id/textNuit"
             android:layout_alignStart="@+id/textNuit" />
 
@@ -179,6 +200,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/checkBoxMardiJour"
+            android:onClick="onCheckMardiJour"
             android:checked="false"
             android:layout_above="@+id/textMercredi"
             android:layout_alignStart="@+id/checkBoxLundiJour" />
@@ -188,6 +210,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/checkBoxMardiSoir"
             android:checked="false"
+            android:onClick="onCheckMardiSoir"
             android:layout_alignTop="@+id/checkBoxMardiJour"
             android:layout_alignStart="@+id/checkBoxLundiSoir" />
 
@@ -195,6 +218,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/checkBoxMercrediJour"
+            android:onClick="onCheckMercrediJour"
             android:checked="false"
             android:layout_alignBottom="@+id/textMercredi"
             android:layout_alignStart="@+id/checkBoxMardiJour" />
@@ -203,6 +227,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/checkBoxMercrediSoir"
+            android:onClick="onCheckMercrediSoir"
             android:checked="false"
             android:layout_alignTop="@+id/checkBoxMercrediJour"
             android:layout_alignStart="@+id/checkBoxMardiSoir" />
@@ -212,6 +237,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/checkBoxJeudiJour"
             android:checked="false"
+            android:onClick="onCheckJeudiJour"
             android:layout_above="@+id/textVendredi"
             android:layout_alignStart="@+id/checkBoxMercrediJour" />
 
@@ -219,6 +245,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/checkBoxJeudiSoir"
+            android:onClick="onCheckJeudiSoir"
             android:checked="false"
             android:layout_alignTop="@+id/checkBoxJeudiJour"
             android:layout_alignStart="@+id/checkBoxMercrediSoir" />
@@ -228,6 +255,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/checkBoxVendrediJour"
             android:checked="false"
+            android:onClick="onCheckVendrediJour"
             android:layout_above="@+id/textSamedi"
             android:layout_toEndOf="@+id/spinnerCompetences" />
 
@@ -236,6 +264,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/checkBoxVendrediSoir"
             android:checked="false"
+            android:onClick="onCheckVendrediSoir"
             android:layout_alignTop="@+id/checkBoxVendrediJour"
             android:layout_alignStart="@+id/checkBoxJeudiJour" />
 
@@ -243,6 +272,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/checkBoxSamediJour"
+            android:onClick="onCheckSamediJour"
             android:checked="false"
             android:layout_alignBottom="@+id/textSamedi"
             android:layout_alignStart="@+id/checkBoxVendrediSoir" />
@@ -251,6 +281,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/checkBoxSamediSoir"
+            android:onClick="onCheckSamediSoir"
             android:checked="false"
             android:layout_above="@+id/buttonAnnuler"
             android:layout_toEndOf="@+id/spinnerCompetences" />
@@ -259,6 +290,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/checkBoxDimancheJour"
+            android:onClick="onCheckDimancheJour"
             android:checked="false"
             android:layout_above="@+id/buttonSauvegarder"
             android:layout_centerHorizontal="true" />
@@ -267,6 +299,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/checkBoxDimancheSoir"
+            android:onClick="onCheckDimancheSoir"
             android:checked="false"
             android:layout_alignTop="@+id/checkBoxSamediJour"
             android:layout_alignStart="@+id/checkBoxVendrediJour" />
@@ -276,6 +309,7 @@
             android:layout_height="wrap_content"
             android:text="Sauvegarder"
             android:id="@+id/buttonSauvegarder"
+            android:onClick="onSauvegarde"
             android:layout_below="@+id/textDimanche"
             android:layout_toStartOf="@+id/checkBoxDimancheJour" />
 
@@ -287,6 +321,8 @@
             android:id="@+id/buttonAnnuler"
             android:layout_below="@+id/checkBoxDimancheJour"
             android:layout_alignEnd="@+id/checkBoxSamediSoir" />
+
+
 
 
     </RelativeLayout>
