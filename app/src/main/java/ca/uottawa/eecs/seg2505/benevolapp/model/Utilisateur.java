@@ -1,6 +1,8 @@
 package ca.uottawa.eecs.seg2505.benevolapp.model;
 
-public abstract class Utilisateur {
+import java.io.Serializable;
+
+public abstract class Utilisateur  implements Serializable {
     protected String codePostal;
     protected String ville;
     protected String numeroTelephone;

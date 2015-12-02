@@ -1,6 +1,8 @@
 package ca.uottawa.eecs.seg2505.benevolapp.model;
 
-public class Disponibilite {
+import java.io.Serializable;
+
+public class Disponibilite  implements Serializable {
 
     private JourSemaine jour;
     private boolean soir;

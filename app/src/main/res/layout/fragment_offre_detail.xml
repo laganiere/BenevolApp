@@ -1,0 +1,350 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="ca.uottawa.eecs.seg2505.benevolapp.VoirSesOffreDetails">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/offre_detail"
+            style="?android:attr/textAppearanceLarge" android:layout_width="match_parent"
+            android:layout_height="match_parent" android:padding="8dp" android:textIsSelectable="true"
+            tools:context="ca.uottawa.eecs.seg2505.benevolapp.OffreDetailFragment" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView"
+        android:fillViewport="false"
+        android:layout_weight="5"
+        android:measureAllChildren="false"
+        android:nestedScrollingEnabled="false">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Code Postal :"
+                    android:id="@+id/textViewCodePostal"
+                    android:layout_weight="1"
+                    android:layout_column="0" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="J2Y 3B5"
+                    android:id="@+id/textViewCodePostalData"
+                    android:layout_weight="1"
+                    android:layout_column="2" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="20dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Ville :"
+                    android:id="@+id/textViewVille"
+                    android:layout_weight="1"
+                    android:layout_column="0" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Gatineau"
+                    android:id="@+id/textViewVilleData"
+                    android:layout_weight="1"
+                    android:layout_column="2" />
+
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Horraire"
+                    android:id="@+id/textViewHorraire"
+                    android:layout_weight="1"
+                    android:singleLine="false"
+                    android:layout_column="0" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Lundi Soir"
+                    android:id="@+id/textViewHorraireData"
+                    android:layout_weight="1"
+                    android:layout_column="2" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Date de Creation :"
+                    android:id="@+id/txtViewDateCreation"
+                    android:layout_weight="1"
+                    android:layout_column="0" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="01/10/2015"
+                    android:id="@+id/textViewDateCreationData"
+                    android:layout_weight="1"
+                    android:layout_column="2" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Durée :"
+                    android:id="@+id/textViewDure"
+                    android:layout_weight="1"
+                    android:layout_column="0" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewDureeData"
+                    android:layout_weight="1"
+                    android:layout_column="2" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="20dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Début :"
+                    android:id="@+id/textViewDateDebut"
+                    android:layout_weight="0.5"
+                    android:layout_column="1" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewDateFinData"
+                    android:layout_weight="1"
+                    android:text="20/08/2015"
+                    android:layout_column="0" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Fin :"
+                    android:id="@+id/textViewDateFin"
+                    android:layout_weight="0.5"
+                    android:layout_column="2" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewDateDebutData"
+                    android:layout_weight="1"
+                    android:text="10/01/2016"
+                    android:layout_column="3" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre de place :"
+                    android:id="@+id/textViewNbrPlace"
+                    android:layout_weight="1"
+                    android:layout_column="0" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="5"
+                    android:id="@+id/textViewNbrPlaceData"
+                    android:layout_weight="1"
+                    android:layout_column="2" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Compétence :"
+                    android:id="@+id/textViewCompetence"
+                    android:layout_weight="1"
+                    android:layout_column="0" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewCompetenceData"
+                    android:layout_weight="1"
+                    android:layout_column="2"
+                    android:text="Competence 1  , competence 2 doit etre competence, puis habile avec competence" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Type d&apos;activité"
+                    android:id="@+id/textViewTypeActiviter"
+                    android:layout_weight="1"
+                    android:layout_column="0" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Travail manuel, transporter des boites"
+                    android:id="@+id/textViewTypeActiviterData"
+                    android:layout_weight="1"
+                    android:layout_column="2" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="20dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Àge minimum :"
+                    android:id="@+id/textViewAgeMin"
+                    android:layout_weight="1"
+                    android:layout_column="0" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="16 ans"
+                    android:id="@+id/textViewAgeMinData"
+                    android:layout_weight="1"
+                    android:layout_column="2" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Personne contact :"
+                    android:id="@+id/textViewPersContact"
+                    android:layout_weight="1"
+                    android:layout_column="0" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Big Boss"
+                    android:id="@+id/textViewPersContactData"
+                    android:layout_weight="1"
+                    android:layout_column="2" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="15dp" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Courriel"
+                    android:id="@+id/textViewCourriel"
+                    android:layout_weight="1"
+                    android:layout_column="0" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="BigB@Gmail.ca"
+                    android:id="@+id/textViewCourrielData"
+                    android:layout_weight="1"
+                    android:layout_column="2" />
+            </TableRow>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Description :"
+                    android:id="@+id/textViewDescription"
+                    android:paddingBottom="10dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textViewDescriptionData"
+                    android:singleLine="false"
+                    android:text="Consist de etre un &quot;boss&quot; qui va ecrire des textes de test avec de nombreuses fautes de francais et d&apos;anglicisme." />
+            </LinearLayout>
+        </TableLayout>
+    </ScrollView>
+
+</LinearLayout>

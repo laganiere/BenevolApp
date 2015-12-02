@@ -1,8 +1,8 @@
 package ca.uottawa.eecs.seg2505.benevolapp;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import ca.uottawa.eecs.seg2505.benevolapp.controlleur.Delegateur;
@@ -15,17 +15,7 @@ public class MainBenevoleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_benevole);
-
-        Delegateur.utilisateurCourant= new Benevole("François",
-                "Tremblay",
-                "Ottawa",
-                "K2C 4F5",
-                "613-231-2143",
-                "ftremblay1234@gmail.com",
-                "Je suis bon en programmation et surtout pour faire des sites web.",
-                23,
-                true);
-
+        Delegateur.utilisateurCourant= Delegateur.getInstance().dbFacade.getBenevole("ftremblay1234@gmail.com");
     }
 
     public void onCancel(View view) {

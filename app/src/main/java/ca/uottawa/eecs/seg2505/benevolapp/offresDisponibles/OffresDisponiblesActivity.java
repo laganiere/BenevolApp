@@ -62,6 +62,7 @@ public class OffresDisponiblesActivity extends AppCompatActivity {
             @Override
             public void onRightCardExit(Object dataObject) {
                 // L'offre a été envoyée vers la droite
+                Delegateur.getInstance().getBenevoleControlleur().appliquerSurOffre((Offre) dataObject);
                 makeToast(OffresDisponiblesActivity.this, "Application Envoyée!");
             }
 
@@ -104,7 +105,7 @@ public class OffresDisponiblesActivity extends AppCompatActivity {
         Log.d("OFFRES", "Offres Rechargées!");
     }
 
-    public void onAplique(View view) {
+    public void onApplique(View view) {
         if (offresDisponibles.size() != 0) flingContainer.getTopCardListener().selectRight();
     }
 
