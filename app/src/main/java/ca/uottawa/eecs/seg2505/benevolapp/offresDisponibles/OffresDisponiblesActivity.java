@@ -62,6 +62,7 @@ public class OffresDisponiblesActivity extends AppCompatActivity {
             @Override
             public void onRightCardExit(Object dataObject) {
                 // L'offre a été envoyée vers la droite
+                Delegateur.getInstance().getBenevoleControlleur().appliquerSurOffre((Offre) dataObject);
                 makeToast(OffresDisponiblesActivity.this, "Application Envoyée!");
             }
 

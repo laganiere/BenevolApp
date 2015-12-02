@@ -39,8 +39,22 @@
         </activity>
         <activity android:name=".ModifBenevoleActivity" >
         </activity>
+        <activity android:name=".ModifOrganismeActivity" >
+        </activity>
         <activity android:name=".EtatOffresActivity" >
         </activity>
+		    <activity android:name=".OffreDetailActivity"
+            android:label="Offre Detail">
+        </activity>
+
+        <activity
+            android:name=".OffreListActivity"
+            android:label="Liste des Offres">
+        </activity>
+
+        <activity android:name=".InfoOrganismeActivity">
+		</activity>
+
     </application>
 
 </manifest>

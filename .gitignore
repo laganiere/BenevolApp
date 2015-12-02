@@ -1,8 +1,59 @@
-.gradle
-/local.properties
-.DS_Store
+# Built application files
+/*/build/
+
+# Crashlytics configuations
+com_crashlytics_export_strings.xml
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Gradle generated files
+.gradle/
+
+# Signing files
+.signing/
+
+# generated files
+bin/  
+gen/
+/*/local.properties
+/*/out
+/*/*/build
+build  
 /build
 /captures
-.idea
+
+# User-specific configurations
+.idea/libraries/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/.name
+.idea/compiler.xml
+.idea/copyright/profiles_settings.xml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/scopes/scope_settings.xml
+.idea/vcs.xml
 *.iml
+.idea/
+gradle  
+
+# OS-specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# built application files
+*.apk
+*.ap_
+
+# Java class files
+*.class
+
+/local.properties
 app/app.iml

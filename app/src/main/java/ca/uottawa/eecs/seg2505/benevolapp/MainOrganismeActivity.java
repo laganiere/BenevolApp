@@ -1,5 +1,6 @@
 package ca.uottawa.eecs.seg2505.benevolapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -29,6 +30,16 @@ public class MainOrganismeActivity extends AppCompatActivity {
                 "Grande",
                 "Aide humanitaire",
                 "");
+    }
+
+    public void onInformation(View view) {
+        Intent intent = new Intent(this, ModifOrganismeActivity.class);
+        startActivity(intent);
+    }
+
+    public void onOffre(View view) {
+        Intent intent = new Intent(this, OffreListActivity.class);
+        startActivity(intent);
     }
 
     public void onCancel(View view) {

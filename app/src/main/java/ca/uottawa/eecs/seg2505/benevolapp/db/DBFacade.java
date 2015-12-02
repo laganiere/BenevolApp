@@ -36,6 +36,8 @@ public interface DBFacade {
 
     List<Offre> getOffresDisponibles(Benevole benevole);
 
+    public List<Offre> getOffresParInterets(Benevole benevole);
+
     void applique(Benevole benevole, Offre offre);
 
     public void rejeter(Benevole benevole, Offre offre);
