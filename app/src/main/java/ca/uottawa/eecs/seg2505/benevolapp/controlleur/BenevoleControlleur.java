@@ -34,7 +34,14 @@ public class BenevoleControlleur {
 	/** @Return Les offres à proposer à l'utilisateur courrant. **/
 	public List<Offre> getOffresDisponibles() {
 		// Assumant que l'utilisateur courrant est bien un bénévole.
-		return dbFacade.getOffresDisponibles((Benevole) Delegateur.getInstance().getUtilisateurCourant());
+		List<Offre> offresDisponibles = dbFacade.getOffresDisponibles((Benevole) Delegateur.getInstance().getUtilisateurCourant());
+		List<Offre> parInterets = dbFacade.getOffresParInterets((Benevole) Delegateur.getInstance().getUtilisateurCourant());
+
+        for (Offre o : parInterets) {
+            if (!offresDisponibles.contains(o))
+                offresDisponibles.add(o);
+        }
+		return offresDisponibles;
 	}
 
 	/** @Return Le bénévole inscrit avec le courriel **/
