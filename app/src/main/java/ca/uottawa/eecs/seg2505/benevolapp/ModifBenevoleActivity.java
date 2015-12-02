@@ -29,7 +29,7 @@ public class ModifBenevoleActivity extends AppCompatActivity {
         final Button btn = (Button) findViewById(R.id.btnModifierCompte);
 
         Utilisateur utilisateur = Delegateur.getInstance().getUtilisateurCourant();
-        Benevole b = benCont.getBenevole(utilisateur.getCourriel());
+        final Benevole b = benCont.getBenevole(utilisateur.getCourriel());
 
         if (b==null) {
             android.content.Context context = getApplicationContext();
@@ -91,7 +91,6 @@ public class ModifBenevoleActivity extends AppCompatActivity {
                         showToast("Le numéro de téléphone n'est pas valide.");
                     }
                     else{
-                        Benevole b = new Benevole();
                         b.setPrenom(txtPrenom.getText().toString());
                         b.setAge(Integer.parseInt(txtAge.getText().toString()));
                         b.setCourriel(txtCourriel.getText().toString());
