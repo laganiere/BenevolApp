@@ -245,7 +245,7 @@ public class MemoireFacade implements DBFacade {
         List<Offre> sorted = new ArrayList<Offre>(offres);
         List<Integer> matches = new ArrayList<Integer>();
 
-        String[] interests = benevole.getDomaineInterets().split(","); //Crée un tableau contenant les intérets.
+        String[] interests = benevole.getDomaineInterets().split(" "); //Crée un tableau contenant les intérets.
 
         int num;
         for(int i = 0; i<sorted.size(); i++){
