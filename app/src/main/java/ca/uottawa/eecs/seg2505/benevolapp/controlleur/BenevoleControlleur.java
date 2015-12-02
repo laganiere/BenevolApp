@@ -24,6 +24,7 @@ import java.util.regex.Pattern;
 import ca.uottawa.eecs.seg2505.benevolapp.db.DBFacade;
 import ca.uottawa.eecs.seg2505.benevolapp.model.Benevole;
 import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
+import ca.uottawa.eecs.seg2505.benevolapp.offresDisponibles.OffresDisponiblesActivity;
 
 public class BenevoleControlleur {
 
@@ -39,16 +40,22 @@ public class BenevoleControlleur {
 		return dbFacade.getOffresDisponibles((Benevole) Delegateur.getInstance().getUtilisateurCourant());
 	}
 
-	/** Permet a l'utilisateur courrant d'appliquer sur une offre. **/
-	public void appliquerSurOffre(Offre offre) {
-		dbFacade.applique((Benevole) Delegateur.getInstance().getUtilisateurCourant(), offre);
-	}
-
 	/** @Return Le bénévole inscrit avec le courriel **/
 	public Benevole getBenevole(String courriel) {
 		return dbFacade.getBenevole(courriel);
 	}
 
+<<<<<<< HEAD
+	public List<Offre> getOffreAppliquer(){
+		// Assumant que l'utilisateur courrant est bien un bénévole.
+		return dbFacade.getOffres((Benevole) Delegateur.getInstance().getUtilisateurCourant());
+	}
+	public void appliquerSurOffre(Offre offre) {
+		dbFacade.applique((Benevole) Delegateur.getInstance().getUtilisateurCourant(), offre);
+	}
+
+
+=======
 	public boolean SauvegarderBenevole(Benevole b){
 
 		if (b.getPrenom().equals("") || b.getAge() == null || b.getAge() < 1 ||
@@ -73,4 +80,5 @@ public class BenevoleControlleur {
 		Matcher matcher = pattern.matcher(text);
 		return matcher.matches();
 	}
+>>>>>>> refs/remotes/laganiere/master
 }
