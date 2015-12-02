@@ -39,6 +39,8 @@
         </activity>
         <activity android:name=".ModifBenevoleActivity" >
         </activity>
+        <activity android:name=".ModifOrganismeActivity" >
+        </activity>
         <activity android:name=".EtatOffresActivity" >
         </activity>
 		    <activity android:name=".OffreDetailActivity"
