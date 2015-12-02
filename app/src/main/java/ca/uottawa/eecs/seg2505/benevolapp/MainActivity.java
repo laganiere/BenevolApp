@@ -18,11 +18,13 @@ public class MainActivity extends AppCompatActivity {
         Delegateur.dbFacade= new MemoireFacade();
     }
 
+    // demarrage de l'activité bénévole
     public void onBenevole(View view) {
         Intent intent = new Intent(this, MainBenevoleActivity.class);
         startActivity(intent);
     }
 
+    // demarrage de l'activité organisme
     public void onOrganisme(View view) {
         Intent intent = new Intent(this, MainOrganismeActivity.class);
         startActivity(intent);//
