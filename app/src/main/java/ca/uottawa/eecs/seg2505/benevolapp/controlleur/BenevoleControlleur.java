@@ -37,8 +37,14 @@ public class BenevoleControlleur {
 		return dbFacade.getOffresDisponibles((Benevole) Delegateur.getInstance().getUtilisateurCourant());
 	}
 
+	/** Permet a l'utilisateur courrant d'appliquer sur une offre. **/
+	public void appliquerSurOffre(Offre offre) {
+		dbFacade.applique((Benevole) Delegateur.getInstance().getUtilisateurCourant(), offre);
+	}
+
 	/** @Return Le bénévole inscrit avec le courriel **/
 	public Benevole getBenevole(String courriel) {
 		return dbFacade.getBenevole(courriel);
 	}
+
 }
