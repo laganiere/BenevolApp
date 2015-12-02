@@ -105,7 +105,7 @@ public class OffresDisponiblesActivity extends AppCompatActivity {
         Log.d("OFFRES", "Offres Rechargées!");
     }
 
-    public void onAplique(View view) {
+    public void onApplique(View view) {
         if (offresDisponibles.size() != 0) flingContainer.getTopCardListener().selectRight();
     }
 

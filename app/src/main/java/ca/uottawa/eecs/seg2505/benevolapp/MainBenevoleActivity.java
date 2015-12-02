@@ -16,15 +16,7 @@ public class MainBenevoleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_benevole);
         if (Delegateur.utilisateurCourant == null) {
-            Delegateur.utilisateurCourant = new Benevole("François",
-                    "Tremblay",
-                    "Ottawa",
-                    "K2C 4F5",
-                    "613-231-2143",
-                    "ftremblay1234@gmail.com",
-                    "Je suis bon en programmation et surtout pour faire des sites web.",
-                    23,
-                    true);
+            Delegateur.utilisateurCourant= Delegateur.getInstance().dbFacade.getBenevole("ftremblay1234@gmail.com");
         }
     }
 

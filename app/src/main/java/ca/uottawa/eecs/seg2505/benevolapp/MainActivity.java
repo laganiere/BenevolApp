@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Delegateur.dbFacade= new MemoireFacade();
+        Delegateur.getInstance().getUtilisateurCourant();
     }
 
     // demarrage de l'activité bénévole
