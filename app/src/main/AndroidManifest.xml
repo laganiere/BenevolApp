@@ -54,6 +54,8 @@
 
         <activity android:name=".InfoOrganismeActivity">
 		</activity>
+        <activity android:name=".EtatOffreButtonActivity" >
+        </activity>
 
     </application>
 
