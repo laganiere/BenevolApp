@@ -45,7 +45,6 @@ public class BenevoleControlleur {
 		return dbFacade.getBenevole(courriel);
 	}
 
-<<<<<<< HEAD
 	public List<Offre> getOffreAppliquer(){
 		// Assumant que l'utilisateur courrant est bien un bénévole.
 		return dbFacade.getOffres((Benevole) Delegateur.getInstance().getUtilisateurCourant());
@@ -54,8 +53,6 @@ public class BenevoleControlleur {
 		dbFacade.applique((Benevole) Delegateur.getInstance().getUtilisateurCourant(), offre);
 	}
 
-
-=======
 	public boolean SauvegarderBenevole(Benevole b){
 
 		if (b.getPrenom().equals("") || b.getAge() == null || b.getAge() < 1 ||
@@ -80,5 +77,4 @@ public class BenevoleControlleur {
 		Matcher matcher = pattern.matcher(text);
 		return matcher.matches();
 	}
->>>>>>> refs/remotes/laganiere/master
 }
