@@ -69,7 +69,7 @@ public class Benevole extends Utilisateur implements Serializable {
     }
 
     public Boolean getGenre() {
-        return isHomme == null ? null : isHomme;
+        return isHomme;
     }
 
     public String getNumeroTelephone() {
