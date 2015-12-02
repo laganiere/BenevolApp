@@ -22,6 +22,7 @@ import java.util.List;
 import ca.uottawa.eecs.seg2505.benevolapp.db.DBFacade;
 import ca.uottawa.eecs.seg2505.benevolapp.model.Benevole;
 import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
+import ca.uottawa.eecs.seg2505.benevolapp.offresDisponibles.OffresDisponiblesActivity;
 
 public class BenevoleControlleur {
 
@@ -37,14 +38,18 @@ public class BenevoleControlleur {
 		return dbFacade.getOffresDisponibles((Benevole) Delegateur.getInstance().getUtilisateurCourant());
 	}
 
-	/** Permet a l'utilisateur courrant d'appliquer sur une offre. **/
-	public void appliquerSurOffre(Offre offre) {
-		dbFacade.applique((Benevole) Delegateur.getInstance().getUtilisateurCourant(), offre);
-	}
-
 	/** @Return Le bénévole inscrit avec le courriel **/
 	public Benevole getBenevole(String courriel) {
 		return dbFacade.getBenevole(courriel);
 	}
+
+	public List<Offre> getOffreAppliquer(){
+		// Assumant que l'utilisateur courrant est bien un bénévole.
+		return dbFacade.getOffres((Benevole) Delegateur.getInstance().getUtilisateurCourant());
+	}
+	public void appliquerSurOffre(Offre offre) {
+		dbFacade.applique((Benevole) Delegateur.getInstance().getUtilisateurCourant(), offre);
+	}
+
 
 }
