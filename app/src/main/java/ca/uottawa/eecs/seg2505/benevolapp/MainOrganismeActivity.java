@@ -17,7 +17,7 @@ public class MainOrganismeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_organisme);
 
-        Delegateur.utilisateurCourant= Delegateur.getInstance().dbFacade.getOrganisme("rh@wocrc.ca");
+        Delegateur.utilisateurCourant = Delegateur.getInstance().dbFacade.getOrganisme("rh@wocrc.ca");
     }
 
     public void onInformation(View view) {

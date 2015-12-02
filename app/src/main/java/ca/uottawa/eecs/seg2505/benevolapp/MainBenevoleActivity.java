@@ -15,9 +15,7 @@ public class MainBenevoleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_benevole);
-        if (Delegateur.utilisateurCourant == null) {
-            Delegateur.utilisateurCourant= Delegateur.getInstance().dbFacade.getBenevole("ftremblay1234@gmail.com");
-        }
+        Delegateur.utilisateurCourant= Delegateur.getInstance().dbFacade.getBenevole("ftremblay1234@gmail.com");
     }
 
     public void onCancel(View view) {
