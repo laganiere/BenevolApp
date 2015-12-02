@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     // demarrage de l'activité organisme
     public void onOrganisme(View view) {
         Intent intent = new Intent(this, MainOrganismeActivity.class);
-        startActivity(intent);
+        startActivity(intent);//
     }
 
 
