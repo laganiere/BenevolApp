@@ -20,6 +20,15 @@
             android:name=".MainBenevoleActivity"
             android:label="@string/title_activity_main_benevole" >
         </activity>
+
+        <activity android:name=".CreerUneOffreActivity"
+            android:label="Créer une Offre">
+        </activity>
+
+        <activity android:name=".ActivityAvailibility2"
+            android:label="Choisissez un horaire">
+        </activity>
+
         <activity
             android:name=".MainOrganismeActivity"
             android:label="@string/title_activity_main_organisme" >
@@ -39,24 +48,8 @@
         </activity>
         <activity android:name=".ModifBenevoleActivity" >
         </activity>
-        <activity android:name=".ModifOrganismeActivity" >
-        </activity>
         <activity android:name=".EtatOffresActivity" >
         </activity>
-		    <activity android:name=".OffreDetailActivity"
-            android:label="Offre Detail">
-        </activity>
-
-        <activity
-            android:name=".OffreListActivity"
-            android:label="Liste des Offres">
-        </activity>
-
-        <activity android:name=".InfoOrganismeActivity">
-		</activity>
-        <activity android:name=".EtatOffreButtonActivity" >
-        </activity>
-
     </application>
 
 </manifest>

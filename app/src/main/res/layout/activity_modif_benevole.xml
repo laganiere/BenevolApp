@@ -1,146 +1,253 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="ca.uottawa.eecs.seg2505.benevolapp.ModifBenevoleActivity">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        tools:context="ca.uottawa.eecs.seg2505.benevolapp.ModifBenevoleActivity">
 
-    <!--
-    Equipe #8:
-                Gaultier, Wendy Victoria
-                Lavictoire Joumma, Carl
-                Malo, Nicolas
-                Pierre-Gilles, Samuel
-    -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView" >
-
-        <LinearLayout
-            android:orientation="vertical"
+        <!--
+        Equipe #8:
+                	Gaultier, Wendy Victoria
+                	Lavictoire Joumma, Carl
+                	Malo, Nicolas
+                	Pierre-Gilles, Samuel
+        -->
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:weightSum="1">
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView" >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:hint="Mise-à-jour des informations"
-                android:id="@+id/titleCaption"
-                android:layout_below="@+id/scrollView"
-                android:layout_toRightOf="@+id/scrollView"
-                android:layout_toEndOf="@+id/scrollView" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:hint="Entrer vos informations ( * Obligatoire )"
-                android:id="@+id/instructionCaption" />
-
-            <EditText
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:hint="Prénom*"
-                android:id="@+id/editPrenom"
-                android:layout_below="@+id/scrollView"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:id="@+id/editAge"
-                android:maxLength="3"
-                android:layout_below="@+id/scrollView"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:hint="Age*" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:id="@+id/editCourriel"
-                android:layout_below="@+id/editAge"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:hint="Courriel*"
-                android:editable="false"
-                android:enabled="false" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="phone"
-                android:id="@+id/editTelephone"
-                android:hint="Numéro de téléphone (ex:000-000-0000)" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/editVille"
-                android:hint="Ville*"
-                android:inputType="text"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPostalAddress"
-                android:id="@+id/editPostal"
-                android:hint="3 Premier caractères du Code Postal*" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Compétences:"
-                android:id="@+id/txtCompetences"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:inputType="textMultiLine"
-                android:id="@+id/editDomaine"
-                android:hint="Domaine et intérêts" />
-
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:weightSum="1">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sexe:"
-                    android:id="@+id/txtSexe" />
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:hint="Inscription d&apos;un bÃ©nÃ©vole"
+                    android:id="@+id/titleCaption"
+                    android:layout_below="@+id/scrollView"
+                    android:layout_toRightOf="@+id/scrollView"
+                    android:layout_toEndOf="@+id/scrollView" />
 
-                <RadioButton android:layout_width="wrap_content"
-                    android:id="@+id/rdbHomme"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Homme"
-                    android:checked="true" />
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:hint="Entrer vos informations ( * Obligatoire )"
+                    android:id="@+id/instructionCaption" />
 
-                <RadioButton android:layout_width="wrap_content"
-                    android:id="@+id/rdbFemme"
+                <EditText
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Femme"/>
+                    android:inputType="textPersonName"
+                    android:hint="PrÃ©nom*"
+                    android:id="@+id/editPrenom"
+                    android:layout_below="@+id/scrollView"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
 
-            </RadioGroup>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:id="@+id/editAge"
+                    android:layout_below="@+id/scrollView"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:hint="Ã‚ge*" />
 
-            <Button
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="Modifier le compte"
-                android:id="@+id/btnModifierCompte" />
-        </LinearLayout>
-    </ScrollView>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:id="@+id/editCourriel"
+                    android:layout_below="@+id/editAge"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:hint="Courriel*" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:id="@+id/editTelephone"
+                    android:hint="NumÃ©ro de TÃ©lÃ©phone" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editVille"
+                    android:hint="Ville*"
+                    android:inputType="text"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPostalAddress"
+                    android:id="@+id/editPostal"
+                    android:hint="3 Premier caractÃ¨res du Code Postal*" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CompÃ©tences:"
+                    android:id="@+id/txtCompetences"/>
+
+                <Spinner
+                    android:id="@+id/spinComptence"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:inputType="textMultiLine"
+                    android:id="@+id/editDomaine"
+                    android:hint="Domaine et IntÃ©rÃªts" />
+
+
+
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sexe:"
+                        android:id="@+id/txtSexe" />
+
+                    <RadioButton android:layout_width="wrap_content"
+                        android:id="@+id/rdbHomme"
+                        android:layout_height="wrap_content"
+                        android:text="Homme"/>
+
+                    <RadioButton android:layout_width="wrap_content"
+                        android:id="@+id/rdbFemme"
+                        android:layout_height="wrap_content"
+                        android:text="Femme"/>
+
+                </RadioGroup>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DisponibilitÃ©(s):"
+                    android:id="@+id/lblDisponibilite" />
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lundi Matin"
+                    android:id="@+id/chk_lundiMatin"
+                    android:layout_marginLeft="47dp"
+                    />
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lundi Soir"
+                    android:id="@+id/chk_lundiSoir"
+                    android:layout_marginLeft="47dp"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mardi Matin"
+                    android:id="@+id/chk_mardiMatin"
+                    android:layout_marginLeft="47dp"
+                    />
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mardi Soir"
+                    android:id="@+id/chk_mardiSoir"
+                    android:layout_marginLeft="47dp"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mercredi Matin"
+                    android:id="@+id/chk_mercrediMatin"
+                    android:layout_marginLeft="47dp"
+                    />
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mercredi Soir"
+                    android:id="@+id/chk_mercrediSoir"
+                    android:layout_marginLeft="47dp"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jeudi Matin"
+                    android:id="@+id/chk_jeudiMatin"
+                    android:layout_marginLeft="47dp"
+                    />
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jeudi Soir"
+                    android:id="@+id/chk_jeudiSoir"
+                    android:layout_marginLeft="47dp"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vendredi Matin"
+                    android:id="@+id/chk_vendrediMatin"
+                    android:layout_marginLeft="47dp"
+                    />
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vendredi Soir"
+                    android:id="@+id/chk_vendrediSoir"
+                    android:layout_marginLeft="47dp"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Samedi Matin"
+                    android:id="@+id/chk_samediMatin"
+                    android:layout_marginLeft="47dp"
+                    />
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Samedi Soir"
+                    android:id="@+id/chk_samediSoir"
+                    android:layout_marginLeft="47dp"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dimanche Matin"
+                    android:id="@+id/chk_dimancheMatin"
+                    android:layout_marginLeft="47dp"
+                    />
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dimanche Soir"
+                    android:id="@+id/chk_dimancheSoir"
+                    android:layout_marginLeft="47dp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:id="@+id/editPassword"
+                    android:hint="Mot de passe*"/>
+
+                <Button
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="CrÃ©er le compte"
+                    android:id="@+id/btnCreeCompte" />
+            </LinearLayout>
+        </ScrollView>
 
 </RelativeLayout>
-    <!-- From: file:/C:/Users/w/Documents/BenevolApp-master/app/src/main/res/layout/activity_modif_benevole.xml -->

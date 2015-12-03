@@ -15,9 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.uottawa.eecs.seg2505.benevolapp.R;
-import ca.uottawa.eecs.seg2505.benevolapp.controlleur.BenevoleControlleur;
 import ca.uottawa.eecs.seg2505.benevolapp.controlleur.Delegateur;
-import ca.uottawa.eecs.seg2505.benevolapp.model.Benevole;
 import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
 
 public class OffresDisponiblesActivity extends AppCompatActivity {
@@ -26,7 +24,6 @@ public class OffresDisponiblesActivity extends AppCompatActivity {
     private List<Offre> offresDisponibles;
     private ArrayAdapter arrayAdapter;
     private SwipeFlingAdapterView flingContainer;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,18 +57,12 @@ public class OffresDisponiblesActivity extends AppCompatActivity {
             public void onLeftCardExit(Object dataObject) {
                 // L'offre a été envoyée vers la gauche
                 makeToast(OffresDisponiblesActivity.this, "Offre Ignorée!");
-
             }
 
             @Override
             public void onRightCardExit(Object dataObject) {
                 // L'offre a été envoyée vers la droite
                 makeToast(OffresDisponiblesActivity.this, "Application Envoyée!");
-
-                Delegateur.getInstance().getBenevoleControlleur().appliquerSurOffre((Offre) dataObject);
-
-
-
             }
 
             @Override

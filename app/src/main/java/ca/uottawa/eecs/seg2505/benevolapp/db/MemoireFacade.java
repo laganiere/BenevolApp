@@ -45,19 +45,23 @@ public class MemoireFacade implements DBFacade {
     }
 
     /**
+<<<<<<< HEAD
      * Cette méthode va chercher les offres de l'organisme selon le nom d'utilisateur (le courriel).
+=======
+     * Cette méthode doit aller chercher le bénévole selon le nom d'utilisateur (le courriel).
      *
      * @param courriel Le courriel du benevole.
      * @return L'objet Benevole correspondant.
      */
     @Override
     public Benevole getBenevole(String courriel) { // Équipe 7
-        for (Benevole b : benevoles) if (b.getCourriel().equals(courriel)) return b;
+        for (Benevole b : benevoles) if (b.getCourriel() == courriel) return b;
         return null;
     }
 
     /**
      * Cette méthode va chercher les offre de l'organisme selon le nom d'utilisateur (le courriel).
+>>>>>>> origin/master
      *
      * @param nomUtilisateur Le courriel de l'organisme.
      * @return Un liste d'offre de l'organisme.
@@ -117,7 +121,7 @@ public class MemoireFacade implements DBFacade {
     @Override
     public List<String> getCompetences() { // Équipe 15
         return competences;
-    } //Équipe 14
+    }
 
 
     /**
@@ -164,7 +168,7 @@ public class MemoireFacade implements DBFacade {
     @Override
     public void ajouteCompetence(String competence) { // Équipe 15
         competences.add(competence);
-    } //Équipe 14
+    }
 
     /**
      * Cette méthode sauvegarde un bénévole. Si le bénévole existe déjà, alors ses informations
@@ -239,39 +243,6 @@ public class MemoireFacade implements DBFacade {
         Collections.sort(offresDispo, new CompatibiliteComparator(benevole));
 
         return offresDispo;
-    }
-
-    public List<Offre> getOffresParInterets(Benevole benevole){
-        List<Offre> sorted = new ArrayList<Offre>(offres);
-        List<Integer> matches = new ArrayList<Integer>();
-
-        String[] interests = benevole.getDomaineInterets().split(" "); //Crée un tableau contenant les intérets.
-
-        int num;
-        for(int i = 0; i<sorted.size(); i++){
-            num = 0;
-            for(int j=0; j<interests.length; j++){
-                if(sorted.get(i).getDescription().contains(interests[j]))
-                    num++;
-            }
-            matches.add(num);
-        }
-
-        for(int i=0; i<sorted.size(); i++){
-            for(int j = i + 1; j<sorted.size(); j++){
-                if(matches.get(i)<matches.get(j)){
-                    int temp1 = matches.get(i);
-                    matches.set(i, matches.get(j));
-                    matches.set(j, temp1);
-
-                    Offre temp2 = sorted.get(i);
-                    sorted.set(i, sorted.get(j));
-                    sorted.set(j, temp2);
-                }
-            }
-        }
-
-        return sorted;
     }
 
     /**
