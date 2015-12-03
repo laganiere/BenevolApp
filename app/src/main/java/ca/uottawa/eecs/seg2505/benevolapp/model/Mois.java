@@ -12,7 +12,6 @@ public enum Mois {
     }
 
     public static Mois get(int index) {
-        if (index < 0 || index > 12) return null;
         for (Mois m : values()) if (m.getIndex() == index) return m;
         return null;
     }

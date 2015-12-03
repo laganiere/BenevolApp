@@ -2,13 +2,26 @@ package ca.uottawa.eecs.seg2505.benevolapp.model;
 
 //Made by group 15 for SEG2505A
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
 
-public class Benevole extends Utilisateur implements Serializable {
+public class Benevole extends Utilisateur {
+
+    /* Example d'instantiation
+    public static void main(String[] args) {
+     Benevole aki = new Benevole("Akintola-Febrissy", "aakin013@uottawa.ca");
+     aki.setNom("Akinyele");
+     aki.setVille("Ottawa");
+     aki.setCodePostal("K7G");
+     aki.setAge(17);
+     aki.setGender(true);
+     aki.setNumeroTelephone("911");
+     aki.addCompetence("Batterie");
+     aki.addCompetence("Laughing");
+     System.out.println(aki);
+    }*/
 
     private String prenom;
     private String nom;
@@ -17,7 +30,7 @@ public class Benevole extends Utilisateur implements Serializable {
     private int age;
 
     /**
-     * Est null si non spécifié, true si homme, false si femme.
+     * La classe Boolean est utilisée pour que l'on puisse avoir la nullitabilité.
      */
     private Boolean isHomme;
 
@@ -69,7 +82,7 @@ public class Benevole extends Utilisateur implements Serializable {
     }
 
     public Boolean getGenre() {
-        return isHomme;
+        return isHomme == null ? null : isHomme;
     }
 
     public String getNumeroTelephone() {
@@ -147,7 +160,7 @@ public class Benevole extends Utilisateur implements Serializable {
             competences = new ArrayList<String>();
         }
 
-            competences.add(competence);
+        competences.add(competence);
     }
 
 

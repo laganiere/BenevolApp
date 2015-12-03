@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView2" >
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sélectionnez les disponilibités requises ci-dessous :"
+                android:textSize="21dp"
+                android:id="@+id/text_select_availibility"
+                android:textStyle="bold"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lundi matin"
+                android:textSize="20dp"
+                android:layout_below="@+id/text_select_availibility"
+                android:id="@+id/chk_lundiMatin" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:id="@+id/chk_lundiSoir"
+                android:layout_height="wrap_content"
+                android:text="Lundi soir"
+                android:textSize="20dp"
+                android:layout_below="@+id/text_select_availibility"
+                android:layout_toEndOf="@+id/chk_lundiMatin" />
+
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mardi matin"
+                android:textSize="20dp"
+                android:id="@+id/chk_mardiMatin"
+                android:layout_below="@+id/chk_lundiMatin"
+                android:layout_alignStart="@+id/chk_lundiMatin"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mardi soir"
+                android:textSize="20dp"
+                android:id="@+id/chk_mardiSoir"
+                android:layout_below="@+id/chk_lundiSoir"
+                android:layout_alignStart="@+id/chk_lundiSoir"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mercredi matin"
+                android:textSize="15dp"
+                android:id="@+id/chk_mercrediMatin"
+                android:layout_below="@id/chk_mardiMatin"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mercredi soir"
+                android:textSize="20dp"
+                android:id="@+id/chk_mercrediSoir"
+                android:layout_below="@id/chk_mardiSoir"
+                android:layout_alignStart="@+id/chk_mardiSoir"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jeudi matin"
+                android:textSize="20dp"
+                android:id="@+id/chk_jeudiMatin"
+                android:layout_below="@id/chk_mercrediMatin"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jeudi soir"
+                android:textSize="20dp"
+                android:id="@+id/chk_jeudiSoir"
+                android:layout_below="@id/chk_mercrediSoir"
+                android:layout_alignStart="@+id/chk_mercrediSoir"/>
+
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vendredi matin"
+                android:textSize="16dp"
+                android:id="@+id/chk_vendrediMatin"
+                android:layout_below="@id/chk_jeudiMatin"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vendredi soir"
+                android:textSize="20dp"
+                android:layout_below="@+id/chk_jeudiSoir"
+                android:layout_alignStart="@id/chk_jeudiSoir"
+                android:id="@+id/chk_vendrediSoir" />
+
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Samedi matin"
+                android:textSize="20dp"
+                android:id="@+id/chk_samediMatin"
+                android:layout_below="@+id/chk_vendrediMatin"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Samedi soir"
+                android:textSize="20dp"
+                android:id="@+id/chk_samediSoir"
+                android:layout_below="@+id/chk_vendrediSoir"
+                android:layout_toEndOf="@+id/chk_samediMatin" />
+
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dimanche matin"
+                android:textSize="20dp"
+                android:id="@+id/chk_dimancheMatin"
+                android:layout_below="@+id/chk_samediMatin"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dimanche soir"
+                android:textSize="20dp"
+                android:id="@+id/chk_dimancheSoir"
+                android:layout_gravity="right"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@+id/chk_dimancheMatin" /><![CDATA[
+
+                />
+        ]]>
+        </RelativeLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Annuler"
+            android:id="@+id/button2" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Confirmer"
+            android:id="@+id/button" />
+    </LinearLayout>
+
+</LinearLayout>
