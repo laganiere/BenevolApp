@@ -15,9 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.uottawa.eecs.seg2505.benevolapp.R;
-import ca.uottawa.eecs.seg2505.benevolapp.controlleur.BenevoleControlleur;
 import ca.uottawa.eecs.seg2505.benevolapp.controlleur.Delegateur;
-import ca.uottawa.eecs.seg2505.benevolapp.model.Benevole;
 import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
 
 public class OffresDisponiblesActivity extends AppCompatActivity {
@@ -113,7 +111,7 @@ public class OffresDisponiblesActivity extends AppCompatActivity {
         Log.d("OFFRES", "Offres Rechargées!");
     }
 
-    public void onAplique(View view) {
+    public void onApplique(View view) {
         if (offresDisponibles.size() != 0) flingContainer.getTopCardListener().selectRight();
     }
 
