@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <!-- <TextView
+             android:id="@+id/labelprenom"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:textSize="25dp"
+             android:textStyle="bold"
+             android:text=" Liste des benevoles..." />
+
+         <ListView
+             android:id="@+id/listView1"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent" >
+         </ListView>-->
+
+
+        <TextView
+            android:id="@+id/titre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:text=" Détails du bénévole" />
+        <TextView
+            android:id="@+id/info_benevole"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/titre"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Button
+            android:id="@+id/buttonaccepter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:onClick="onClickAccepter"
+            android:layout_below="@+id/info_benevole"
+            android:text="Accepter" />
+
+        <Button
+            android:id="@+id/buttonrefuser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickRefuser"
+            android:layout_below="@+id/buttonaccepter"
+            android:text="Refuser" />
+
+        <Button
+            android:id="@+id/buttonInformation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickRetour"
+            android:layout_below="@+id/buttonrefuser"
+            android:text="Retour à la liste" />
+    </RelativeLayout>
+</ScrollView>

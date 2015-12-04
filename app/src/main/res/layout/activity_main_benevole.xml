@@ -23,14 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onDisponibilite"
-        android:text="Mes Disponibilités" />
-
-    <Button
-        android:id="@+id/buttonCompetence"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onCompetence"
-        android:text="Mes Compétences et Intérêt" />
+        android:text="Mes Disponibilités, compétences et intérêts" />
 
     <Button
         android:id="@+id/buttonOffresDisponibles"

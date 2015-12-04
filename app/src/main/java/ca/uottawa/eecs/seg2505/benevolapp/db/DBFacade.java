@@ -16,6 +16,8 @@ public interface DBFacade {
 
     Benevole getBenevole(String courriel);
 
+    Benevole getBenevolebyname(String name);
+
     List<Benevole> getBenevoles(Offre offre);
 
     List<String> getCompetences();

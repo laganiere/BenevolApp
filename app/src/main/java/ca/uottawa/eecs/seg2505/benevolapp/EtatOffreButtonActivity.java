@@ -1,5 +1,4 @@
-package ca.uottawa.eecs.seg2505.benevolapp.offresDisponibles;
-
+package ca.uottawa.eecs.seg2505.benevolapp;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,12 +13,13 @@ import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 import java.util.ArrayList;
 import java.util.List;
 
-import ca.uottawa.eecs.seg2505.benevolapp.R;
 import ca.uottawa.eecs.seg2505.benevolapp.controlleur.Delegateur;
 import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
-
-public class OffresDisponiblesActivity extends AppCompatActivity {
-
+import ca.uottawa.eecs.seg2505.benevolapp.offresDisponibles.OffreAdapter;
+/**
+ * Created by Kevin on 11/30/2015.
+ */
+public class EtatOffreButtonActivity extends AppCompatActivity{
     private Toast notification;
     private List<Offre> offresDisponibles;
     private ArrayAdapter arrayAdapter;
@@ -29,22 +29,15 @@ public class OffresDisponiblesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Set le Content au Layout pour Offres Disponibles
-        setContentView(R.layout.activity_offres_disponibles_main);
+        setContentView(R.layout.activity_etat_offres_buttons);
         flingContainer = (SwipeFlingAdapterView) this.findViewById(R.id.adapter_offre);
-
-        // Définition "hard coded" des offres disponibles, pourrait être fait différement dans le futur
         offresDisponibles = new ArrayList<>();
-
-        // Adpateur pour créer le layout d'une offre en fonction des objets offres
         arrayAdapter = new OffreAdapter(this, R.layout.activity_offres_disponibles_offre, offresDisponibles);
-
-        // Ajout des offres dans la liste à afficher
         loadOffres();
 
         flingContainer.setAdapter(arrayAdapter);
         flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
+
 
             @Override
             public void removeFirstObjectInAdapter() {
@@ -56,45 +49,29 @@ public class OffresDisponiblesActivity extends AppCompatActivity {
 
             @Override
             public void onLeftCardExit(Object dataObject) {
-                // L'offre a été envoyée vers la gauche
-                makeToast(OffresDisponiblesActivity.this, "Offre Ignorée!");
-
+                makeToast(EtatOffreButtonActivity.this, "Refuser!");
             }
 
             @Override
             public void onRightCardExit(Object dataObject) {
-                // L'offre a été envoyée vers la droite
-                makeToast(OffresDisponiblesActivity.this, "Application Envoyée!");
-
-                Delegateur.getInstance().getBenevoleControlleur().appliquerSurOffre((Offre) dataObject);
-
-
-
+                makeToast(EtatOffreButtonActivity.this, "Accepter!");
             }
 
             @Override
             public void onAdapterAboutToEmpty(int itemsInAdapter) {
-                // Sur le point de ne plus avoir d'offre à présenter
-                // Possibilité de créer/aller chercher les offres dynamiquement ou tout reloader automatiquement.
+
             }
 
             @Override
             public void onScroll(float scrollProgressPercent) {
-                // Distance de scrolling de l'offre par rapport à sa position originale
+
                 View view = flingContainer.getSelectedView();
                 view.findViewById(R.id.item_ignore_indicator).setAlpha(scrollProgressPercent < 0 ? -scrollProgressPercent : 0);
                 view.findViewById(R.id.item_apply_indicator).setAlpha(scrollProgressPercent > 0 ? scrollProgressPercent : 0);
             }
         });
 
-        /* // Pas nécessaire (adaoust):
-        flingContainer.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClicked(int itemPosition, Object dataObject) {
-                // L'offre a été clickée
-                makeToast(OffresDisponiblesActivity.this, "Offre Clickée!");
-            }
-        }); */
+
 
     }
 
@@ -106,12 +83,12 @@ public class OffresDisponiblesActivity extends AppCompatActivity {
     }
 
     private void loadOffres() {
-        offresDisponibles.addAll(Delegateur.getInstance().getBenevoleControlleur().getOffresDisponibles());
+        offresDisponibles.addAll(Delegateur.getInstance().getBenevoleControlleur().getOffreAppliquer());
         arrayAdapter.notifyDataSetChanged();
-        Log.d("OFFRES", "Offres Rechargées!");
+
     }
 
-    public void onApplique(View view) {
+    public void onAplique(View view) {
         if (offresDisponibles.size() != 0) flingContainer.getTopCardListener().selectRight();
     }
 
@@ -122,5 +99,18 @@ public class OffresDisponiblesActivity extends AppCompatActivity {
     public void onReload(View view) {
         loadOffres();
     }
+    public void onAccept(View view){
+        Delegateur.dbFacade.accepterOffre(Delegateur.dbFacade.getBenevole(Delegateur.utilisateurCourant.getCourriel()),offresDisponibles.get(0));
+        offresDisponibles.remove(Delegateur.getInstance().getBenevoleControlleur().getOffreAppliquer().get(0));
+        makeToast(EtatOffreButtonActivity.this, "Accepter!");
+        finish();
+    }
 
+    public void onRefuse(View view){
+        Delegateur.dbFacade.refuserOffre(Delegateur.dbFacade.getBenevole(Delegateur.utilisateurCourant.getCourriel()), offresDisponibles.get(0));
+        offresDisponibles.remove(Delegateur.getInstance().getBenevoleControlleur().getOffreAppliquer().get(0));
+        makeToast(EtatOffreButtonActivity.this, "Refuser!");
+        finish();
+
+    }
 }

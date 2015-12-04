@@ -18,10 +18,13 @@
 package ca.uottawa.eecs.seg2505.benevolapp.controlleur;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import ca.uottawa.eecs.seg2505.benevolapp.db.DBFacade;
 import ca.uottawa.eecs.seg2505.benevolapp.model.Benevole;
 import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
+import ca.uottawa.eecs.seg2505.benevolapp.offresDisponibles.OffresDisponiblesActivity;
 
 public class BenevoleControlleur {
 
@@ -34,12 +37,18 @@ public class BenevoleControlleur {
 	/** @Return Les offres à proposer à l'utilisateur courrant. **/
 	public List<Offre> getOffresDisponibles() {
 		// Assumant que l'utilisateur courrant est bien un bénévole.
-		return dbFacade.getOffresDisponibles((Benevole) Delegateur.getInstance().getUtilisateurCourant());
+		List<Offre> offresDisponibles = dbFacade.getOffresDisponibles((Benevole) Delegateur.getInstance().getUtilisateurCourant());
+		List<Offre> parInterets = dbFacade.getOffresParInterets((Benevole) Delegateur.getInstance().getUtilisateurCourant());
+
+        for (Offre o : parInterets) {
+            if (!offresDisponibles.contains(o))
+                offresDisponibles.add(o);
+        }
+		return offresDisponibles;
 	}
 
-	/** Permet a l'utilisateur courrant d'appliquer sur une offre. **/
-	public void appliquerSurOffre(Offre offre) {
-		dbFacade.applique((Benevole) Delegateur.getInstance().getUtilisateurCourant(), offre);
+	public Benevole getBenevolebyname(String name) {
+		return dbFacade.getBenevolebyname(name);
 	}
 
 	/** @Return Le bénévole inscrit avec le courriel **/
@@ -47,4 +56,36 @@ public class BenevoleControlleur {
 		return dbFacade.getBenevole(courriel);
 	}
 
+	public List<Offre> getOffreAppliquer(){
+		// Assumant que l'utilisateur courrant est bien un bénévole.
+		return dbFacade.getOffres((Benevole) Delegateur.getInstance().getUtilisateurCourant());
+	}
+	public void appliquerSurOffre(Offre offre) {
+		dbFacade.applique((Benevole) Delegateur.getInstance().getUtilisateurCourant(), offre);
+	}
+
+	public boolean SauvegarderBenevole(Benevole b){
+
+		if (b.getPrenom().equals("") || b.getAge() == null || b.getAge() < 1 ||
+				b.getVille().equals("") || b.getCodePostal().equals("")){
+			//Des informations obligatoire sont manquente.
+		}
+		else if(!isValid(b.getCodePostal().replace(" ", "").toUpperCase(),"[A-Z]{1}\\d{1}[A-Z]{1}\\d{1}[A-Z]{1}\\d{1}")){
+			//Le code postal n'est pas valide.
+		}
+		else if (!b.getNumeroTelephone().equals("") && !isValid(b.getNumeroTelephone(),"\\d{3}-\\d{3}-\\d{4}")){
+			//Le numéro de téléphone n'est pas valide.
+		}
+		else{
+			dbFacade.sauvegarderBenevole(b);
+			return true;
+		}
+		return false;
+	}
+
+	private boolean isValid(String text, String PATTERN){
+		Pattern pattern = Pattern.compile(PATTERN);
+		Matcher matcher = pattern.matcher(text);
+		return matcher.matches();
+	}
 }
