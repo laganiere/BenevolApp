@@ -21,6 +21,7 @@ import java.util.List;
 
 import ca.uottawa.eecs.seg2505.benevolapp.db.DBFacade;
 import ca.uottawa.eecs.seg2505.benevolapp.model.Benevole;
+import ca.uottawa.eecs.seg2505.benevolapp.model.Organisme;
 import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
 
 public class OrganismeControlleur {
@@ -42,5 +43,26 @@ public class OrganismeControlleur {
 		offre.addSelectionne(benevole);
 	}
 
+	public List<String> getCompetences(){
+		return dbFacade.getCompetences();
+	}
+
+	public Organisme getOrganisme(String courriel) {
+		return dbFacade.getOrganisme(courriel);
+	}
+
+	public void ajoutCompetence(String competence) {
+		dbFacade.ajouteCompetence(competence);
+	}
+
+	public void sauvegarderOffre(Offre offre) {
+		dbFacade.sauvegarderOffre(offre);
+	}
+
+	public void supprimerOffre(Offre offre) {
+		dbFacade.supprimerOffre(offre);
+	}
 
 }
+
+

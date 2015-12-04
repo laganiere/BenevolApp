@@ -36,6 +36,11 @@ public class MainOrganismeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void newOffre(View view) {
+        Intent intent = new Intent(this, CreerUneOffreActivity.class);
+        startActivity(intent);
+    }
+
     public void onCancel(View view) {
         finish();
     }
