@@ -52,7 +52,7 @@ public class MemoireFacade implements DBFacade {
      */
     @Override
     public Benevole getBenevole(String courriel) { // Équipe 7
-        for (Benevole b : benevoles) if (b.getCourriel() == courriel) return b;
+        for (Benevole b : benevoles) if (b.getCourriel().equals(courriel)) return b;
         return null;
     }
 
@@ -245,7 +245,7 @@ public class MemoireFacade implements DBFacade {
         List<Offre> sorted = new ArrayList<Offre>(offres);
         List<Integer> matches = new ArrayList<Integer>();
 
-        String[] interests = benevole.getDomaineInterets().split(","); //Crée un tableau contenant les intérets.
+        String[] interests = benevole.getDomaineInterets().split(" "); //Crée un tableau contenant les intérets.
 
         int num;
         for(int i = 0; i<sorted.size(); i++){
