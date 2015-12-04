@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Type d'activitÃ©"
+                android:text="Type d'activité"
                 android:id="@+id/typeTextView"
                 android:textStyle="bold"/>
 
@@ -78,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Nombre de bÃ©nÃ©voles recherchÃ©s*"
+                android:text="Nombre de bénévoles recherchés*"
                 android:id="@+id/nombreTextView"
                 android:textStyle="bold"/>
 
@@ -93,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Date de dÃ©but"
+                android:text="Date de début"
                 android:id="@+id/debutTextView"
                 android:textStyle="bold"/>
 
@@ -121,7 +121,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Nombre d&apos;heure de chaque relais"
+                android:text="Nombre d'heure de chaque relais"
                 android:id="@+id/textView"
                 android:textStyle="bold"/>
 
@@ -163,7 +163,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Ã‚ge minimum"
+                android:text="Age minimum"
                 android:id="@+id/ageTextView"
                 android:textStyle="bold"/>
 
@@ -177,7 +177,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="PrÃ©nom de la personne contact"
+                android:text="Prénom de la personne contact"
                 android:id="@+id/prenomcontactTextView"
                 android:textStyle="bold"/>
 
@@ -221,26 +221,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="CompÃ©tences requises"
+                android:text="Compétences requises"
                 android:textStyle="bold"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/skillsField"
-                android:hint="(SÃ©lectionnez le bouton ci-dessous pour choisir des disponibilitÃ©s)"/>
+                android:hint="(Sélectionnez le bouton ci-dessous pour choisir des disponibilités)"/>
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Choisir les compÃ©tences associÃ©es au poste"
+                android:text="Choisir les compétences associées au poste"
                 android:id="@+id/OpenSkillListButton"
                 android:onClick="openSkillsDialog" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Entrer une nouvelle compÃ©tence"
+                android:text="Entrer une nouvelle compétence"
                 android:id="@+id/NewSkillButton"
                 android:onClick="newSkillDialog" />
 
@@ -256,12 +256,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/horaire_field"
-                android:hint="(SÃ©lectionnez le bouton ci-dessous pour choisir des disponibilitÃ©s)"/>
+                android:hint="(Sélectionnez le bouton ci-dessous pour choisir des disponibilités)"/>
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Choisir l&apos;horaire du poste"
+                android:text="Choisir l'horaire du poste"
                 android:id="@+id/horaire_choose"
                 android:onClick="onHoraire"/>
             <!--here-->
