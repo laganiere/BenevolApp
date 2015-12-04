@@ -277,6 +277,14 @@ public class MemoireFacade implements DBFacade {
             }
         }
 
+        // Enlève les offres qui sont déjà associciées au bénévole.
+        for (int i = sorted.size() - 1; i >= 0; i--) {
+            Offre offre = sorted.get(i);
+            if (offre.getEtatBenevole(benevole) != null) {
+                sorted.remove(offre);
+            }
+        }
+
         return sorted;
     }
 
