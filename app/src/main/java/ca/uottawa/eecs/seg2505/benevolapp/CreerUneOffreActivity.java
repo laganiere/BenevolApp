@@ -319,6 +319,8 @@ public class CreerUneOffreActivity extends AppCompatActivity {
             } catch (NullPointerException e) {
                 volunteeringOffer.addCompetences(independantListOfSkills);
             }
+            
+            Delegateur.delegateur.getOrganismeControlleur().sauvegarderOffre(volunteeringOffer);
 
             finish();
 
