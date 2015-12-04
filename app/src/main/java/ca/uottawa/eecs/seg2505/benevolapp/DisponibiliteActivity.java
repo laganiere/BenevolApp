@@ -236,7 +236,7 @@ public class DisponibiliteActivity extends AppCompatActivity {
         if(checkMardiSoir.isChecked())
             dispo.add(new Disponibilite(JourSemaine.Mardi, true));
     }
-    public void onCheckMercrediiJour(View view){
+    public void onCheckMercrediJour(View view){
         if(checkMercrediJour.isChecked())
             dispo.add(new Disponibilite(JourSemaine.Mercredi, false));
     }
