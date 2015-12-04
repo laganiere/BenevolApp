@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.uottawa.eecs.seg2505.benevolapp.controlleur.Delegateur;
+import ca.uottawa.eecs.seg2505.benevolapp.model.offre.EtatBenevoleOffre;
 import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
 import ca.uottawa.eecs.seg2505.benevolapp.offresDisponibles.OffreAdapter;
 /**
@@ -54,8 +55,17 @@ public class EtatOffreButtonActivity extends AppCompatActivity{
 
             @Override
             public void onRightCardExit(Object dataObject) {
-                makeToast(EtatOffreButtonActivity.this, "Accepter!");
-            }
+                for (int i=0; i < offresDisponibles.size(); i++){
+                if ((offresDisponibles.get(i).getEtatBenevole(Delegateur.dbFacade.getBenevole(Delegateur.utilisateurCourant.getCourriel())) == EtatBenevoleOffre.Selectionne)) {
+                    Delegateur.dbFacade.accepterOffre(Delegateur.dbFacade.getBenevole(Delegateur.utilisateurCourant.getCourriel()), (Offre) dataObject);
+                    offresDisponibles.remove((Offre) dataObject);
+                    makeToast(EtatOffreButtonActivity.this, "Accepter!");
+                }
+                else if ((offresDisponibles.get(i).getEtatBenevole(Delegateur.dbFacade.getBenevole(Delegateur.utilisateurCourant.getCourriel())) != EtatBenevoleOffre.Selectionne)){
+                    makeToast(EtatOffreButtonActivity.this, "Pas Encore Selectionne");
+
+                }
+            }}
 
             @Override
             public void onAdapterAboutToEmpty(int itemsInAdapter) {
@@ -100,11 +110,13 @@ public class EtatOffreButtonActivity extends AppCompatActivity{
         loadOffres();
     }
     public void onAccept(View view){
-        Delegateur.dbFacade.accepterOffre(Delegateur.dbFacade.getBenevole(Delegateur.utilisateurCourant.getCourriel()),offresDisponibles.get(0));
-        offresDisponibles.remove(Delegateur.getInstance().getBenevoleControlleur().getOffreAppliquer().get(0));
-        makeToast(EtatOffreButtonActivity.this, "Accepter!");
+
+        flingContainer.getTopCardListener().selectRight();
         finish();
     }
+
+
+
 
     public void onRefuse(View view){
         Delegateur.dbFacade.refuserOffre(Delegateur.dbFacade.getBenevole(Delegateur.utilisateurCourant.getCourriel()), offresDisponibles.get(0));
