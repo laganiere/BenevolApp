@@ -25,6 +25,12 @@ public class MainOrganismeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onSelection(View view){
+        Intent intent = new Intent(this, MainOffreList.class);
+        startActivity(intent);
+    }
+
+
     public void onOffre(View view) {
         Intent intent = new Intent(this, OffreListActivity.class);
         startActivity(intent);

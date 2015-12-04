@@ -56,6 +56,11 @@ public class MemoireFacade implements DBFacade {
         return null;
     }
 
+    public Benevole getBenevolebyname(String name) { // Ã‰quipe 7
+        for (Benevole b : benevoles) if (b.getNom().equals(name )) return b;
+        return null;
+    }
+
     /**
      * Cette méthode va chercher les offre de l'organisme selon le nom d'utilisateur (le courriel).
      *
@@ -92,6 +97,7 @@ public class MemoireFacade implements DBFacade {
 
         return res;
     }
+
 
     /**
      * Cette méthode va chercher les bénévoles qui ont sélectionnés une offre.
@@ -296,9 +302,9 @@ public class MemoireFacade implements DBFacade {
     public void selectionner(Benevole benevole, Offre offre) { // Ã‰quipe 11
         benevole.addOffresSelectionnees(offre);
         offre.addSelectionne(benevole);
-        if (offre != null && benevole != null) {
-            offre.addApplication(benevole);
-        }
+//        if (offre != null && benevole != null) {
+  //          offre.addApplication(benevole);
+    //    }
     }
 
     /**

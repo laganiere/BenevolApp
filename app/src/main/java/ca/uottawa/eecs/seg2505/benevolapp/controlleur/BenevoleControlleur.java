@@ -47,6 +47,10 @@ public class BenevoleControlleur {
 		return offresDisponibles;
 	}
 
+	public Benevole getBenevolebyname(String name) {
+		return dbFacade.getBenevolebyname(name);
+	}
+
 	/** @Return Le bénévole inscrit avec le courriel **/
 	public Benevole getBenevole(String courriel) {
 		return dbFacade.getBenevole(courriel);
