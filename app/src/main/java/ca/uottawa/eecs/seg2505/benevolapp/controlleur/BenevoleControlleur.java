@@ -24,6 +24,7 @@ import java.util.regex.Pattern;
 import ca.uottawa.eecs.seg2505.benevolapp.db.DBFacade;
 import ca.uottawa.eecs.seg2505.benevolapp.model.Benevole;
 import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
+import ca.uottawa.eecs.seg2505.benevolapp.offresDisponibles.OffresDisponiblesActivity;
 
 public class BenevoleControlleur {
 
@@ -36,17 +37,27 @@ public class BenevoleControlleur {
 	/** @Return Les offres à proposer à l'utilisateur courrant. **/
 	public List<Offre> getOffresDisponibles() {
 		// Assumant que l'utilisateur courrant est bien un bénévole.
-		return dbFacade.getOffresDisponibles((Benevole) Delegateur.getInstance().getUtilisateurCourant());
-	}
+		List<Offre> offresDisponibles = dbFacade.getOffresDisponibles((Benevole) Delegateur.getInstance().getUtilisateurCourant());
+		List<Offre> parInterets = dbFacade.getOffresParInterets((Benevole) Delegateur.getInstance().getUtilisateurCourant());
 
-	/** Permet a l'utilisateur courrant d'appliquer sur une offre. **/
-	public void appliquerSurOffre(Offre offre) {
-		dbFacade.applique((Benevole) Delegateur.getInstance().getUtilisateurCourant(), offre);
+        for (Offre o : parInterets) {
+            if (!offresDisponibles.contains(o))
+                offresDisponibles.add(o);
+        }
+		return offresDisponibles;
 	}
 
 	/** @Return Le bénévole inscrit avec le courriel **/
 	public Benevole getBenevole(String courriel) {
 		return dbFacade.getBenevole(courriel);
+	}
+
+	public List<Offre> getOffreAppliquer(){
+		// Assumant que l'utilisateur courrant est bien un bénévole.
+		return dbFacade.getOffres((Benevole) Delegateur.getInstance().getUtilisateurCourant());
+	}
+	public void appliquerSurOffre(Offre offre) {
+		dbFacade.applique((Benevole) Delegateur.getInstance().getUtilisateurCourant(), offre);
 	}
 
 	public boolean SauvegarderBenevole(Benevole b){
