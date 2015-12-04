@@ -34,6 +34,13 @@
         android:text="Entrer ou Modifier une offre" />
 
     <Button
+        android:id="@+id/buttonNouvelleOffre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="newOffre"
+        android:text="Créer une nouvelle offre" />
+
+    <Button
         android:id="@+id/buttonSelection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

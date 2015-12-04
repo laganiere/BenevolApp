@@ -18,6 +18,7 @@ import java.util.List;
 
 import ca.uottawa.eecs.seg2505.benevolapp.R;
 import ca.uottawa.eecs.seg2505.benevolapp.controlleur.Delegateur;
+import ca.uottawa.eecs.seg2505.benevolapp.model.Benevole;
 import ca.uottawa.eecs.seg2505.benevolapp.model.Disponibilite;
 import ca.uottawa.eecs.seg2505.benevolapp.model.JourSemaine;
 import ca.uottawa.eecs.seg2505.benevolapp.model.Organisme;
@@ -31,7 +32,7 @@ public class EtatOffresActivity extends AppCompatActivity implements AdapterView
 
 
     private List<Offre> offreList;
-   private ArrayAdapter arrayAdapter;
+    private ArrayAdapter arrayAdapter;
     private List<String> item;
     private SwipeFlingAdapterView flingContainer;
 
@@ -50,9 +51,15 @@ public class EtatOffresActivity extends AppCompatActivity implements AdapterView
 
 
         for (int i=0; i < offreList.size(); i++){
+<<<<<<< HEAD
             if(offreList.get(i).getEtatBenevole(Delegateur.dbFacade.getBenevole(Delegateur.utilisateurCourant.getCourriel()))== EtatBenevoleOffre.Selectionne  ){
             item.add(offreList.get(i).getTitre());
             }
+=======
+            Offre of= offreList.get(i);
+            item.add(of.getTitre() + " :: "+ of.getPostulants().get((Benevole)(Delegateur.getInstance().getUtilisateurCourant())));
+
+>>>>>>> refs/remotes/laganiere/master
         }
 
         ArrayAdapter adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,item);

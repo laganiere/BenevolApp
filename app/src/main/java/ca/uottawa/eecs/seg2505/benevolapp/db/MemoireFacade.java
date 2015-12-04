@@ -56,6 +56,11 @@ public class MemoireFacade implements DBFacade {
         return null;
     }
 
+    public Benevole getBenevolebyname(String name) { // Ã‰quipe 7
+        for (Benevole b : benevoles) if (b.getNom().equals(name )) return b;
+        return null;
+    }
+
     /**
      * Cette méthode va chercher les offre de l'organisme selon le nom d'utilisateur (le courriel).
      *
@@ -92,6 +97,7 @@ public class MemoireFacade implements DBFacade {
 
         return res;
     }
+
 
     /**
      * Cette méthode va chercher les bénévoles qui ont sélectionnés une offre.
@@ -245,7 +251,7 @@ public class MemoireFacade implements DBFacade {
         List<Offre> sorted = new ArrayList<Offre>(offres);
         List<Integer> matches = new ArrayList<Integer>();
 
-        String[] interests = benevole.getDomaineInterets().split(","); //Crée un tableau contenant les intérets.
+        String[] interests = benevole.getDomaineInterets().split(" "); //Crée un tableau contenant les intérets.
 
         int num;
         for(int i = 0; i<sorted.size(); i++){
@@ -268,6 +274,14 @@ public class MemoireFacade implements DBFacade {
                     sorted.set(i, sorted.get(j));
                     sorted.set(j, temp2);
                 }
+            }
+        }
+
+        // Enlève les offres qui sont déjà associciées au bénévole.
+        for (int i = sorted.size() - 1; i >= 0; i--) {
+            Offre offre = sorted.get(i);
+            if (offre.getEtatBenevole(benevole) != null) {
+                sorted.remove(offre);
             }
         }
 
@@ -296,9 +310,9 @@ public class MemoireFacade implements DBFacade {
     public void selectionner(Benevole benevole, Offre offre) { // Ã‰quipe 11
         benevole.addOffresSelectionnees(offre);
         offre.addSelectionne(benevole);
-        if (offre != null && benevole != null) {
-            offre.addApplication(benevole);
-        }
+//        if (offre != null && benevole != null) {
+  //          offre.addApplication(benevole);
+    //    }
     }
 
     /**

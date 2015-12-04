@@ -56,7 +56,18 @@
 		</activity>
         <activity android:name=".EtatOffreButtonActivity" >
         </activity>
+        <activity
+            android:name=".MainOffreList" />
 
+        <activity
+            android:name=".MainBenevoleList" />
+
+        <activity
+            android:name=".MainDescriptionBenevole" />
+        <activity
+            android:name=".CreerUneOffreActivity" />
+        <activity
+            android:name=".ActivityAvailibility2" />
     </application>
 
 </manifest>

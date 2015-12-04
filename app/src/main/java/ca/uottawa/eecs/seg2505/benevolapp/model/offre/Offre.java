@@ -1,6 +1,7 @@
 package ca.uottawa.eecs.seg2505.benevolapp.model.offre;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -30,6 +31,8 @@ public class Offre implements Serializable {
     public Offre(String titre, String typeActivite, List<String> competences, String description, Calendar dateDebut, Calendar dateFin, Duree duree, int nombrePlaces, int ageMin, PersonneContact personneContact, Lieu lieu, Disponibilite disponibilite, Organisme organisme) {
         this(titre, typeActivite, dateDebut, dateFin, nombrePlaces, lieu, disponibilite, organisme);
         this.competences = competences;
+        if (this.competences==null)
+            this.competences= new ArrayList<>();
         this.description = description;
         this.duree = duree;
         this.ageMin = ageMin;
@@ -47,6 +50,7 @@ public class Offre implements Serializable {
         this.lieu = lieu;
         this.disponibilite = disponibilite;
         this.organismeName = organisme.getCourriel();
+        this.competences= new ArrayList<>();
     }
 
     public String getTitre() {

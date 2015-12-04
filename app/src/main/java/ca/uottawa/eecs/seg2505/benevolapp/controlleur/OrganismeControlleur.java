@@ -20,6 +20,9 @@ package ca.uottawa.eecs.seg2505.benevolapp.controlleur;
 import java.util.List;
 
 import ca.uottawa.eecs.seg2505.benevolapp.db.DBFacade;
+import ca.uottawa.eecs.seg2505.benevolapp.model.Benevole;
+import ca.uottawa.eecs.seg2505.benevolapp.model.Organisme;
+import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
 
 public class OrganismeControlleur {
 
@@ -28,5 +31,38 @@ public class OrganismeControlleur {
 	public OrganismeControlleur(DBFacade dbFacade) {
 		this.dbFacade = dbFacade;
 	}
-	
+
+	public void rejeterBenevole(Benevole benevole, Offre offre){
+		offre.addRejete(benevole);
+	}
+
+	public List<Offre> getOffres(String nomUtilisateur){
+		return dbFacade.getOffresOrg(nomUtilisateur);
+	}
+	public void selectionnerBenevole(Benevole benevole, Offre offre){
+		offre.addSelectionne(benevole);
+	}
+
+	public List<String> getCompetences(){
+		return dbFacade.getCompetences();
+	}
+
+	public Organisme getOrganisme(String courriel) {
+		return dbFacade.getOrganisme(courriel);
+	}
+
+	public void ajoutCompetence(String competence) {
+		dbFacade.ajouteCompetence(competence);
+	}
+
+	public void sauvegarderOffre(Offre offre) {
+		dbFacade.sauvegarderOffre(offre);
+	}
+
+	public void supprimerOffre(Offre offre) {
+		dbFacade.supprimerOffre(offre);
+	}
+
 }
+
+

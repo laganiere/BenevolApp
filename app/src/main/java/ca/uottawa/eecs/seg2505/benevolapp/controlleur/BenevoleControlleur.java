@@ -37,7 +37,18 @@ public class BenevoleControlleur {
 	/** @Return Les offres à proposer à l'utilisateur courrant. **/
 	public List<Offre> getOffresDisponibles() {
 		// Assumant que l'utilisateur courrant est bien un bénévole.
-		return dbFacade.getOffresDisponibles((Benevole) Delegateur.getInstance().getUtilisateurCourant());
+		List<Offre> offresDisponibles = dbFacade.getOffresDisponibles((Benevole) Delegateur.getInstance().getUtilisateurCourant());
+		List<Offre> parInterets = dbFacade.getOffresParInterets((Benevole) Delegateur.getInstance().getUtilisateurCourant());
+
+        for (Offre o : parInterets) {
+            if (!offresDisponibles.contains(o))
+                offresDisponibles.add(o);
+        }
+		return offresDisponibles;
+	}
+
+	public Benevole getBenevolebyname(String name) {
+		return dbFacade.getBenevolebyname(name);
 	}
 
 	/** @Return Le bénévole inscrit avec le courriel **/
@@ -45,7 +56,10 @@ public class BenevoleControlleur {
 		return dbFacade.getBenevole(courriel);
 	}
 
+<<<<<<< HEAD
 //HEAD
+=======
+>>>>>>> refs/remotes/laganiere/master
 	public List<Offre> getOffreAppliquer(){
 		// Assumant que l'utilisateur courrant est bien un bénévole.
 		return dbFacade.getOffres((Benevole) Delegateur.getInstance().getUtilisateurCourant());
@@ -54,8 +68,11 @@ public class BenevoleControlleur {
 		dbFacade.applique((Benevole) Delegateur.getInstance().getUtilisateurCourant(), offre);
 	}
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> refs/remotes/laganiere/master
 	public boolean SauvegarderBenevole(Benevole b){
 
 		if (b.getPrenom().equals("") || b.getAge() == null || b.getAge() < 1 ||
@@ -80,5 +97,8 @@ public class BenevoleControlleur {
 		Matcher matcher = pattern.matcher(text);
 		return matcher.matches();
 	}
+<<<<<<< HEAD
 //refs/remotes/laganiere/master
+=======
+>>>>>>> refs/remotes/laganiere/master
 }
