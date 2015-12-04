@@ -21,6 +21,7 @@ import ca.uottawa.eecs.seg2505.benevolapp.controlleur.Delegateur;
 import ca.uottawa.eecs.seg2505.benevolapp.model.Disponibilite;
 import ca.uottawa.eecs.seg2505.benevolapp.model.JourSemaine;
 import ca.uottawa.eecs.seg2505.benevolapp.model.Organisme;
+import ca.uottawa.eecs.seg2505.benevolapp.model.offre.EtatBenevoleOffre;
 import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Lieu;
 import ca.uottawa.eecs.seg2505.benevolapp.model.offre.Offre;
 import ca.uottawa.eecs.seg2505.benevolapp.offresDisponibles.OffreAdapter;
@@ -49,8 +50,9 @@ public class EtatOffresActivity extends AppCompatActivity implements AdapterView
 
 
         for (int i=0; i < offreList.size(); i++){
+            if(offreList.get(i).getEtatBenevole(Delegateur.dbFacade.getBenevole(Delegateur.utilisateurCourant.getCourriel()))== EtatBenevoleOffre.Selectionne  ){
             item.add(offreList.get(i).getTitre());
-
+            }
         }
 
         ArrayAdapter adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,item);
