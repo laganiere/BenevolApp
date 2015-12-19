@@ -37,6 +37,7 @@ public class ModifOrganismeActivity extends AppCompatActivity {
 
     //L'organisme courant
     private Organisme organismeCourant;
+    //L'organisme modifié par l'utilisateur.
     private Organisme nouveauOrganisme;
 
     @Override
